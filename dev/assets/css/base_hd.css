@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* toast 임시 */
+html.purchase-wrap {
+  font-size: 6.6px; }
+  html.purchase-wrap body, html.purchase-wrap p, html.purchase-wrap h1, html.purchase-wrap h2, html.purchase-wrap h3, html.purchase-wrap h4, html.purchase-wrap h5, html.purchase-wrap h6, html.purchase-wrap ul, html.purchase-wrap ol, html.purchase-wrap li, html.purchase-wrap dl, html.purchase-wrap dt, html.purchase-wrap dd, html.purchase-wrap table, html.purchase-wrap th, html.purchase-wrap td, html.purchase-wrap form, html.purchase-wrap fieldset, html.purchase-wrap legend, html.purchase-wrap input, html.purchase-wrap textarea, html.purchase-wrap button, html.purchase-wrap select, html.purchase-wrap a {
+    margin: 0;
+    padding: 0; }
+  html.purchase-wrap body, html.purchase-wrap table, html.purchase-wrap input, html.purchase-wrap textarea, html.purchase-wrap button, html.purchase-wrap select {
+    font-size: 1.8rem;
+    font-family: "Yoon Gothic 750", "YoonGothic 700 50", "Yoon윤고딕 750", "YoonGothic 750", "YOONGOTHICPRO750", "sans-serif";
+    line-height: normal;
+    color: #eee; }
+  html.purchase-wrap body {
+    -webkit-text-size-adjust: none; }
+  html.purchase-wrap img, html.purchase-wrap fieldset, html.purchase-wrap button {
+    border: 0; }
+  html.purchase-wrap input, html.purchase-wrap textarea, html.purchase-wrap img {
+    vertical-align: top; }
+  html.purchase-wrap button {
+    cursor: pointer;
+    background: 0; }
+  html.purchase-wrap textarea {
+    overflow: auto;
+    resize: none; }
+  html.purchase-wrap strong {
+    font-weight: normal; }
+  html.purchase-wrap input {
+    outline: none;
+    -webkit-appearance: none; }
+  html.purchase-wrap input[type="text"], html.purchase-wrap input[type="password"] {
+    color: #eee; }
+  html.purchase-wrap h1, html.purchase-wrap h2, html.purchase-wrap h3, html.purchase-wrap h4, html.purchase-wrap h5 {
+    font-weight: normal;
+    font-size: inherit; }
+  html.purchase-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; }
+  html.purchase-wrap ul, html.purchase-wrap ol {
+    list-style: none; }
+  html.purchase-wrap em, html.purchase-wrap address {
+    font-style: normal; }
+  html.purchase-wrap a {
+    outline: none;
+    text-decoration: none;
+    color: #eee; }
+    html.purchase-wrap a:hover, html.purchase-wrap a:active, html.purchase-wrap a:focus {
+      text-decoration: none; }
+  html.purchase-wrap hr, html.purchase-wrap caption, html.purchase-wrap legend {
+    display: none; }
+  html.purchase-wrap i {
+    font-style: normal; }

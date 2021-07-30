@@ -1,0 +1,806 @@
+@import 'config';
+
+/* button */
+.purchase-wrap {
+    /* icon */
+    .ic {
+        &-profile {
+            border-radius: 50%;
+            opacity: 0.7;
+            background-image: url('../images/common/ic-profile-default.png');
+            // background-color: rgba(255, 255, 255, 0.71);
+            @for $i from 1 through 6 {
+                &-default#{$i} {
+                    background-image: url('../images/common/ic-profile-default#{$i}.png');
+                }
+            }
+            @for $i from 1 through 24 {
+                &-pair#{$i} {
+                    background-image: url('../images/common/ic-profile-pair#{$i}.png');
+                }
+            }
+        }
+    }
+    //contents-list
+    .contents-list {
+        li {
+            &.focus {
+                .meta-data {
+                    .title {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+    //poster-horizontal
+    .poster-horizontal {
+        position: relative;
+        width: px(380);
+        height: px(214);
+        &::before {
+            @include vs;
+            width: 100%;
+            height: 100%;
+            border-radius: px($border-radius);
+            background-image: $poster-default-image;
+            @include background-default;
+            z-index: 0;
+        }
+        .poster-thumbnail {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: px($border-radius);
+            @include background-default;
+            z-index: 1;
+        }
+        .poster-component {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            &::before {
+                @include vs;
+                @include background-default;
+                width: 100%;
+                height: 100%;
+                border-radius: px($border-radius);
+                background-size: 100% px(145);
+                background-position: bottom;
+                background-image: linear-gradient(to bottom, $color-bg-transparent, $color-pure-black);
+                opacity: 0;
+            }
+            .poster-tag {
+                position: absolute;
+                top: px(6);
+                right: px(12);
+                display: flex;
+                opacity: 0;
+                span {
+                    width: px(44);
+                    height: px(44);
+                    line-height: px(44);
+                    margin-right: px(5);
+                    border-radius: 50%;
+                    font: {
+                        family: $font-bold;
+                        size: 2rem;
+                    }
+                    text-align: center;
+                    color: $color-white;
+                    background-color: $color-black-70;
+                    &.poster-tag-age {
+                        //전체, 무료 텍스트 일 때 [한글]
+                        font-size: 1.8rem;
+                        strong {
+                            //19세, R등급 일 때
+                            font-size: 2rem;
+                            color: $color-danger;
+                        }
+                    }
+                    &.view-all, &.pay-mobile {
+                        width: inherit;
+                        padding: 0 px(10);
+                        border-radius: px($border-radius);
+                        font: {
+                            family: $font-regular;
+                            size: 1.8rem;
+                        }
+                        strong {
+                            font-family: $font-bold;
+                        }
+                    }
+                    &.view-mobile {
+                        width: inherit;
+                        padding: 0 px(10);
+                        border-radius: px($border-radius);
+                        color: $color-primary;
+                        font-size: 1.8rem;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .poster-time {
+                position: absolute;
+                bottom: px(12);
+                padding: 0 px(12);
+                width: 100%;
+                font-size: 2.6rem;
+                color: $color-tag-gray;
+                dt {
+                    position: relative;
+                    font-size: 2.6rem;
+                    color: $color-tag-gray;
+                    line-height: px(34);
+                    &::before {
+                        @include vs-ib;
+                        width: px(24);
+                        height: px(32);
+                        margin-right: px(8);
+                        vertical-align: bottom;
+                        background-image: url('../images/common/ic-clock.png');
+                        @include background-contain;
+                    }
+                    // 시청완료
+                    &.watch-complete {
+                        height: px(28);
+                        &::before {
+                            @include vs-ib;
+                            width: px(20);
+                            height: px(28);
+                            margin-right: px(8);
+                            vertical-align: bottom;
+                            background-image: url('../images/vod/ic-series-playover.png');
+                            @include background-contain;
+                        }
+                    }
+                }
+                dd {
+                    margin-top: px(8);
+                    @include progress-bar($width: 100%);
+                }
+                +.poster-button {
+                    margin-bottom: px(14);
+                }
+            }
+            .poster-button {
+                position: absolute;
+                bottom: px(5);
+                right: 0;
+                font: {
+                    family: $font-bold;
+                    size: 2.2rem;
+                }
+                line-height: px(48);
+                padding: 0 px(18);
+                border-radius: px($border-radius);
+                background-color: $color-bg-black-80;
+                z-index: 1;
+                display: none;
+                &.play {
+                    &::before {
+                        @include vs-ib;
+                        width: px(14);
+                        height: px(16);
+                        margin-right: px(8);
+                        background-image: url('../images/vod/ic-play-w.png');
+                        @include background-contain;
+                    }
+                }
+            }
+        }
+        .adult-r & {
+            .poster-component {
+                &::after {
+                    @include vs;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: px($border-radius);
+                    background-color: $color-button-dim;
+                    z-index: 1;
+                }
+            }
+        }
+        .dimmed & {
+            &::after {
+                @include vs;
+                width: 100%;
+                height: 100%;
+                border-radius: px($border-radius);
+                background-color: $color-bg-black-80;
+                z-index: 1;
+            }
+        }
+        .focus &, .selected & {
+            z-index: 2;
+            &::before {
+                @include focus-scale();
+                transform-origin: center;
+            }
+            .poster-thumbnail {
+                @include focus-scale();
+                transform-origin: center;
+                &::before {
+                    @include vs;
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: inset 0 0 px(60) 0 $color-bg-black-50;
+                }
+                &::after {
+                    @include focus-border();
+                }
+            }
+            .poster-component {
+                &::before {
+                    @include focus-scale();
+                    transform-origin: center;
+                    opacity: 1;
+                }
+            }
+            .poster-tag {
+                opacity: 1;
+            }
+            .poster-time {
+                bottom: px(6);
+                width: 106%;
+            }
+            &.dimmed & {
+                &::after {
+                    @include focus-scale();
+                    transform-origin: center;
+                }
+            }
+            &.adult-r & {
+                .poster-component {
+                    &::after {
+                        @include focus-scale();
+                        transform-origin: center;
+                    }
+                }
+            }
+        }
+        .selected & {
+            .poster-thumbnail {
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    //poster-vertical
+    .poster-vertical {
+        position: relative;
+        width: px(264);
+        height: px(376);
+        &::before {
+            @include vs;
+            width: 100%;
+            height: 100%;
+            border-radius: px($border-radius);
+            background-image: $poster-default-image2;
+            @include background-default;
+            z-index: 0;
+        }
+        .poster-thumbnail {
+            position: relative;
+            height: 100%;
+            border-radius: px($border-radius);
+            z-index: 1;
+            background-image: $poster-default-bg;
+            @include background-default;
+        }
+        .focus & {
+            &::before {
+                @include focus-scale();
+                transform-origin: center;
+            }
+            &::after {
+                @include focus-border;
+            }
+            .poster-thumbnail {
+                @include focus-scale();
+                transform-origin: center;
+                &::after {
+                    @include focus-border();
+                }
+            }
+        }
+    }
+
+    .home-contents {
+        .focus {
+            z-index: 5;
+            .poster-horizontal, .poster-vertical, .poster-semicircle {
+                &::before {
+                    transform-origin: left;
+                }
+            }
+            .poster-semicircle {
+                &::before {
+                    @include focus-scale;
+                }
+            }
+            .poster-thumbnail, .poster-banner {
+                transform-origin: left;
+
+            }
+            .poster-banner {
+                @include focus-scale;
+                &::before {
+                    @include vs;
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: inset 0 0 px(60) 0 $color-bg-black-50;
+                }
+                &::after {
+                    @include vs;
+                    @include focus-border($border: 10);
+                }
+            }
+            .focus-poster {
+                opacity: 1;
+            }
+            .poster-component {
+                transform-origin: left;
+                opacity: 1;
+                &::before {
+                    transform-origin: left;
+                }
+            }
+            .poster-tag {
+                right: px(-12);
+            }
+        }
+        //포커스시 변경되는 이미지
+        .focus-poster {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%
+        }
+        //포스터 컴퍼넌트
+        .poster-component {
+            opacity: 0;
+            .content-info {
+                position: absolute;
+                left: px(50);
+                bottom: px(45);
+                //포스터 타이틀 영역(로고이미지, 텍스트)
+                .title {
+                    @include flex-items-center;
+                    align-items: flex-end;
+                    width: px(440);
+                    height: px(116);
+                    margin-bottom: px(26);
+                    font: {
+                        size: 5.2rem;
+                        family: $font-bold;
+                    }
+                    &.image-logo{
+                        @include background-contain;
+                        @include ir;
+                        background-position: left;
+                    }
+                    &.double-line{
+                        height: auto;
+                        line-height: normal;
+                        font-size: 4.2rem;
+                        @include ellipsis($line: 2);
+                    }
+                }
+                //포스터 기본 정보
+                .default-info {
+                    margin-bottom: px(14);
+                    span {
+                        margin-left: px(10);
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                        &::before {
+                            content:none;
+                        }
+                    }
+                }
+                //포스터 태그
+                .ic-tag {
+                    height: px(28);
+                    line-height: px(28);
+                    margin-left: px(10);
+                    font-size: 1.6rem;
+                    background-color: $color-black-30;
+                    border: px(1, 1) solid $color-white-30;
+                }
+                //포스터 줄거리
+                .summary {
+                    width: px(420);
+                    line-height: 1.54;
+                    font-size: 2.6rem;
+                    color: $color-white;
+                    @include ellipsis($line: 2);
+                }
+            }
+        }
+    }
+
+    .none {
+        display: none;
+    }
+
+    .skip {
+        display: none;
+    }
+
+    //리모콘 keyguide
+    .keyguide {
+        display: flex;
+        font-size: 2.4rem;
+        color: $color-bg-key-notice;
+        line-height: px(30);
+        .ic-round {
+            @include ic-round();
+            margin-right: px(12);
+            &.keyguide-channel {
+                padding: 0 px(10);
+                &::after {
+                    @include vs-ib;
+                    width: px(34);
+                    height: px(30);
+                    margin-left: px(6);
+                    //background-image: url('../images/vod/ic-key-channelupdown.png');
+                    @include background-default;
+                }
+            }
+        }
+        +.keyguide {
+            margin-left: px(30);
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    // 확인/OK 화이트 라인 키가이드
+    .keyguide-ok {
+        @include ic-round();
+        padding: 0 px(12);
+        margin-right: px(8);
+        background-color: unset;
+        border: px(2) solid $color-white;
+        color: $color-white;
+        // width: px(98);
+        // height: px(34);
+        // font-size: 0;
+        // background-image: url('../images/common/ic-keynotice-ok04.png');
+        // @include background-contain;
+    }
+    //page경로
+    .path {
+        @include flex-items-center;
+        font-size: 2.4rem;
+        span {
+            position: relative;
+            margin-right: px(30);
+            color: $color-gray-sub;
+            &::after {
+                @include vs;
+                left: unset;
+                right: px(-22);
+                content: '>';
+            }
+            &+span:last-child {
+                color: $color-blue;
+                margin-right: 0;
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    //ic-tag
+    //ic-tag group
+    .meta-tag {
+        @include flex-items-center;
+    }
+    //.ic-tag {
+    //    display: inline-block;
+    //    margin-left: 0;
+    //    height: px(34);
+    //    line-height: px(30, 18);
+    //    background-color: $color-white-02;
+    //    border: px(1, 1) solid $color-white-30;
+    //    border-radius: px(2);
+    //    padding: 0 px(8);
+    //    color: $color-bg-gray;
+    //    font: {
+    //        size: 1.8rem;
+    //        family: $font-bold;
+    //    }
+    //    &.dolby-vision {
+    //        @include ir;
+    //        @include background-contain;
+    //        width: px(70);
+    //        background-image: url('../images/vod/ic-dolby.png');
+    //        background-size: px(54);
+    //    }
+    //    .focus &, .selected & {
+    //        color: $color-white;
+    //        background-color: $color-primary;
+    //        border: px(1, 1) solid $color-primary;
+    //    }
+    //    + .ic-tag {
+    //        margin-left: px(10);
+    //    }
+    //}
+
+    //ic-age 콘텐츠 데이터에 노출되는 나이 아이콘 (흰색테두리 원형)
+    .ic-age {
+        display: inline-block;
+        width: px(32);
+        height: px(32);
+        font: {
+            family: $font-bold;
+            size: 1.6rem;
+        }
+        line-height: px(28, 19);
+        text-align: center;
+        border-radius: 50%;
+        border: px(2) solid $color-white;
+    }
+
+    //input-cursor, underline
+    .focus {
+        .cursor {
+            position: relative;
+            width: 0;
+            &::before {
+                @include vs;
+                top: 50%;
+                left: px(-1, -1);
+                transform: translateY(-50%);
+                width: px(2);
+                height: px(33);
+                background-color: $color-white;
+                z-index: 3;
+                animation: blink-cursor 1s steps(1) infinite;
+            }
+        }
+        .underline {
+            position: relative;
+            &::after {
+                @include vs;
+                top: unset;
+                bottom: px(20);
+                width: 100%;
+                height: px(2);
+                background-color: $color-white;
+                animation: blink-cursor 1s steps(1) infinite;
+            }
+        }
+    }
+
+    .popup {
+        .focus {
+            .cursor {
+                &::before {
+                    background-color: $color-sub-black;
+                }
+                &.underline {
+                    &::after {
+                        background-color: $color-sub-black;
+                    }
+                }
+            }
+        }
+    }
+    .input-text {
+        position: relative;
+        width: 100%;
+        .placeholder {
+            position: absolute;
+            width: inherit;
+            text-align: center;
+            font: {
+                family: $font-regular;
+                size: 2.9rem;
+            }
+            line-height: px(82);
+            color: $color-gray;
+            white-space: nowrap;
+        }
+    }
+    @keyframes blink-cursor {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    //버튼 메뉴
+    .button-menu {
+        @include flex-items-center;
+        justify-content: center;
+        position: relative;
+        width: px(380);
+        height: px(214);
+        &::before {
+            @include vs;
+            width: 100%;
+            height: 100%;
+            border-radius: px($border-radius);
+            border: px(4) solid $color-gray-border;
+            background-color: $color-bg-black-40;
+            font-size: 2.6rem;
+            text-align: center;
+            color: $color-gray;
+        }
+        .content-info {
+            position: unset;
+            width: px(280);
+            span {
+                display: block;
+                margin-bottom: px(14);
+                font-size: 2.4rem;
+                color: $color-white;
+                opacity: .7;
+            }
+            p {
+                font: {
+                    family: $font-bold;
+                    size: 3.6rem;
+                }
+                color: $color-white;
+                opacity: .9;
+                &::before {
+                    content: unset;
+                }
+                .ic-gnb-total {
+                    //background-image: url('../images/home/ic-home-category.png');
+                    display: inline-block;
+                    width: px(48);
+                    height: px(48);
+                    margin-right: px(5);
+                    vertical-align: top;
+                    @include background-default;
+                }
+            }
+        }
+    }
+
+    .focus {
+        .button-menu {
+            &::before {
+                @include focus-scale;
+                @include focus-border;
+                z-index: -1;
+                transform-origin: left;
+                border: none;
+                background-color: $color-bg-black;
+            }
+            .content-info {
+                span {
+                    font-size: 2.6rem;
+                    opacity: .8;
+                }
+                p {
+                    font-size: 3.8rem;
+                    opacity: 1;
+                    .count {
+                        color: $color-primary;
+                    }
+                    .ic-gnb-total {
+                        //background-image: url('../images/home/ic-home-category-focus.png');
+                        vertical-align: bottom;
+                    }
+                }
+            }
+        }
+    }
+
+    //marquee-text
+    @keyframes marquee-text {
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    .marquee-text {
+        overflow: hidden;
+        display: flex;
+        .marquee-child {
+            position: relative;
+            @include ellipsis();
+        }
+    }
+    .focus {
+        .marquee-child {
+            .space {
+                padding: 0 px(50);
+            }
+        }
+        .marquee-play {
+            .marquee-child {
+                animation-name: marquee-text;
+                animation-duration: 10s;
+                animation-timing-function: linear;
+                animation-iteration-count: 1;
+                animation-delay: 2s;
+                overflow: visible !important;
+                text-overflow: initial !important;
+            }
+        }
+    }
+
+    //loading animation
+    .loading-img {
+        $size: px(96);
+        width: $size;
+        height: $size;
+        margin: 0 auto;
+        background-image: url('../images/common/img-loading.png');
+        @include background-default;
+        animation: loading-ani 1s steps(8) infinite;
+    }
+
+    @keyframes loading-ani {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: px(-768, -512) 0;
+        }
+    }
+    //animation class
+    .animate {
+        .focus {
+            .poster-horizontal {
+                &::before {
+                    @include animation-ready;
+                }
+            }
+            .poster-component {
+                &::before {
+                    @include animation-ready;
+                }
+            }
+            .poster-thumbnail {
+                @include animation-ready;
+            }
+            &.button-primary {
+                @include animation-ready(all);
+            }
+            .cast-profile {
+                &::before {
+                    @include animation-ready;
+                }
+            }
+            .profile-image {
+                @include animation-ready();
+            }
+            .poster-banner {
+                @include animation-ready();
+            }
+            &.view-list {
+                @include animation-ready();
+                &::before {
+                    @include animation-ready;
+                }
+            }
+        }
+        //home-animate
+        .home-aside, .home-body, .gnb, .home-contents > ul {
+            @include animation-ready();
+        }
+    }
+
+}

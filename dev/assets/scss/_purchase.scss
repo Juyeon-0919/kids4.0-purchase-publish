@@ -1,0 +1,1157 @@
+@import 'config';
+//height-reservation
+$height-normalline-max: px(91);
+$height-normalline-in: px(80);
+$height-normalline-foc: px(84);
+$height-multiline-max: px(139);
+$height-multiline-in: px(128);
+$height-multiline-foc: px(124);
+
+.purchase-wrap {
+  // //ic-tag
+  .purchase-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: px(64);
+    background-color: $color-black;
+    //radio & checkbox
+    .focus .input-radio, .focus .input-checkbox {
+      border-color: $color-white;
+    }
+
+    .input-radio, .input-checkbox {
+      @include input-check();
+      margin-right: px(24);
+      display: block;
+    }
+
+    //not-discount
+    .not-discount {
+      flex: 1;
+      text-align: center;
+
+      p {
+        margin-top: px(120);
+        color: $color-bg-key-notice;
+        font: {
+          size: 3.0rem;
+          family: $font-bold;
+        }
+
+        &::before {
+          width: px(120);
+          height: px(120);
+          @include vs-b;
+          @include background-default;
+          margin: 0 auto;
+          margin-bottom: px(40);
+          background-image: url(../images/common/ic-noti.png);
+        }
+      }
+    }
+
+    //event
+    .event {
+      margin-top: px(20);
+      line-height: px(27);
+      font-size: 2.2rem;
+      color: $color-bg-gray;
+
+      em {
+        color: $color-accent;
+        letter-spacing: px(0.8);
+
+        &::before {
+          position: relative;
+          top: px(4, 4);
+          width: px(24);
+          height: px(24);
+          margin-right: px(8);
+          @include vs-ib;
+          @include background-default;
+          background-image: url(../images/purchase/ic-detail-ic-detail-event.png);
+        }
+      }
+    }
+
+    //total
+    .total {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: px(20);
+      position: relative;
+
+      .tooltip-purchase {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        bottom: px(64);
+
+        span {
+          padding: 0 px(18);
+          line-height: px(54);
+          font-size: 1.8rem;
+          background-color: $color-bg-component;
+          border-radius: px($border-radius);
+          display: inline-block;
+
+          &::before {
+            position: absolute;
+            left: 50%;
+            bottom: px(-5, -3);
+            transform: translate(-50%, 0);
+            width: px(10);
+            height: px(10);
+            transform: rotate(45deg);
+            background-color: $color-bg-component;
+            @include vs-b;
+          }
+        }
+      }
+
+      .price {
+        line-height: px(48);
+        font-size: 2.6rem;
+        justify-content: center;
+        @include flex-items-center;
+
+        span {
+          letter-spacing: px(0.5);
+        }
+
+        em {
+          color: $color-primary;
+          margin-left: px(24);
+          font-size: 4.0rem;
+          letter-spacing: px(1.5);
+        }
+      }
+    }
+  }
+
+  // purchase-header : start
+  .purchase-header {
+    // padding-top: px(64);
+    text-align: center;
+
+    h2 {
+      line-height: px(60);
+      font: {
+        size: 5.2rem;
+        family: $font-bold;
+      }
+    }
+
+    .sub-text {
+      margin-top: px(16);
+      line-height: px(34);
+      color: $color-gray;
+      font-size: 2.6rem;
+
+      &.color-gray {
+        color: $color-gray;
+      }
+    }
+  }
+
+  // purchase-header : end
+  // list-products : start
+  .list-products {
+    position: relative;
+    color: $color-gray;
+
+    .ic-tag {
+      display: inline-block;
+      width: px(68);
+      height: px(30);
+      background-image: url(../images/purchase/ic-common-tag-my-event-nor.png);
+      background-size: cover;
+      font-size: 0;
+    }
+
+    &.line-none li {
+      border-bottom: none;
+
+      &.list-selected, &.list-focus {
+        .focus {
+          height: $height-normalline-foc;
+
+          &::after {
+            @include focus-border;
+            box-shadow: 0 0 0 px(4) $color-white;
+            left: px(4);
+            right: px(4);
+            display: block;
+          }
+        }
+      }
+
+      // div {
+      //     @include line-bottom($color-bg-component);
+      // }
+    }
+
+    li {
+      position: relative;
+      height: $height-normalline-max;
+      @include flex-items-center;
+      // @include line-bottom($color-bg-component);
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+
+      &:last-child {
+        &::after {
+          @include vs;
+          top: unset;
+          bottom: 0;
+          width: 100%;
+          height: px(1, .5);
+          background-color: $color-bg-component;
+        }
+      }
+
+      &::before {
+        @include vs;
+        width: 100%;
+        height: px(1, .5);
+        background-color: $color-bg-component;
+      }
+
+      > div {
+        position: relative;
+        padding: 0 px(30);
+        height: $height-normalline-in;
+        justify-content: space-between;
+        @include flex-items-center;
+
+        &.product {
+          flex: 1;
+        }
+
+        &.change-option {
+          position: relative;
+          margin-left: px(10);
+          font-size: 2.4rem;
+          width: px(110);
+          justify-content: center;
+
+          &::before {
+            width: px(2);
+            height: px(36);
+            background-color: $color-gray;
+            @include vs-ib;
+            position: absolute;
+            left: px(-6, -3);
+          }
+        }
+
+        &.dimmed {
+          opacity: 0.5;
+        }
+      }
+
+      .discounted {
+        font-size: 2.4rem;
+        width: px(130);
+        margin-left: px(10);
+        margin-right: px(15);
+        text-align: right;
+
+        &::before {
+          @include vs-ib;
+          content: '-';
+        }
+      }
+
+      .text {
+        @include flex-items-center;
+
+        .label {
+          font-size: 2.8rem;
+          position: relative;
+
+          label {
+            display: block;
+            line-height: 1;
+            line-height: px(42);
+            max-width: px(420);
+            @include ellipsis($line: 1);
+          }
+        }
+      }
+
+      .point {
+        font-size: 2.6rem;
+      }
+
+      &.type-multiline {
+        height: $height-multiline-max;
+
+        > div {
+          height: $height-multiline-in;
+        }
+
+        .name {
+          @include flex-items-center;
+        }
+
+        .ic-tag {
+          margin-left: px(24);
+          position: relative;
+        }
+
+        .label, .number {
+          opacity: .9;
+          font-size: 3.4rem;
+          line-height: 1;
+        }
+
+        .price {
+          text-align: right;
+        }
+
+        .min {
+          position: relative;
+          height: px(30);
+          margin-top: px(12);
+          font-size: 2.2rem;
+          color: $color-gray-dark;
+
+          .marquee-child {
+            width: px(530);
+            height: 100%;
+          }
+        }
+
+        &.list-focus, &.list-selected {
+          > div {
+            height: $height-multiline-foc;
+          }
+
+          .focus {
+            &.product {
+              height: $height-multiline-in;
+
+              .label, .number {
+                opacity: 1;
+              }
+            }
+          }
+
+          .label, .number {
+            font-size: 3.8rem;
+
+            &.check {
+              color: $color-primary;
+            }
+          }
+
+          .number {
+            line-height: px(51);
+          }
+
+          .name {
+            height: px(48);
+          }
+
+          .min {
+            font-size: 2.4rem;
+            color: $color-white;
+          }
+        }
+      }
+
+      &.selected {
+        color: $color-white;
+        border: none;
+
+        .text {
+          .label {
+            font: {
+              size: 3.2rem;
+              family: $font-bold;
+            }
+          }
+        }
+
+        .point {
+          font: {
+            size: 3.0rem;
+            family: $font-bold;
+          }
+        }
+
+        .discounted {
+          font-family: $font-bold;
+        }
+
+        > div {
+          background-color: $color-bg-component;
+          border-radius: px($border-radius);
+        }
+
+        > div.change-option {
+          &::before {
+            display: none;
+          }
+        }
+      }
+
+      &.list-focus, &.list-selected {
+        @extend .selected;
+
+        .ic-tag {
+          background-image: url(../images/purchase/ic-common-tag-my-event-foc.png);
+        }
+
+        .focus {
+          &.product {
+            height: $height-normalline-foc;
+
+            &::after {
+              @include focus-border;
+              box-shadow: 0 0 0 px(4) $color-white;
+              left: px(4);
+              right: px(4);
+            }
+          }
+        }
+
+        &::before {
+          display: none;
+        }
+
+        & + li::before {
+          display: none;
+        }
+
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // list-products : end
+  // purchase-body : start
+  .purchase-body {
+    //width: px(1674);
+    margin: 0 auto;
+    // purchase-flatrate : start \
+    .purchase-flatrate {
+      margin-top: px(55);
+
+      .contents {
+        //@include flex-items-center;
+        //justify-content: space-between;
+        //align-items: flex-end;
+        height: px(547);
+
+        &::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+
+      .list-products {
+        overflow: hidden;
+        float: left;
+        width: px(886);
+        height: px(556);
+        padding-right: px(28);
+        padding-left: px(38);
+
+        &::after {
+          opacity: 0;
+          width: px(886);
+          height: px(112);
+          position: absolute;
+          bottom: 0;
+          background-image: linear-gradient(to top, $color-bg-black, $color-bg-transparent);
+          @include vs-b;
+          content: none;
+        }
+
+        &.bottom-cover {
+          &::after {
+            content: '';
+          }
+        }
+
+        .scroll {
+          opacity: 0;
+          @include scroll(px(0), px(0), px(8), 100%, $color-bg-transparent, $color-gray-30);
+        }
+
+        &.active::after, &.active .scroll {
+          opacity: 1;
+        }
+      }
+
+      .event-info {
+        float: left;
+        padding: px(20) px(30);
+        width: px(662);
+        height: 100%;
+        border: px(2) solid $color-white-10;
+        border-radius: px($border-radius);
+        word-break: keep-all;
+        overflow: hidden;
+
+        .evnet-title {
+          margin-bottom: px(14);
+          margin-top: px(25);
+          color: $color-primary;
+          font: {
+            size: 3.2rem;
+            family: $font-bold;
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        .event-exp {
+          font-size: 2.6rem;
+          color: $color-event-exp;
+
+          p {
+            line-height: px(36);
+          }
+        }
+      }
+
+      .add-exp {
+        margin: px(80) 0 px(54) 0;
+        text-align: center;
+        font-size: 2.6rem;
+        color: $color-subtitle;
+        line-height: px(32);
+      }
+    }
+  }
+
+  // purchase-flatrate : end
+  //purchase-step : start
+  .purchase-step {
+    margin-top: px(48);
+    display: flex;
+
+    .stepper {
+      position: relative;
+
+      &.active h3 {
+        z-index: 2;
+        height: 100%;
+        color: $color-white;
+        font: {
+          size: 3.2rem;
+          family: $font-bold;
+        }
+      }
+    }
+
+    .title {
+      position: relative;
+      width: px(312);
+      height: px(70);
+      @include flex-items-center;
+
+      h3 {
+        position: relative;
+        width: 100%;
+        height: px(58);
+        justify-content: center;
+        font-size: 2.6rem;
+        color: $color-white-70;
+        @include flex-items-center;
+        @include background-default;
+      }
+
+      &.dim h3 {
+        background-color: $color-step-dim;
+      }
+    }
+
+    .contents {
+      position: relative;
+      margin: px(28) auto 0;
+      height: px(635);
+    }
+
+    .step1 {
+      width: px(301);
+
+      .faint h3 {
+        background-color: $color-bg-component;
+      }
+
+      &.active {
+        width: px(999);
+
+        .title {
+          width: px(1010);
+
+          h3 {
+            background-image: url(../images/purchase/step1-focus.png);
+          }
+        }
+
+        .contents {
+          width: px(698);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-top: px(12);
+          padding-left: px(10);
+        }
+      }
+    }
+
+    .step2 {
+      width: px(294);
+
+      .contents {
+        height: px(648);
+
+        .total {
+          padding-right: px(39);
+        }
+      }
+
+      &::before, &::after {
+        width: px(2);
+        height: px(520);
+        background-color: $color-white-divider;
+        @include vs-b;
+        position: absolute;
+        top: px(98);
+      }
+
+      &::before {
+        left: px(2);
+      }
+
+      &::after {
+        right: px(2);
+      }
+
+      .title {
+        right: px(10, 7);
+      }
+
+      .faint {
+        h3 {
+          background-image: url(../images/purchase/step2.png);
+          z-index: 1;
+        }
+
+        &.alt h3 {
+          background-image: url(../images/purchase/step2-2.png);
+
+          &::after {
+            @include vs-b;
+            background-color: $color-bg-component;
+            width: px(30);
+            height: 100%;
+            position: absolute;
+            right: px(-15);
+          }
+        }
+      }
+
+      .list-products {
+        li {
+          &::before, &::after {
+            width: calc(100% - #{px(155)});
+          }
+        }
+
+        .bubble-title {
+          text-align: right;
+
+          span {
+            // width: px(144);
+            padding: 0 px(15);
+            height: px(62);
+            line-height: px(62);
+            text-align: center;
+            font-size: 2.4rem;
+            background-color: $color-bg-component;
+            border-radius: px($border-radius);
+            display: inline-block;
+            position: relative;
+
+            &.focus {
+              color: $color-white;
+
+              &::after {
+                @include focus-border;
+                box-shadow: 0 0 0 px(4) $color-white;
+                left: px(4);
+                right: px(4);
+              }
+            }
+          }
+        }
+
+        .add-exp {
+          width: px(674);
+          margin-top: px(20);
+          padding: 0 0 0 px(62);
+          font-size: 2.0rem;
+          color: $color-gray-dark;
+
+          p {
+            line-height: px(25);
+            word-break: keep-all;
+          }
+        }
+      }
+
+      &.active {
+        width: px(992);
+
+        .title {
+          width: px(1010);
+
+          h3 {
+            background-image: url(../images/purchase/step2-focus.png);
+          }
+        }
+
+        .contents {
+          width: px(857);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .step3 {
+      width: px(301);
+
+      .contents {
+        height: px(633);
+
+        .total {
+          .price {
+            justify-content: start;
+            padding-left: px(149);
+
+            em {
+              margin-left: px(17);
+            }
+          }
+        }
+      }
+
+      .default::before {
+        background-image: url(../images/purchase/ic-pay.png);
+      }
+
+      .title {
+        right: px(10, 7);
+      }
+
+      &.active {
+        width: px(990);
+
+        .title {
+          width: px(1010);
+
+          h3 {
+            background-image: url(../images/purchase/step3-focus.png);
+          }
+        }
+
+        .contents {
+          width: px(698);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-top: px(14);
+        }
+      }
+    }
+  }
+
+  //purchase-step : end
+  //purchase-amount : start
+  .purchase-amount {
+    margin-top: px(20);
+    border-top: px(2) solid $color-line-purchase;
+    padding-top: px(16);
+    justify-content: flex-end;
+    @include flex-items-center;
+
+    p {
+      color: $color-gray-dark;
+      font-size: 2.4rem;
+      line-height: px(38);
+      margin-left: px(40);
+
+      em {
+        color: $color-white;
+        margin-left: px(16);
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  //purchase-amount : end
+  //info-selected
+  .info-selected {
+    text-align: center;
+    // height: px(474);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .default {
+      text-align: center;
+      margin: 0 auto;
+      color: $color-bg-key-notice;
+      padding: px(200) 0 px(93);
+      font: {
+        size: 3.0rem;
+        family: $font-bold;
+      }
+
+      &::before {
+        margin: 0 auto;
+        margin-bottom: px(16);
+        width: px(88);
+        height: px(64);
+        @include vs-b;
+        @include background-default;
+        background-image: url(../images/purchase/ic-sale.png);
+      }
+    }
+
+    .summary-product {
+      padding-top: px(26);
+
+      .poster-vertical {
+        width: px(210);
+        height: px(300);
+        margin: 0 auto;
+
+        .poster {
+          &-thumbnail {
+            height: 100%;
+            border-radius: 0;
+            background: {
+              image: $poster-default-bg;
+              position: 50% 50%;
+              size: cover;
+            };
+          }
+        }
+      }
+
+      .name {
+        width: px(274);
+        height: px(30);
+        font-size: 2.4rem;
+        margin: px(12) auto 0;
+        line-height: px(30);
+        @include ellipsis;
+      }
+    }
+
+    .price {
+      font-size: 2.6rem;
+      line-height: px(32);
+
+      span {
+        display: block;
+      }
+
+      em {
+        margin-top: px(12);
+        line-height: px(43);
+        display: block;
+        color: $color-primary;
+        font-size: 3.2rem;
+      }
+
+      .no-sale {
+        margin-bottom: px(7);
+        line-height: px(42);
+      }
+    }
+  }
+
+  //button-area
+  .button-area {
+    height: px(98);
+
+    button + button {
+      margin-left: px(10);
+    }
+  }
+
+  // purchase-body : end
+
+  //purchase-step2
+  .purchase-step2, .purchase-step3 {
+    .step1 {
+      .price {
+        margin-top: px(45);
+      }
+    }
+  }
+
+
+  // purchase-subscribe : start
+  .purchase-subscribe {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: px(678);
+    max-height: px(802);
+    margin-top: px(60);
+
+    .list-products {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      li {
+        &.list-focus, &.list-selected {
+          .focus {
+            box-shadow: 0 0 0 4px $color-white;
+
+            &.product {
+              height: px(80);
+            }
+
+            &::after {
+              content: none;
+            }
+          }
+        }
+
+        &::before, &:last-child::after {
+          content: unset;
+        }
+      }
+    }
+
+    .purchase-product {
+      display: flex;
+      justify-content: center;
+      margin-bottom: px(40);
+
+      &.full {
+        .select-box {
+          display: block;
+          margin-right: px(60);
+        }
+
+        .product-info {
+          width: px(622);
+        }
+      }
+
+      .select-box {
+        display: none;
+
+        .list-products {
+          @include flex-items-center;
+          width: px(838);
+          margin-bottom: px(23);
+
+          li {
+            height: px(80);
+
+            .product {
+              width: px(522);
+            }
+          }
+        }
+
+        .label {
+          font: {
+            size: 2.8rem;
+            family: $font-bold;
+          }
+          color: $color-white;
+          margin-right: px(26);
+        }
+
+        .purchase-info {
+          .label {
+            margin-right: px(20);
+          }
+
+          em {
+            font-size: 2.8rem;
+            color: $color-primary;
+          }
+
+          p {
+            margin-top: px(10);
+            font-size: 2.2rem;
+            color: $color-gray-dark
+          }
+        }
+      }
+
+      .product-info {
+        width: px(716);
+        padding: px(18) px(30);
+        border: 2px solid $color-white-10;
+        border-radius: px($border-radius);
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: px(20);
+          }
+
+          @include flex-items-center;
+          justify-content: space-between;
+          font-size: 2.8rem;
+
+          span {
+            width: px(200);
+            color: $color-gray;
+          }
+
+          p {
+            width: px(320);
+            color: $color-white;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .purchase-terms {
+      margin-bottom: px(5);
+      padding: px(35) px(105) 0;
+      border-top: px(1) solid $color-bg-component;
+
+      .list-products {
+        li {
+          height: px(72);
+
+          &:last-child {
+            .change-option {
+              visibility: hidden;
+            }
+          }
+
+          &.list-focus, &.list-selected {
+            color: $color-gray;
+
+            .focus {
+              color: $color-white;
+              box-shadow: inset 0 0 0 4px $color-white;
+            }
+
+            .product {
+              height: px(62);
+            }
+
+            .input-checkbox {
+              &[type=checkbox]:checked {
+                border-color: $color-primary;
+
+                &::before {
+                  background-image: url(../images/purchase/ic-check-focus2.png);
+                }
+              }
+            }
+          }
+
+          > div {
+            height: px(62);
+            padding: 0 px(20);
+            background-color: transparent;
+
+            .input-checkbox {
+              @include input-check($width: px(32), $height: px(32), $border-radius: px(4));
+              margin-right: px(20);
+
+              &[type=checkbox]:checked {
+                border-color: $color-radio-normal;
+
+                &::before {
+                  background-image: url(../images/purchase/ic-check2.png);
+                }
+              }
+            }
+
+            &.product {
+              width: px(470);
+            }
+
+            .label {
+              font-size: 2.6rem;
+            }
+
+            &.change-option {
+              width: px(175);
+              height: px(62);
+              padding: 0 px(20);
+              background-color: #2A2C3E;
+              border-radius: px(8);
+
+              &::before {
+                content: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .purchase-password {
+      margin: px(50) 0 px(163);
+
+      .title {
+        font-size: 3.6rem;
+        color: $color-gray-light;
+        text-align: center;
+        margin-bottom: px(56);
+      }
+
+      .input-password {
+        @include input-password;
+        justify-content: center;
+
+        p {
+          border: none;
+
+          &.focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .button-area {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  // purchase-subscribe : end
+}

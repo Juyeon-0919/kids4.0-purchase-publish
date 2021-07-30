@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 해지</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+</head>
+
+<body>
+    <div id="root">
+        <!-- react 구조 -->
+
+        <div class="popup-container auth-popup" style="display: none;">
+            <div class="popup large">
+                <div class="popup-header">
+                    <h3>서비스 해지</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center">
+                        <p class="text">해지를 원하시면 구매 비밀번호 4자리를 입력하세요.</p>
+                    </div>
+
+                    <!-- 비밀번호 입력 -->
+                    <div class="password-wrap">
+                        <div class="input-text password-default-center">
+                            <p class="input-text-wrap focus">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                        </div>
+                        <!-- <div class="password-default-center">
+                            <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        </div> -->
+                    </div>
+                    <!-- //비밀번호 입력 -->
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 구매 비밀번호 설정 -->
+        <div class="popup-container auth-popup type-purchase setting-password" style="display: none;">
+            <div class="popup large">
+                <div class="popup-header">
+                    <h3>구매 비밀번호 설정</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center">
+                        <p class="text">새로 변경할 구매 비밀번호 <em>4자리</em>를 숫자로 입력하세요.</p>
+                    </div>
+                    <!-- 비밀번호 입력 -->
+                    <div class="password-wrap">
+                        <!-- list-focus는 label text 색상이 바뀜 -->
+                        <div class="password-smaller list-focus">
+                            <label class="auth-label">구매 인증번호</label>
+                            <div class="input-text password-default-center">
+                                <!-- focus시 cursor 생성, entered시 * 생성-->
+                                <p class="input-text-wrap entered">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap focus">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                                <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            </div> -->
+                        </div>
+                        <!-- list-focus는 label text 색상이 바뀜 -->
+                        <div class="password-smaller">
+                            <label class="auth-label">구매 인증번호 확인</label>
+                            <div class="input-text password-default-center">
+                                <!-- focus시 cursor 생성, entered시 * 생성-->
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- //비밀번호 입력 -->
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 청구서 결제 -->
+        <div class="popup-container auth-popup type-purchase-bill" style="display: none;">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>청구서 결제</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center">
+                        <!-- <p class="text">TV포인트 할인 적용 시, 청구서 결제만 가능합니다.</p> -->
+                        <p class="text">비밀번호 <em>4자리</em>를 입력하여 주세요.</p>
+                    </div>
+                    <!-- 비밀번호 입력 -->
+                    <div class="password-wrap">
+
+                        <div class="input-text password-default-center">
+                            <p class="input-text-wrap entered">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap focus">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                        </div>
+                        <!-- <div class="password-default-center">
+                            <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        </div> -->
+                        <!-- //비밀번호 입력 -->
+                        <div class="sub-text text-center mg-top20">
+                            <p class="text">※ 구매 후 취소가 되지 않습니다. (단, 컨텐츠가 광고된 내용과<br>다른 경우 관련법에 따라 취소할 수 있습니다)</p>
+                            <p class="text">※ 유료 결제 후 광고가 포함될 수 있습니다.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <!-- <button class="popup-button">비밀번호 초기화</button> -->
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+
+                <!-- 비밀번호 초기화버튼이 focus가되면 툴팁이 보임 -->
+                <!-- <div class="tooltip-area">
+                    <span class="tooltip">
+                        비밀번호가 기억나지 않는 고객은 <em>비밀번호 초기화</em>를 눌러주세요.
+                    </span>
+                </div> -->
+
+            </div>
+
+
+        </div>
+
+        <!-- 잠금 비밀번호 설정 -->
+        <div class="popup-container auth-popup setting-password" style="display: block;">
+            <div class="popup large">
+                <div class="popup-header">
+                    <h3>잠금 비밀번호 설정</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center">
+                        <p class="text">이 프로필을 활성화 할 때 입력할 비밀번호 <em>6자리</em>를 입력해주세요.</p>
+                    </div>
+                    <!-- 비밀번호 입력 -->
+                    <div class="password-wrap">
+                        <!-- list-focus는 label text 색상이 바뀜 -->
+                        <div class="password-smaller list-focus">
+                            <label class="auth-label">구매 인증번호</label>
+                            <div class="input-text password-default-center">
+                                <!-- focus시 cursor 생성, entered시 * 생성-->
+                                <p class="input-text-wrap entered">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap focus">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                        <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                    </div> -->
+                        </div>
+                        <!-- list-focus는 label text 색상이 바뀜 -->
+                        <div class="password-smaller">
+                            <label class="auth-label">구매 인증번호 확인</label>
+                            <div class="input-text password-default-center">
+                                <!-- focus시 cursor 생성, entered시 * 생성-->
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                    </div> -->
+                        </div>
+                    </div>
+                    <!-- //비밀번호 입력 -->
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 잠금 비밀번호 해제 -->
+        <div class="popup-container auth-popup lock-password" style="display: none;">
+
+            <div class="popup large">
+
+                <div class="popup-header">
+                    <h3>잠금 비밀번호 설정</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center">
+                        <p class="text">이 프로필을 활성화 할 때 입력할 비밀번호 <em>6자리</em>를 입력해 주세요.</p>
+                        <p class="sub-text">※ 비밀번호를 잃어버린 경우, 프로필 삭제 후 다시 연결해 주세요.</p>
+                    </div>
+                    <div class="password-wrap">
+
+                        <div class="input-text password-default-center">
+                            <p class="input-text-wrap entered">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap focus">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                            <p class="input-text-wrap">
+                                <span class="cursor"></span>
+                            </p>
+                        </div>
+                        <!-- <div class="password-default-center">
+                            <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                        </div> -->
+
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 세팅 사용자 인증번호 변경 팝업 -->
+        <div class="popup-container auth-popup setting-auth" style="display: none;">
+            <div class="popup large">
+                <div class="popup-header">
+                    <h3>사용자 인증번호 변경</h3>
+                </div>
+                <div class="popup-body ">
+                    <div class="body-text text-center">
+                        <p class="text">자녀시청 보호를 위해 사용자 인증번호 1회 변경이 필요합니다.</p>
+                        <p class="text">인증번호 4자리를 변경해주세요.</p>
+                    </div>
+
+                    <div class="password-wrap">
+                        <!-- list-focus는 label text 색상이 바뀜 -->
+                        <div class="password-default list-focus">
+                            <label class="auth-label">기존 인증번호</label>
+                            <div class="input-text password-default-center">
+                                <!-- focus시 cursor 생성, entered시 * 생성-->
+                                <p class="input-text-wrap entered">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap focus">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                                <p class="entered"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p class="focus"><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            </div> -->
+                        </div>
+
+                        <div class="password-default">
+                            <label class="auth-label">신규 인증번호</label>
+                            <div class="input-text password-default-center">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            </div> -->
+                        </div>
+
+                        <div class="password-default">
+                            <label class="auth-label">신규 인증번호 확인</label>
+                            <div class="input-text password-default-center">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                </p>
+                            </div>
+                            <!-- <div class="container">
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                                <p><input type="password" name="" maxlength="1" minlength="1" /></p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+        <!-- 세팅 사용자 인증번호 변경 팝업 -->
+
+        <!-- //react 구조 -->
+    </div>
+</body>
+
+</html>

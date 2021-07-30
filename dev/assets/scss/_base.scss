@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+@import 'config';
+
+html.purchase-wrap {
+  font-size: px(10, 6.6);
+
+  body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, a {
+    margin: 0;
+    padding: 0;
+  }
+
+  body, table, input, textarea, button, select {
+    font: {
+      size: 1.8rem;
+      family: $font-regular, 'sans-serif'
+    }
+    line-height: normal;
+    color: $color-white;
+  }
+
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
+  img, fieldset, button {
+    border: 0;
+  }
+
+  input, textarea, img {
+    vertical-align: top;
+  }
+
+  button {
+    cursor: pointer;
+    background: 0;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: none;
+  }
+
+  strong {
+    font-weight: normal;
+  }
+
+  input {
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  input[type="text"], input[type="password"] {
+    color: $color-white;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font: {
+      weight: normal;
+      size: inherit;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  em, address {
+    font-style: normal;
+  }
+
+  a {
+    outline: none;
+    text-decoration: none;
+    color: $color-white;
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+
+  hr, caption, legend {
+    display: none;
+  }
+
+  i {
+    font-style: normal;
+  }
+}

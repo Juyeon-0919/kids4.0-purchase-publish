@@ -1,0 +1,46 @@
+@import 'config';
+
+.purchase-wrap {
+  #root {
+    position: relative;
+    width: px(1920, $hd: 1280);
+    height: px(1080, $hd: 720);
+  }
+
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  @keyframes pageSwitch {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #page {
+    position: relative;
+    height: px(1080);
+    animation: .3s ease pageSwitch;
+  }
+
+  #layer, #modal, #toast, #error, #purchaseArea, #purchaseLayer {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #modal, #toast, #error {
+    &.active {
+      background-color: $color-bg-black-30;
+    }
+
+  }
+}
+

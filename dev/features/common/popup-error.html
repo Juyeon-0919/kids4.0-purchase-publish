@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home UI</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+
+</head>
+<body>
+    <div id="root">
+        <!-- react 구조 -->
+
+        <!-- 재실행 유도 팝업 -->
+        <div class="popup-container error-popup" style="display:none;">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>재실행 유도 팝업</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text error-main">
+                        <p class="text">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍</p>
+                    </div>
+
+                    <div class="body-text error-sub">
+                        <p class="text">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍</p>
+                    </div>
+
+                    <div class="body-text error-code text-center">
+                        <p class="text">텍스트 <em class="code">오류코드텍스트</em></p>
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">텍스트</button>
+                    <button class="popup-button focus">텍스트</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cold boot 유도 팝업 -->
+        <div class="popup-container error-popup" style="display: none;">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>Cold boot 유도 팝업</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text error-main">
+                        <p class="text">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍<em>[텍스트]</em>텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍</p>
+                    </div>
+
+                    <div class="body-text">
+                        <p class="text">텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍</p>
+                    </div>
+
+                    <div class="error-list">
+                        <ul>
+                            <li>1.텍스트[텍스트]텍스트텍스트텍스트텍스트텍스트텍스</li>
+                            <li>2.텍스트[텍스트]텍스트텍스트텍스트텍스트텍스트텍스</li>
+                        </ul>
+                    </div>
+
+                    <div class="button-area">
+                        <button class="button-primary error">
+                            <p class="text">텍스트</p>
+                        </button>
+                    </div>
+
+                    <div class="body-text error-code ">
+                        <p class="text">텍스트 <em class="code">오류코드텍스트</em></p>
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button">텍스트</button>
+                    <button class="popup-button focus">텍스트</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- [TYPE 1]오류코드 문서내 return1 으로 구분 팝업 1번으로 노출-->
+        <div class="popup-container error-popup">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>서비스 오류</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center more-22">
+                        <p class="text">서비스 이용 중 <em class="highlight">오류가 발생</em>하였습니다.</p>
+                    </div>
+
+                    <div class="body-image">
+                        <p class="image" style="background-image:url(../../assets/images/common/img-settop-img.png);"></p>
+                    </div>
+
+                    <ul class="body-text number-list">
+                        <li>OK키를 누른 후 문제가 반복되면 셋톱박스 뒷면의 전원을 다시 연결해 주세요.</li>
+                        <li>문제가 해결되지 않으면 고객센터(국번없이 101번)로 문의해 주시기 바랍니다.</li>
+                        <!-- <p class="time"><i class="ic-time"></i><em class="highlight">텍스트</em>텍스트텍스트텍스트텍스트텍스트텍</p> -->
+                    </ul>
+                    <div class="body-text text-center error-code ">
+                        <p class="text">오류코드 <em class="code">C-XXXXX</em></p>
+                    </div>
+
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- [TYPE 2]오류코드 문서내 return2 으로 구분 팝업 2번으로 노출-->
+        <div class="popup-container error-popup">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>서비스 오류</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center more-22">
+                        <p class="text">오류 해결을 위해 셋톱박스가 자동으로 꺼졌다 켜집니다.
+                            <em class="highlight">리모컨의 OK 버튼</em>을 눌러주세요.
+                        </p>
+                    </div>
+
+                    <div class="body-image text-center">
+                        <p class="image" style="background-image:url(../../assets/images/common/img-settop-img.png);"></p>
+                    </div>
+
+                    <div class="body-text text-center error-code ">
+                        <p class="text">오류코드 <em class="code">C-XXXXX</em></p>
+                    </div>
+
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- [TYPE 3]오류코드 문서내 return3 으로 구분 팝업 3번으로 노출-->
+        <div class="popup-container error-popup">
+            <div class="popup middle">
+                <div class="popup-header">
+                    <h3>서비스 오류</h3>
+                </div>
+
+                <div class="popup-body">
+                    <div class="body-text text-center error-main">
+                        <p class="text">일시적인 오류가 발생하였습니다.</p>
+                        <p class="text"><em class="highlight">잠시 후 다시 시도</em>하여 주시기 바랍니다.</p>
+                    </div>
+
+                    <div class="body-text error-sub">
+                        <p class="text">문제가 반복되면 셋톱박스 전원을 다시 연결해 주세요.</p>
+                    </div>
+
+                    <div class="body-text error-code text-center">
+                        <p class="text">오류코드 <em class="code">C-XXXXX</em></p>
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- [TYPE 4]오류코드 문서내 return4 으로 구분 팝업 4번으로 노출-->
+        <div class="popup-container error-popup">
+            <div class="popup xlarge">
+                <div class="popup-header">
+                    <h3>인터넷 연결 상태 점검</h3>
+                </div>
+
+                <div class="popup-body">
+                    <ul class="content-wrap text-center">
+                        <li class="">
+                            <h4>1. 전원 확인</h4>
+                            <p class="image" style="background-image:url(../../assets/images/common/img-wifi-connect1.png);"></p>
+                            <p class="body-text text-center">
+                                홈 게이트웨이의 전원이<br/>켜져있는지 확인해 주세요.
+                            </p>
+                        </li>
+                        <li class="">
+                            <h4>2. 케이블 확인</h4>
+                            <p class="image" style="background-image:url(../../assets/images/common/img-wifi-connect2.png);"></p>
+                            <p class="body-text">
+                                홈 게이트웨이와 IPTV간<br/>랜(LAN)선이 연결되어 있는지 확인해 주세요.
+                            </p>
+                        </li>
+                        <li class="">
+                            <h4>3. 다시 켜기</h4>
+                            <p class="image" style="background-image:url(../../assets/images/common/img-wifi-connect3.png);"></p>
+                            <p class="body-text ">
+                                해결이 되지 않을 경우 모든 기기의 전원 케이블을 뽑고, 다시 연결해 주세요.
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="body-text error-code text-center">
+                        <p class="text">오류코드 <em class="code">C-XXXXX</em></p>
+                    </div>
+
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+
+<!-- //react 구조 -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,740 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* toast 임시 */
+/* button */
+.purchase-wrap {
+  /* icon */ }
+  .purchase-wrap .ic-profile {
+    border-radius: 50%;
+    opacity: 0.7;
+    background-image: url("../images/common/ic-profile-default.png"); }
+    .purchase-wrap .ic-profile-default1 {
+      background-image: url("../images/common/ic-profile-default1.png"); }
+    .purchase-wrap .ic-profile-default2 {
+      background-image: url("../images/common/ic-profile-default2.png"); }
+    .purchase-wrap .ic-profile-default3 {
+      background-image: url("../images/common/ic-profile-default3.png"); }
+    .purchase-wrap .ic-profile-default4 {
+      background-image: url("../images/common/ic-profile-default4.png"); }
+    .purchase-wrap .ic-profile-default5 {
+      background-image: url("../images/common/ic-profile-default5.png"); }
+    .purchase-wrap .ic-profile-default6 {
+      background-image: url("../images/common/ic-profile-default6.png"); }
+    .purchase-wrap .ic-profile-pair1 {
+      background-image: url("../images/common/ic-profile-pair1.png"); }
+    .purchase-wrap .ic-profile-pair2 {
+      background-image: url("../images/common/ic-profile-pair2.png"); }
+    .purchase-wrap .ic-profile-pair3 {
+      background-image: url("../images/common/ic-profile-pair3.png"); }
+    .purchase-wrap .ic-profile-pair4 {
+      background-image: url("../images/common/ic-profile-pair4.png"); }
+    .purchase-wrap .ic-profile-pair5 {
+      background-image: url("../images/common/ic-profile-pair5.png"); }
+    .purchase-wrap .ic-profile-pair6 {
+      background-image: url("../images/common/ic-profile-pair6.png"); }
+    .purchase-wrap .ic-profile-pair7 {
+      background-image: url("../images/common/ic-profile-pair7.png"); }
+    .purchase-wrap .ic-profile-pair8 {
+      background-image: url("../images/common/ic-profile-pair8.png"); }
+    .purchase-wrap .ic-profile-pair9 {
+      background-image: url("../images/common/ic-profile-pair9.png"); }
+    .purchase-wrap .ic-profile-pair10 {
+      background-image: url("../images/common/ic-profile-pair10.png"); }
+    .purchase-wrap .ic-profile-pair11 {
+      background-image: url("../images/common/ic-profile-pair11.png"); }
+    .purchase-wrap .ic-profile-pair12 {
+      background-image: url("../images/common/ic-profile-pair12.png"); }
+    .purchase-wrap .ic-profile-pair13 {
+      background-image: url("../images/common/ic-profile-pair13.png"); }
+    .purchase-wrap .ic-profile-pair14 {
+      background-image: url("../images/common/ic-profile-pair14.png"); }
+    .purchase-wrap .ic-profile-pair15 {
+      background-image: url("../images/common/ic-profile-pair15.png"); }
+    .purchase-wrap .ic-profile-pair16 {
+      background-image: url("../images/common/ic-profile-pair16.png"); }
+    .purchase-wrap .ic-profile-pair17 {
+      background-image: url("../images/common/ic-profile-pair17.png"); }
+    .purchase-wrap .ic-profile-pair18 {
+      background-image: url("../images/common/ic-profile-pair18.png"); }
+    .purchase-wrap .ic-profile-pair19 {
+      background-image: url("../images/common/ic-profile-pair19.png"); }
+    .purchase-wrap .ic-profile-pair20 {
+      background-image: url("../images/common/ic-profile-pair20.png"); }
+    .purchase-wrap .ic-profile-pair21 {
+      background-image: url("../images/common/ic-profile-pair21.png"); }
+    .purchase-wrap .ic-profile-pair22 {
+      background-image: url("../images/common/ic-profile-pair22.png"); }
+    .purchase-wrap .ic-profile-pair23 {
+      background-image: url("../images/common/ic-profile-pair23.png"); }
+    .purchase-wrap .ic-profile-pair24 {
+      background-image: url("../images/common/ic-profile-pair24.png"); }
+  .purchase-wrap .contents-list li.focus .meta-data .title {
+    color: #eee; }
+  .purchase-wrap .poster-horizontal {
+    position: relative;
+    width: 380px;
+    height: 214px; }
+    .purchase-wrap .poster-horizontal::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-image: url(../images/common/img-thumbnail-list-default.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0; }
+    .purchase-wrap .poster-horizontal .poster-thumbnail {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1; }
+    .purchase-wrap .poster-horizontal .poster-component {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; }
+      .purchase-wrap .poster-horizontal .poster-component::before {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background-size: 100% 145px;
+        background-position: bottom;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+        opacity: 0; }
+      .purchase-wrap .poster-horizontal .poster-component .poster-tag {
+        position: absolute;
+        top: 6px;
+        right: 12px;
+        display: flex;
+        opacity: 0; }
+        .purchase-wrap .poster-horizontal .poster-component .poster-tag span {
+          width: 44px;
+          height: 44px;
+          line-height: 44px;
+          margin-right: 5px;
+          border-radius: 50%;
+          font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+          font-size: 2rem;
+          text-align: center;
+          color: #eee;
+          background-color: rgba(0, 0, 0, 0.7); }
+          .purchase-wrap .poster-horizontal .poster-component .poster-tag span.poster-tag-age {
+            font-size: 1.8rem; }
+            .purchase-wrap .poster-horizontal .poster-component .poster-tag span.poster-tag-age strong {
+              font-size: 2rem;
+              color: #f42c3c; }
+          .purchase-wrap .poster-horizontal .poster-component .poster-tag span.view-all, .purchase-wrap .poster-horizontal .poster-component .poster-tag span.pay-mobile {
+            width: inherit;
+            padding: 0 10px;
+            border-radius: 8px;
+            font-family: "Yoon Gothic 750", "YoonGothic 700 50", "Yoon윤고딕 750", "YoonGothic 750", "YOONGOTHICPRO750";
+            font-size: 1.8rem; }
+            .purchase-wrap .poster-horizontal .poster-component .poster-tag span.view-all strong, .purchase-wrap .poster-horizontal .poster-component .poster-tag span.pay-mobile strong {
+              font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+          .purchase-wrap .poster-horizontal .poster-component .poster-tag span.view-mobile {
+            width: inherit;
+            padding: 0 10px;
+            border-radius: 8px;
+            color: #ef3484;
+            font-size: 1.8rem; }
+          .purchase-wrap .poster-horizontal .poster-component .poster-tag span:last-child {
+            margin-right: 0; }
+      .purchase-wrap .poster-horizontal .poster-component .poster-time {
+        position: absolute;
+        bottom: 12px;
+        padding: 0 12px;
+        width: 100%;
+        font-size: 2.6rem;
+        color: #c3c3c3; }
+        .purchase-wrap .poster-horizontal .poster-component .poster-time dt {
+          position: relative;
+          font-size: 2.6rem;
+          color: #c3c3c3;
+          line-height: 34px; }
+          .purchase-wrap .poster-horizontal .poster-component .poster-time dt::before {
+            display: inline-block;
+            content: '';
+            width: 24px;
+            height: 32px;
+            margin-right: 8px;
+            vertical-align: bottom;
+            background-image: url("../images/common/ic-clock.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center; }
+          .purchase-wrap .poster-horizontal .poster-component .poster-time dt.watch-complete {
+            height: 28px; }
+            .purchase-wrap .poster-horizontal .poster-component .poster-time dt.watch-complete::before {
+              display: inline-block;
+              content: '';
+              width: 20px;
+              height: 28px;
+              margin-right: 8px;
+              vertical-align: bottom;
+              background-image: url("../images/vod/ic-series-playover.png");
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center; }
+        .purchase-wrap .poster-horizontal .poster-component .poster-time dd {
+          margin-top: 8px;
+          position: relative;
+          overflow: hidden;
+          background-color: rgba(238, 238, 238, 0.2);
+          margin-left: 0;
+          height: 6px;
+          width: 100%;
+          border-radius: calc(6px / 2); }
+          .purchase-wrap .poster-horizontal .poster-component .poster-time dd > span {
+            position: absolute;
+            height: 100%;
+            border-radius: calc(6px / 2);
+            background-color: #ef3484; }
+        .purchase-wrap .poster-horizontal .poster-component .poster-time + .poster-button {
+          margin-bottom: 14px; }
+      .purchase-wrap .poster-horizontal .poster-component .poster-button {
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+        font-size: 2.2rem;
+        line-height: 48px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background-color: rgba(8, 13, 25, 0.8);
+        z-index: 1;
+        display: none; }
+        .purchase-wrap .poster-horizontal .poster-component .poster-button.play::before {
+          display: inline-block;
+          content: '';
+          width: 14px;
+          height: 16px;
+          margin-right: 8px;
+          background-image: url("../images/vod/ic-play-w.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center; }
+    .adult-r .purchase-wrap .poster-horizontal .poster-component::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1; }
+    .dimmed .purchase-wrap .poster-horizontal::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-color: rgba(8, 13, 25, 0.8);
+      z-index: 1; }
+    .focus .purchase-wrap .poster-horizontal, .selected .purchase-wrap .poster-horizontal {
+      z-index: 2; }
+      .focus .purchase-wrap .poster-horizontal::before, .selected .purchase-wrap .poster-horizontal::before {
+        transform: scale(1.06);
+        transform-origin: center; }
+      .focus .purchase-wrap .poster-horizontal .poster-thumbnail, .selected .purchase-wrap .poster-horizontal .poster-thumbnail {
+        transform: scale(1.06);
+        transform-origin: center; }
+        .focus .purchase-wrap .poster-horizontal .poster-thumbnail::before, .selected .purchase-wrap .poster-horizontal .poster-thumbnail::before {
+          position: absolute;
+          display: inline-block;
+          content: '';
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          box-shadow: inset 0 0 60px 0 rgba(8, 13, 25, 0.5); }
+        .focus .purchase-wrap .poster-horizontal .poster-thumbnail::after, .selected .purchase-wrap .poster-horizontal .poster-thumbnail::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          box-shadow: 0 0 0 10px #eee;
+          border-radius: 8px; }
+      .focus .purchase-wrap .poster-horizontal .poster-component::before, .selected .purchase-wrap .poster-horizontal .poster-component::before {
+        transform: scale(1.06);
+        transform-origin: center;
+        opacity: 1; }
+      .focus .purchase-wrap .poster-horizontal .poster-tag, .selected .purchase-wrap .poster-horizontal .poster-tag {
+        opacity: 1; }
+      .focus .purchase-wrap .poster-horizontal .poster-time, .selected .purchase-wrap .poster-horizontal .poster-time {
+        bottom: 6px;
+        width: 106%; }
+      .focus .purchase-wrap .poster-horizontal.dimmed .focus .purchase-wrap .poster-horizontal::after, .selected .purchase-wrap .poster-horizontal.dimmed .focus .purchase-wrap .poster-horizontal::after, .focus .purchase-wrap .poster-horizontal.dimmed .selected .purchase-wrap .poster-horizontal::after, .selected .purchase-wrap .poster-horizontal.dimmed .selected .purchase-wrap .poster-horizontal::after {
+        transform: scale(1.06);
+        transform-origin: center; }
+      .focus .purchase-wrap .poster-horizontal.adult-r .focus .purchase-wrap .poster-horizontal .poster-component::after, .selected .purchase-wrap .poster-horizontal.adult-r .focus .purchase-wrap .poster-horizontal .poster-component::after, .focus .purchase-wrap .poster-horizontal.adult-r .selected .purchase-wrap .poster-horizontal .poster-component::after, .selected .purchase-wrap .poster-horizontal.adult-r .selected .purchase-wrap .poster-horizontal .poster-component::after {
+        transform: scale(1.06);
+        transform-origin: center; }
+    .selected .purchase-wrap .poster-horizontal .poster-thumbnail::after {
+      opacity: 0; }
+  .purchase-wrap .poster-vertical {
+    position: relative;
+    width: 264px;
+    height: 376px; }
+    .purchase-wrap .poster-vertical::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-image: url(../images/home/img-thumbnail-vertical-default.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0; }
+    .purchase-wrap .poster-vertical .poster-thumbnail {
+      position: relative;
+      height: 100%;
+      border-radius: 8px;
+      z-index: 1;
+      background-image: linear-gradient(169deg, #595d72 -33%, #251d3e 80%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .focus .purchase-wrap .poster-vertical::before {
+      transform: scale(1.06);
+      transform-origin: center; }
+    .focus .purchase-wrap .poster-vertical::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 0 0 10px #eee;
+      border-radius: 8px; }
+    .focus .purchase-wrap .poster-vertical .poster-thumbnail {
+      transform: scale(1.06);
+      transform-origin: center; }
+      .focus .purchase-wrap .poster-vertical .poster-thumbnail::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 0 0 10px #eee;
+        border-radius: 8px; }
+  .purchase-wrap .home-contents .focus {
+    z-index: 5; }
+    .purchase-wrap .home-contents .focus .poster-horizontal::before, .purchase-wrap .home-contents .focus .poster-vertical::before, .purchase-wrap .home-contents .focus .poster-semicircle::before {
+      transform-origin: left; }
+    .purchase-wrap .home-contents .focus .poster-semicircle::before {
+      transform: scale(1.06); }
+    .purchase-wrap .home-contents .focus .poster-thumbnail, .purchase-wrap .home-contents .focus .poster-banner {
+      transform-origin: left; }
+    .purchase-wrap .home-contents .focus .poster-banner {
+      transform: scale(1.06); }
+      .purchase-wrap .home-contents .focus .poster-banner::before {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 60px 0 rgba(8, 13, 25, 0.5); }
+      .purchase-wrap .home-contents .focus .poster-banner::after {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 0;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 0 0 10px #eee;
+        border-radius: 8px; }
+    .purchase-wrap .home-contents .focus .focus-poster {
+      opacity: 1; }
+    .purchase-wrap .home-contents .focus .poster-component {
+      transform-origin: left;
+      opacity: 1; }
+      .purchase-wrap .home-contents .focus .poster-component::before {
+        transform-origin: left; }
+    .purchase-wrap .home-contents .focus .poster-tag {
+      right: -12px; }
+  .purchase-wrap .home-contents .focus-poster {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+  .purchase-wrap .home-contents .poster-component {
+    opacity: 0; }
+    .purchase-wrap .home-contents .poster-component .content-info {
+      position: absolute;
+      left: 50px;
+      bottom: 45px; }
+      .purchase-wrap .home-contents .poster-component .content-info .title {
+        display: flex;
+        align-items: center;
+        align-items: flex-end;
+        width: 440px;
+        height: 116px;
+        margin-bottom: 26px;
+        font-size: 5.2rem;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+        .purchase-wrap .home-contents .poster-component .content-info .title.image-logo {
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          font-size: 0;
+          color: rgba(0, 0, 0, 0);
+          background-position: left; }
+        .purchase-wrap .home-contents .poster-component .content-info .title.double-line {
+          height: auto;
+          line-height: normal;
+          font-size: 4.2rem;
+          overflow: hidden;
+          display: -webkit-box;
+          white-space: normal;
+          /*! autoprefixer: off */
+          -webkit-line-clamp: 2;
+          /*! autoprefixer: on */
+          -webkit-box-orient: vertical; }
+      .purchase-wrap .home-contents .poster-component .content-info .default-info {
+        margin-bottom: 14px; }
+        .purchase-wrap .home-contents .poster-component .content-info .default-info span {
+          margin-left: 10px; }
+          .purchase-wrap .home-contents .poster-component .content-info .default-info span:first-child {
+            margin-left: 0; }
+          .purchase-wrap .home-contents .poster-component .content-info .default-info span::before {
+            content: none; }
+      .purchase-wrap .home-contents .poster-component .content-info .ic-tag {
+        height: 28px;
+        line-height: 28px;
+        margin-left: 10px;
+        font-size: 1.6rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(238, 238, 238, 0.3); }
+      .purchase-wrap .home-contents .poster-component .content-info .summary {
+        width: 420px;
+        line-height: 1.54;
+        font-size: 2.6rem;
+        color: #eee;
+        overflow: hidden;
+        display: -webkit-box;
+        white-space: normal;
+        /*! autoprefixer: off */
+        -webkit-line-clamp: 2;
+        /*! autoprefixer: on */
+        -webkit-box-orient: vertical; }
+  .purchase-wrap .none {
+    display: none; }
+  .purchase-wrap .skip {
+    display: none; }
+  .purchase-wrap .keyguide {
+    display: flex;
+    font-size: 2.4rem;
+    color: #626373;
+    line-height: 30px; }
+    .purchase-wrap .keyguide .ic-round {
+      display: inline-flex;
+      font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+      font-size: 1.8rem;
+      height: 34px;
+      line-height: calc(34px - (2px + 0.5px) * 2);
+      border-radius: calc(34px / 2);
+      border: 2px solid #626373;
+      padding: 0 12px;
+      color: #626373;
+      background-color: #20212d;
+      margin-right: 12px; }
+      .purchase-wrap .keyguide .ic-round.keyguide-channel {
+        padding: 0 10px; }
+        .purchase-wrap .keyguide .ic-round.keyguide-channel::after {
+          display: inline-block;
+          content: '';
+          width: 34px;
+          height: 30px;
+          margin-left: 6px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center; }
+    .purchase-wrap .keyguide + .keyguide {
+      margin-left: 30px; }
+      .purchase-wrap .keyguide + .keyguide:first-child {
+        margin-left: 0; }
+  .purchase-wrap .keyguide-ok {
+    display: inline-flex;
+    font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+    font-size: 1.8rem;
+    height: 34px;
+    line-height: calc(34px - (2px + 0.5px) * 2);
+    border-radius: calc(34px / 2);
+    border: 2px solid #626373;
+    padding: 0 12px;
+    color: #626373;
+    background-color: #20212d;
+    padding: 0 12px;
+    margin-right: 8px;
+    background-color: unset;
+    border: 2px solid #eee;
+    color: #eee; }
+  .purchase-wrap .path {
+    display: flex;
+    align-items: center;
+    font-size: 2.4rem; }
+    .purchase-wrap .path span {
+      position: relative;
+      margin-right: 30px;
+      color: #848484; }
+      .purchase-wrap .path span::after {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 0;
+        left: unset;
+        right: -22px;
+        content: '>'; }
+      .purchase-wrap .path span + span:last-child {
+        color: #a9a6ff;
+        margin-right: 0; }
+        .purchase-wrap .path span + span:last-child::after {
+          content: none; }
+  .purchase-wrap .meta-tag {
+    display: flex;
+    align-items: center; }
+  .purchase-wrap .ic-age {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+    font-size: 1.6rem;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #eee; }
+  .purchase-wrap .focus .cursor {
+    position: relative;
+    width: 0; }
+    .purchase-wrap .focus .cursor::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      top: 50%;
+      left: -1px;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 33px;
+      background-color: #eee;
+      z-index: 3;
+      animation: blink-cursor 1s steps(1) infinite; }
+  .purchase-wrap .focus .underline {
+    position: relative; }
+    .purchase-wrap .focus .underline::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      top: unset;
+      bottom: 20px;
+      width: 100%;
+      height: 2px;
+      background-color: #eee;
+      animation: blink-cursor 1s steps(1) infinite; }
+  .purchase-wrap .popup .focus .cursor::before {
+    background-color: #353539; }
+  .purchase-wrap .popup .focus .cursor.underline::after {
+    background-color: #353539; }
+  .purchase-wrap .input-text {
+    position: relative;
+    width: 100%; }
+    .purchase-wrap .input-text .placeholder {
+      position: absolute;
+      width: inherit;
+      text-align: center;
+      font-family: "Yoon Gothic 750", "YoonGothic 700 50", "Yoon윤고딕 750", "YoonGothic 750", "YOONGOTHICPRO750";
+      font-size: 2.9rem;
+      line-height: 82px;
+      color: #a9a9a9;
+      white-space: nowrap; }
+
+@keyframes blink-cursor {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+  .purchase-wrap .button-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 380px;
+    height: 214px; }
+    .purchase-wrap .button-menu::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      border: 4px solid rgba(238, 238, 238, 0.2);
+      background-color: rgba(8, 13, 25, 0.4);
+      font-size: 2.6rem;
+      text-align: center;
+      color: #a9a9a9; }
+    .purchase-wrap .button-menu .content-info {
+      position: unset;
+      width: 280px; }
+      .purchase-wrap .button-menu .content-info span {
+        display: block;
+        margin-bottom: 14px;
+        font-size: 2.4rem;
+        color: #eee;
+        opacity: .7; }
+      .purchase-wrap .button-menu .content-info p {
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+        font-size: 3.6rem;
+        color: #eee;
+        opacity: .9; }
+        .purchase-wrap .button-menu .content-info p::before {
+          content: unset; }
+        .purchase-wrap .button-menu .content-info p .ic-gnb-total {
+          display: inline-block;
+          width: 48px;
+          height: 48px;
+          margin-right: 5px;
+          vertical-align: top;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center; }
+  .purchase-wrap .focus .button-menu::before {
+    transform: scale(1.06);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 0 10px #eee;
+    border-radius: 8px;
+    z-index: -1;
+    transform-origin: left;
+    border: none;
+    background-color: #080d19; }
+  .purchase-wrap .focus .button-menu .content-info span {
+    font-size: 2.6rem;
+    opacity: .8; }
+  .purchase-wrap .focus .button-menu .content-info p {
+    font-size: 3.8rem;
+    opacity: 1; }
+    .purchase-wrap .focus .button-menu .content-info p .count {
+      color: #ef3484; }
+    .purchase-wrap .focus .button-menu .content-info p .ic-gnb-total {
+      vertical-align: bottom; }
+
+@keyframes marquee-text {
+  100% {
+    transform: translateX(-50%); } }
+  .purchase-wrap .marquee-text {
+    overflow: hidden;
+    display: flex; }
+    .purchase-wrap .marquee-text .marquee-child {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .purchase-wrap .focus .marquee-child .space {
+    padding: 0 50px; }
+  .purchase-wrap .focus .marquee-play .marquee-child {
+    animation-name: marquee-text;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    overflow: visible !important;
+    text-overflow: initial !important; }
+  .purchase-wrap .loading-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+    background-image: url("../images/common/img-loading.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: loading-ani 1s steps(8) infinite; }
+
+@keyframes loading-ani {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: -768px 0; } }
+  .purchase-wrap .animate .focus .poster-horizontal::before {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus .poster-component::before {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus .poster-thumbnail {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus.button-primary {
+    will-change: all;
+    transition: 0.3s ease all; }
+  .purchase-wrap .animate .focus .cast-profile::before {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus .profile-image {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus .poster-banner {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+  .purchase-wrap .animate .focus.view-list {
+    will-change: transform;
+    transition: 0.3s ease transform; }
+    .purchase-wrap .animate .focus.view-list::before {
+      will-change: transform;
+      transition: 0.3s ease transform; }
+  .purchase-wrap .animate .home-aside, .purchase-wrap .animate .home-body, .purchase-wrap .animate .gnb, .purchase-wrap .animate .home-contents > ul {
+    will-change: transform;
+    transition: 0.3s ease transform; }

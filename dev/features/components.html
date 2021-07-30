@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home UI</title>
+    <link rel="stylesheet" href="../assets/css/index.css" />
+</head>
+
+<body style="padding: 30px; background-color: #000">
+
+    <!-- marquee test -->
+    <div class="channel-body" style="height: 400px;">
+        <section class="channel-recommend">
+            <ul class="contents-list" id="test">
+                <li class="focus">
+                    <div class="poster-horizontal">
+                        <div class="poster-thumbnail" style="background-image: url(../../assets/images/temp/image-voddetail.jpg)"></div>
+                    </div>
+                    <div class="meta-data">
+                        <h4 class="title marquee-text">
+                            <p class="marquee-child">start 삼시세끼 삼시세끼 어촌편 5화 end</p>
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        marquee();
+
+        function marquee() {
+            console.log("start")
+                // 최초
+            const liDom = document.getElementById("test").getElementsByClassName("focus")[0];
+
+            [...liDom.querySelectorAll(".marquee-text")].forEach((o) => {
+                        const marqueeChild = o.querySelector(".marquee-child");
+                        const {
+                            clientWidth,
+                            scrollWidth
+                        } = o;
+                        if (clientWidth < scrollWidth) {
+                            if (!o.dataset.ani) {
+                                marqueeChild.style.animationDuration = `${
+                        (clientWidth / scrollWidth) * 5000
+                    }ms`;
+                                o.classList.add("marquee-play");
+                                o.dataset.ani = "Y";
+                                const span = document.createElement("span");
+                                span.innerHTML = marqueeChild.innerHTML;
+                                span.classList.add("space");
+                                marqueeChild.append(span);
+
+                                marqueeChild.addEventListener("animationend", (e) => {
+                                    if (e.animationName === "marquee-text") {
+                                        o.classList.remove("marquee-play");
+                                        setTimeout(() => {
+                                            o.classList.add("marquee-play");
+                                        }, 100);
+                                    }
+                                });
+                            }
+                        } else {
+                            o.classList.remove("marquee-play");
+                        }
+                    })}
+    </script>
+    <!-- //marquee test -->
+
+
+    <div class="focus" style="position: relative; margin-bottom: 50px;">
+        <!-- 포스터 가로형 -->
+        <div class="poster-horizontal">
+            <div class="poster-thumbnail" style="background-image: url('../assets/images/temp/poster.jpg')"></div>
+        </div>
+    </div>
+
+    <div class="focus" style="position: relative; margin-bottom: 100px;">
+        <!-- 포스터 가로형 + 썸네일 마스크 + 컴포넌트 -->
+        <div class="poster-horizontal">
+            <div class="poster-thumbnail" style="background-image: url('../assets/images/temp/poster.jpg')"></div>
+            <div class="poster-component">
+                <ul class="poster-tag">
+                    <!--<li class="poster-tag-device"><span class="pay-mobile">U+모바일tv에서 구매</span></li>-->
+                    <li class="poster-tag-device"><span class="view-all">U+모바일tv로 시청가능</span></li>
+                    <li class="poster-tag-device"><span class="view-mobile">모바일</span></li>
+                    <li class="poster-tag-age">전체</li>
+                    <li class="poster-tag-age"><strong>19</strong></li>
+                </ul>
+                <dl class="poster-time">
+                    <dt>11시간 20분 남음</dt>
+                    <dd class="poster-remaining"><span style="width: 50%;"></span></dd>
+                </dl>
+            </div>
+            <div class="poster-title">이태원 클라쓰 10화</div>
+        </div>
+    </div>
+    <!-- //poster -->
+
+    <div class="focus" style="position: relative;">
+        <!-- 포스터 세로형 -->
+        <div class="poster-vertical">
+            <div class="poster-thumbnail" style="background-image: url('../assets/images/temp/poster.jpg')"></div>
+        </div>
+    </div>
+    <!-- //poster -->
+
+
+
+
+</body>
+
+</html>

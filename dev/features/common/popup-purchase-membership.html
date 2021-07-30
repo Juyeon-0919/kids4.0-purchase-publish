@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home UI</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="popup-container">
+            <!-- 멤버십 등록 -->
+            <div class="popup large">
+                <div class="popup-header">
+                    <h3>U+ 멤버십등록</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body text-center">
+                    <fieldset class="input-field add-margin">
+                        <legend>U+ 멤버십등록</legend>
+                        <div class="body-text">멤버십 카드번호</div>
+                        <div class="input-split">
+                            <div class="input-text">
+                                <p class="input-text-wrap focus">
+                                    <span>1</span>
+                                    <span class="cursor"></span>
+                                    <span>2</span>
+                                    <span class="underline">b</span>
+                                    <span>4</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <!-- 카드번호 *처리 -->
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <!-- 카드번호 *처리 -->
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>1</span>
+                                    <span></span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="body-text mg-top">생년월일</div>
+                        <div class="input-split">
+                            <div class="input-text double">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>1</span>
+                                    <span>9</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>0</span>
+                                    <span>1</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>0</span>
+                                    <span>2</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="input-checkbox-min align-right">
+                            <input type="checkbox" id="" name="" checked>
+                            <label for="" class="sub-text">멤버십 정보 저장</label><!-- focus시 텍스트 컬러 진하게 변경 -->
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+            <!-- 생년월일 입력 -->
+            <div class="popup large" style="display: none;">
+                <div class="popup-header">
+                    <h3>생년월일 입력</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body">
+                    <fieldset class="input-field add-margin">
+                        <legend>생년월일 입력</legend>
+                        <div class="body-text text-center">
+                            <p>U+멤버십카드 등록 시 입력하신 생년월일을</p>
+                            <p>다시 한번 입력해 주세요.</p>
+                        </div>
+                        <div class="body-text text-center mg-top">생년월일</div>
+                        <div class="input-split">
+                            <div class="input-text double">
+                                <p class="input-text-wrap focus">
+                                    <span class="cursor"></span>
+                                    <span>1</span>
+                                    <span>9</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>0</span>
+                                    <span>1</span>
+                                </p>
+                            </div>
+                            <div class="input-text">
+                                <p class="input-text-wrap">
+                                    <span class="cursor"></span>
+                                    <span>0</span>
+                                    <span>2</span>
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button">확인</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+            <!-- 멤버십 변경 -->
+            <div class="popup middle" style="display: none;">
+                <div class="popup-header">
+                    <h3>U+ 멤버십 변경</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body">
+                    <ul class="info-roundbox">
+                        <li>
+                            <p class="body-text">멤버십 카드번호</p>
+                            <p><em>1234 **** **** 1234</em></p>
+                        </li>
+                        <li>
+                            <p class="body-text">생년월일</p>
+                            <p><em>1993년 10월 14일</em></p>
+                        </li>
+                    </ul>
+                    <div class="body-text text-center mg-none">
+                        <p>등록된 U+ 멤버십 정보를 삭제하고 <br>U+ 멤버십을 변경하시겠습니까?</p>
+                    </div>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">삭제</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+        </div>
+        <!-- //popup-container -->
+    </div>
+    <!-- //root -->
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 해지</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+
+</head>
+
+<body>
+    <div id="root">
+        <!-- react 구조 -->
+
+        <div class="popup-container">
+
+            <div class="popup small">
+                <!-- popup 사이즈에 따라 small /middle /large -->
+                <div class="popup-header marquee-text marquee-play">
+                    <h3 class="marquee-child">타이틀</h3>
+                </div>
+
+                <div class="popup-body center">
+                    <p class="body-text">내용</p>
+                    <p class="sub-text">설명</p>
+                </div>
+
+
+                <div class="popup-footer">
+                    <button class="popup-button ">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 스크롤 팝업 -->
+        <div class="popup-container">
+
+            <!-- 팝업 콘텐트 -->
+            <div class="popup middle">
+
+                <div class="popup-header">
+                    <h3>제목</h3>
+                </div>
+
+                <div class="popup-body">
+
+                    <div class="scroll-contents bottom-cover">
+                        <!--top-cover는 상단그라데이션-->
+                        <!-- //스크롤 콘텐츠 -->
+                        <div>
+                            <p class="body-text">내용</p>
+                        </div>
+                        <!--//스크롤 콘텐츠 -->
+                    </div>
+
+                    <!-- 스크롤 -->
+                    <div class="scroll">
+                        <span style="height: 50%;"></span>
+                    </div>
+                    <!--// 스크롤 -->
+
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">닫기</button>
+                </div>
+            </div>
+
+        </div>
+        <!--// 더보기 팝업 -->
+
+        <!-- home-수집정보 상세보기/setting-맞춤형광고 정보수집약관, 가입안내 팝업 (scroll-contents에 low-height 클래스추가) -->
+        <!-- 스크롤 팝업 -->
+        <div class="popup-container">
+
+            <!-- 팝업 콘텐트 -->
+            <div class="popup large">
+
+                <div class="popup-header">
+                    <h3>제목</h3>
+                </div>
+
+                <div class="popup-body">
+
+                    <div class="scroll-contents low-height bottom-cover">
+                        <!--top-cover는 상단그라데이션-->
+                        <!-- //스크롤 콘텐츠 -->
+                        <div>
+                            <p class="body-text">내용</p>
+                        </div>
+                        <!--//스크롤 콘텐츠 -->
+                    </div>
+
+                    <!-- 스크롤 -->
+                    <div class="scroll">
+                        <span style="height: 50%;"></span>
+                    </div>
+                    <!--// 스크롤 -->
+
+                </div>
+
+                <div class="popup-footer">
+                    <button class="popup-button focus">닫기</button>
+                </div>
+            </div>
+
+        </div>
+        <!--// 더보기 팝업 -->
+
+        <!-- //react 구조 -->
+    </div>
+</body>
+
+</html>

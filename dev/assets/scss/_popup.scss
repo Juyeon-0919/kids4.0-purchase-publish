@@ -1,0 +1,3693 @@
+@import 'config';
+// body{
+//     background-color: $color-bg-black;
+// }
+$popup-header-height: px(89);
+$popup-footer-height: px(102);
+$popup-padding-top: px(52);
+@mixin input-password-center {
+  @include input-password($size: 104, $margin-right: 20, $input-bg: $color-bg-gray, $shadow-size: 6, $shadow-color: $color-primary, $focus-input-bg: $color-white, $background-size: 38, $password-color: $password-color-b);
+  justify-content: center;
+}
+
+.purchase-wrap {
+
+  // 팝업 기본 설정
+  .full-popup-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg-black-90;
+  }
+
+  .popup-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg-dimmed;
+  }
+
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    border-radius: px(16);
+    box-shadow: 0 px(4) px(15) 0 $color-black-30;
+    background-color: $color-white;
+    // - popup-Samll : 640px
+    &.small {
+      width: px(640);
+    }
+
+    // - popup-middle : 750px
+    &.middle {
+      width: px(750);
+    }
+
+    // - popup-large : 960px
+    &.large {
+      width: px(960);
+    }
+
+    // - popup-xlarge : 1240px
+    &.xlarge {
+      width: px(1240);
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: $popup-header-height;
+      border-bottom: px(2) solid rgba($color-sub-line, .3);
+
+      h3 {
+        font-family: $font-bold;
+        font-size: 3.2rem;
+        color: $color-sub-black;
+      }
+    }
+
+    &-body {
+      padding: $popup-padding-top px(40);
+      font-size: 2.8rem;
+      color: $color-sub-black;
+
+      &.text-center {
+        p {
+          text-align: center;
+        }
+
+        span {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .scroll-contents {
+      position: relative;
+      height: px(418);
+      overflow: hidden;
+
+      &::before {
+        @include vs;
+        width: 100%;
+        height: px(80);
+        background-image: linear-gradient(to top, $color-bg-transparent, $color-white 90%);
+        background-size: 100% px(80);
+        content: none;
+      }
+
+      &::after {
+        @include vs;
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        height: px(80);
+        background-image: linear-gradient(to bottom, $color-bg-transparent, $color-white 90%);
+        background-size: 100% px(80);
+        content: none;
+      }
+
+      &.low-height {
+        height: px(282);
+      }
+
+      &.top-cover {
+        &::before {
+          content: '';
+          z-index: 1;
+        }
+      }
+
+      &.bottom-cover {
+        &::after {
+          content: '';
+        }
+      }
+
+      .body-text {
+        text-align: left;
+      }
+    }
+
+    .body-text {
+      width: 100%;
+      font-size: 2.8rem;
+      line-height: 1.35;
+
+      + .sub-text {
+        margin-top: px(20);
+      }
+
+      + .body-text {
+        margin-top: px(20);
+      }
+
+      .small-text {
+        font-size: 2.0rem;
+        color: $color-subtitle;
+      }
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .sub-text {
+      font-size: 2.4rem;
+      line-height: 1.35;
+      color: $color-subtitle;
+
+      .small-text {
+        font-size: 2.0rem;
+        color: $color-subtitle;
+      }
+    }
+
+    .highlight {
+      color: $color-primary;
+    }
+
+    em {
+      font-family: $font-bold;
+    }
+
+    // 팝업 스크롤
+    .scroll {
+      display: block;
+      @include scroll($top: px(143), $right: px(16), $width: px(8), $height: calc(100% - (#{$popup-footer-height} + #{$popup-header-height} + #{$popup-padding-top} * 2)), $color1: $color-bg-transparent, $color2: $color-gray-30);
+    }
+
+    .active .scroll {
+      opacity: 1;
+    }
+
+    &-footer {
+      display: flex;
+      height: $popup-footer-height;
+      border: {
+        bottom-right-radius: px(16);
+        bottom-left-radius: px(16);
+      }
+      overflow: hidden;
+      background-color: $color-bg-gray;
+
+      .popup-button {
+        position: relative;
+        flex: 1;
+        color: $color-black;
+        // padding: 0 px(40);
+        font: {
+          size: 3.4rem;
+          family: $font-bold;
+        }
+
+        &:first-child::after {
+          content: none;
+        }
+
+        &::after {
+          @include vs;
+          left: px(-2);
+          top: px(22);
+          right: unset;
+          width: px(4);
+          height: px(60);
+          border-radius: px(2);
+          background-color: rgba($color-subtitle, .2);
+        }
+
+        &.focus {
+          font-size: 3.6rem;
+          background-color: $color-primary;
+          color: $color-white;
+
+          &:nth-last-child(2):after {
+            display: none;
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+        }
+
+        &.focus + .popup-button::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // 팝업 password
+  .password-default {
+    @include input-password($size: 104, $margin-right: 20, $input-bg: $color-bg-gray, $shadow-size: 6, $shadow-color: $color-primary, $focus-input-bg: $color-white, $background-size: 38, $password-color: $password-color-b);
+
+    &-center {
+      @include input-password-center;
+    }
+
+    &.list-focus {
+      .auth-label {
+        font-family: $font-bold;
+        color: $color-primary;
+      }
+    }
+  }
+
+  .password-small {
+    @include input-password($size: 86, $margin-right: 20, $input-bg: $color-bg-gray, $shadow-size: 6, $shadow-color: $color-primary, $focus-input-bg: $color-white, $background-size: 38, $password-color: $password-color-b);
+
+  }
+
+  .password-smaller {
+    @include input-password($size: 84, $margin-right: 20, $input-bg: $color-bg-gray, $shadow-size: 6, $shadow-color: $color-primary, $focus-input-bg: $color-white, $background-size: 38, $password-color: $password-color-b);
+
+    &.list-focus {
+      .auth-label {
+        font-family: $font-bold;
+        color: $color-primary;
+      }
+    }
+  }
+
+  .password-wrap {
+    div {
+      margin-bottom: px(20);
+    }
+
+    div:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // 팝업 password 끝
+  //로딩 팝업
+  .loading-popup {
+    .popup-body {
+      border-radius: px(16);
+      background-color: $color-white;
+      text-align: center;
+
+      .body-text {
+        margin-bottom: px(2);
+        font-size: 2.8rem;
+      }
+
+      p:nth-of-type(2) {
+        margin-bottom: px(20);
+      }
+
+      img {
+        width: px(96);
+        height: px(96);
+      }
+    }
+  }
+
+  // 비밀번호 팝업 초기화
+  .auth-popup {
+    .body-text {
+      margin-bottom: px(52);
+
+      p {
+        margin-bottom: px(3);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .sub-text {
+      p {
+        line-height: px(32);
+        margin-bottom: px(2);
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  //구매 비밀번호 설정
+  .type-purchase {
+    .popup-body {
+      padding: px(52) px(119);
+    }
+  }
+
+  //청구서 결제
+  .type-purchase-bill {
+    .tooltip-area {
+      position: absolute;
+      left: px(0);
+      bottom: px(-118);
+
+      .tooltip {
+        @include tooltip($color: $color-bg-component);
+        font-size: 2.6rem;
+        padding: px(22) px(30);
+        margin-left: unset;
+
+        em {
+          font-family: $font-bold;
+        }
+
+        &::before {
+          top: px(-7);
+          left: px(147);
+          transform: rotate(144deg) skewY(-20deg);
+        }
+      }
+    }
+  }
+
+  //비밀번호 설정
+  .setting-password {
+    label {
+      font-size: 2.8rem;
+    }
+
+    .password-smaller {
+      justify-content: space-between;
+
+      &.focus {
+        .auth-label {
+          font-family: $font-bold;
+        }
+      }
+    }
+
+    .input-text {
+      width: auto;
+    }
+  }
+
+  //lock-password-popup 비밀번호 6자리
+  .lock-password {
+    .popup-body {
+      .text {
+        margin-bottom: px(16);
+      }
+    }
+  }
+
+  //사용자 인증번호 변경
+  .setting-auth {
+    .popup-body {
+      padding: px(52) px(69);
+    }
+
+    .password-wrap {
+      .password-default {
+        justify-content: space-between;
+        margin-bottom: px(38);
+      }
+
+      div:last-child {
+        margin-bottom: 0;
+      }
+
+      .input-text {
+        width: auto;
+      }
+    }
+
+    .body-text {
+      margin-bottom: px(31);
+    }
+  }
+
+  // 더보기, imdb 팝업
+  .moreinfo-popup, .imdb-popup {
+    //url
+    $url-images: "../images/vod/";
+
+    .contents {
+      position: relative;
+      height: px(418);
+      overflow: hidden;
+
+      &::after {
+        @include vs;
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        height: px(80);
+        background-image: linear-gradient(to bottom, $color-bg-transparent, $color-white 90%);
+        background-size: 100% px(80);
+      }
+    }
+
+    .staff {
+      font-size: 2.6rem;
+      color: $color-sub-black;
+      line-height: px(36);
+      margin-bottom: px(38);
+
+      > div {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: px(15);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .label {
+        font-family: $font-bold;
+        white-space: nowrap;
+        margin-right: px(6);
+      }
+
+      .cast-wrap {
+        display: inline-block;;
+      }
+    }
+
+    h4 {
+      font-family: $font-bold;
+      font-size: 2.8rem;
+      color: $color-sub-black;
+      line-height: px(40);
+      margin-bottom: px(4);
+
+      span {
+        &::before {
+          @include vs-ib;
+          content: "|";
+          margin-left: px(15);
+          padding-right: px(8);
+        }
+      }
+    }
+
+    .summary {
+      font-size: 2.8rem;
+      color: $color-gray-dark;
+      line-height: px(40);
+    }
+
+    // imdb
+    h3 {
+      display: flex;
+    }
+
+    .logo {
+      display: inline-block;
+      width: px(86);
+      height: px(42);
+      margin-right: px(12);
+      background-image: url($url-images + "logo-imdb-black.png");
+      @include background-default;
+      @include ir;
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: px(40);
+
+      .name {
+        font-family: $font-bold;
+        font-size: 2.6rem;
+        color: $color-sub-black;
+        margin-right: px(12);
+      }
+
+      .rating-star {
+        background-image: url($url-images + "ic-ratingstar-full.png");
+        @include background-default;
+      }
+
+      .point {
+        font-size: 2.4rem;
+        color: $color-sub-black;
+
+        .base-point {
+          position: relative;
+          display: inline-block;
+          font-size: 2rem;
+          color: $color-gray;
+          padding-left: px(10);
+          margin-left: px(2);
+
+          &::before {
+            @include vs;
+            content: '/';
+          }
+        }
+      }
+    }
+
+    .comment {
+      font-size: 2.8rem;
+      color: $color-gray-dark;
+      line-height: px(40);
+      margin-bottom: px(20);
+
+      .label {
+        font-family: $font-bold;
+        color: $color-sub-black;
+        line-height: px(40);
+        margin-bottom: px(4);
+      }
+    }
+
+    .scroll {
+      opacity: 1;
+    }
+  }
+
+  //세팅 팝업
+  //setting-popup-notice
+  .setting-notice-image {
+    .image {
+      @include background-default;
+      width: px(670);
+      height: px(304);
+    }
+  }
+
+  .setting-notice-all {
+    .popup-body {
+      padding: px(27) px(40) px(53);
+      height: px(587);
+    }
+
+    .contents-all {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .content-title {
+      margin-bottom: px(27);
+
+      .title {
+        margin-bottom: px(7);
+        font-family: $font-bold;
+        font-size: 2.8rem;
+        height: px(38);
+      }
+
+      .date {
+        color: $color-subtitle;
+        font-size: 2.6rem;
+      }
+    }
+
+    .content-body {
+      max-height: px(338, 218);
+      overflow: hidden;
+    }
+
+    .body-text {
+      margin-bottom: px(20);
+      font-size: 2.6rem;
+      line-height: px(37);
+      color: $color-radio-normal;
+    }
+
+    .scroll-contents {
+      margin-bottom: px(54);
+      height: px(304);
+      overflow: hidden;
+
+      .image-wrap {
+        position: relative;
+        width: 100%;
+        height: px(200);
+        margin-bottom: px(25);
+
+        &::before {
+          @include background-default;
+          @include vs;
+          background-image: url(../images/setting/img-launcher-on.png);
+          width: 100%;
+          height: 100%;
+          content: '';
+        }
+
+        .image {
+          @include background-contain;
+          position: relative;
+          // align-self: center;
+          height: 100%;
+        }
+      }
+    }
+
+    .scroll {
+      @include scroll($top: px(104), $right: px(-14), $height: px(304), $color1: rgba(#9a9a9a, 0.18), $color2: rgba(#9a9a9a, 0.8));
+      opacity: 1;
+
+      span {
+        height: px(160);
+      }
+    }
+  }
+
+  .popup-page-index {
+    @include flex-items-center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .pagination {
+      order: 2;
+    }
+
+    .ic-arrow {
+      display: block;
+      width: px(38);
+      height: px(30);
+      background-image: url("../images/vod/ic-season-arrow.png");
+      @include background-contain;
+      @include ir;
+
+      &.pre {
+        order: 1;
+        margin-right: px(18);
+      }
+
+      &.next {
+        transform: rotate(180deg);
+        order: 3;
+        margin-left: px(18);
+      }
+
+      &.focus {
+        background-image: url("../images/vod/ic-season-arrow.png");
+      }
+    }
+
+    .count {
+      position: relative;
+      width: px(120);
+      height: px(45);
+      line-height: px(45);
+      border-radius: px(8);
+      text-align: center;
+      background-color: $color-bg-gray;
+
+      &.focus {
+        position: relative;
+        background-color: $color-pure-white;
+
+        &::after {
+          @include focus-border;
+          box-shadow: 0px 0px 0px px(7) $color-primary;
+        }
+      }
+    }
+  }
+
+  //popup-time 시간설정 팝업
+  .setting-popup-time {
+    .title {
+      font: {
+        size: 3.0rem;
+        family: $font-bold;
+      }
+      text-align: center;
+      margin-bottom: px(20);
+    }
+
+    .popup-body {
+      .select-time {
+        border-bottom: 0;
+      }
+
+      .body-text {
+        margin-bottom: px(42);
+        text-align: center;
+      }
+    }
+  }
+
+  //마이 팝업
+  //subscribe-popup
+  .select-popup {
+    .cancel-reason {
+      margin-bottom: px(36);
+      text-align: center;
+
+      .text {
+        display: inline-block;
+      }
+    }
+
+    .input-field {
+      .radio-list {
+        height: auto;
+        margin: 0;
+
+        ul {
+          width: 100%;
+        }
+
+        li {
+          height: px(90);
+          justify-content: start;
+
+          &.focus {
+            .input-radio {
+              &::before {
+                background-color: $color-white;
+              }
+            }
+          }
+        }
+
+        .input-radio {
+          margin-right: px(0);
+        }
+
+        .text {
+          display: inline;
+          text-align: center;
+          font: {
+            size: 3.4rem;
+            family: $font-bold;
+          }
+        }
+
+        &::after {
+          content: none;
+        }
+      }
+
+      .checkbox-list {
+        height: calc((#{px(90)} * 4) + (#{px(20)} * 3));
+
+        &.active ul {
+          width: 100%;
+        }
+
+        ul {
+          width: 100%;
+
+          li {
+            justify-content: unset;
+            height: px(90);
+            padding: 0 px(30);
+
+            &.focus {
+              .input-checkbox {
+                &[type=checkbox]:checked {
+                  &::before {
+                    background-image: url(../images/common/ic-check-focus.png);
+                  }
+                }
+              }
+
+              .name {
+                color: $color-white;
+              }
+
+              .ic-tag {
+                opacity: 1;
+                border-color: $color-white;
+                color: $color-primary;
+                background-color: $color-white;
+              }
+            }
+
+            .input-checkbox {
+              margin-right: px(24);
+
+              &[type=checkbox]:checked {
+                &::before {
+                  background-image: url(../images/common/ic-check.png);
+                }
+              }
+            }
+
+            .name {
+              width: px(298);
+              font: {
+                family: $font-bold;
+                size: 3.4rem;
+              }
+            }
+
+            .ic-tag {
+              position: absolute;
+              right: px(30);
+              min-width: px(72);
+              height: px(38);
+              line-height: px(34);
+              text-align: center;
+              border: solid px(2) $color-sub-black-70;
+              border-radius: px(4);
+              color: $color-sub-black-98;
+            }
+          }
+        }
+      }
+    }
+
+    .scroll {
+      @include scroll($top: px(143), $right: px(16), $width: px(8), $height: calc(100% - (#{$popup-footer-height} + #{$popup-header-height} + #{$popup-padding-top} * 2)), $color1: rgba($color-gray, 0.18), $color2: rgba($color-gray, 0.8));
+    }
+  }
+
+  //set-continue-popup 연속시청 설정 [책 읽어주는 TV, VOD]
+  .set-continue-popup {
+    $url-images: "../images/my/";
+
+    .text {
+      margin-bottom: px(52);
+      font-size: 2.8rem;
+      color: $color-sub-black;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+
+      li {
+        @include flex-items-center;
+        flex-direction: column;
+        width: px(201);
+        height: px(201);
+        border-radius: px($border-radius);
+        background-color: $color-bg-gray;
+
+        &:first-child {
+          margin-right: px(76);
+        }
+
+        &.focus {
+          background-color: $color-primary;
+
+          p {
+            &.ic-book {
+              background-image: url($url-images + 'ic-readingbook-focus.png');
+            }
+
+            &.ic-vod {
+              background-image: url($url-images + 'ic-vod-focus.png');
+            }
+          }
+
+          span {
+            color: $color-white;
+          }
+        }
+
+        p {
+          width: px(141);
+          height: px(141);
+          margin: px(10) 0 px(8) 0;
+          @include background-contain;
+
+          &.ic-book {
+            background-image: url($url-images + 'ic-readingbook.png');
+          }
+
+          &.ic-vod {
+            background-image: url($url-images + 'ic-vod.png');
+          }
+        }
+
+        span {
+          font-family: 'YoonGothicPro770';
+          font-size: 2.2rem;
+          color: $color-sub-black;
+        }
+      }
+    }
+  }
+
+  //가입자 번호 확인 클래스
+  .checkuser-number {
+    text-align: center;
+    font-family: $font-bold;
+    font-size: 4.8rem;
+    color: $color-sub-black;
+  }
+
+  // 채널 팝업
+  //var
+  $height-popup-option: px(90);
+  $height-edit-schedule: px(646);
+  $height-edit-line: calc(#{$height-edit-schedule} / 8);
+  // mixins
+  @mixin focus-block {
+    border-radius: px($border-radius);
+    background-color: $color-primary;
+    color: $color-white;
+    font-family: $font-bold;
+  }
+
+  @mixin input-gray {
+    border-radius: px($border-radius);
+    border: px(1, 1) solid $color-gray-light;
+  }
+
+  //common
+  .mg-top20 {
+    margin-top: px(20); //common-popup-auth 사용
+  }
+
+  //button
+  .button-area {
+    justify-content: center;
+    @include flex-items-center;
+
+    .button-primary {
+      @include button-primary(px(86), px(220), 3.2rem);
+    }
+
+    .button-primary.small {
+      @include button-primary(px(52), px(115), 2.0rem);
+    }
+
+    .button-primary.middle {
+      @include button-primary(px(86), px(165), 3.0rem);
+    }
+
+    .button-primary.large {
+      @include button-primary(px(86), px(220), 3.2rem);
+    }
+  }
+
+  //누르는 버튼
+  .button-alt {
+    margin-top: px(29);
+
+    .button {
+      width: px(264);
+      height: px(68);
+      position: relative;
+      font: {
+        size: 2.6rem;
+        family: $font-bold;
+      }
+      color: $color-sub-black;
+      border-radius: px($border-radius);
+      border: px(2) solid $color-gray-dark-50;
+
+      &.focus {
+        font-size: 2.8rem;
+        border: none;
+
+        &::before {
+          position: absolute;
+          top: px(-6, -3);
+          left: 0;
+          width: 100%;
+          height: px(80);
+          border-radius: px($border-radius);
+          border: px(6) solid $color-primary;
+          @include vs-b;
+        }
+      }
+    }
+  }
+
+  .setting-container {
+    .button-area {
+      justify-content: flex-start;
+    }
+  }
+
+  //reservation-popup : start
+  $color-input-border: #b2b2b2;
+
+  .reservation-popup {
+    .popup-body {
+      padding: px(42) px(40);
+    }
+
+    .body-text {
+      margin-bottom: px(20);
+    }
+
+    .select-time {
+      &:not(:last-child) {
+        padding-bottom: px(40);
+      }
+
+      margin-bottom: px(2);
+      border-bottom: px(1, 1) solid $color-gray-light;
+
+      > div {
+        margin: 0 auto;
+      }
+
+      > p {
+        position: relative;
+      }
+
+      .focus {
+        border: none;
+        color: $color-black;
+
+        .input-text-wrap {
+          color: $color-black;
+        }
+
+        &::before {
+          @include focus-border;
+          box-shadow: 0 0 0 px(6) $color-primary;
+        }
+
+        .input[type=text] {
+          box-shadow: 0 0 0 px(6) $color-primary;
+        }
+      }
+
+      .input {
+        background: none;
+        position: relative;
+        line-height: px(68);
+        justify-content: center;
+        text-align: center;
+        color: $color-gray-dark;
+        font: {
+          size: 3.4rem;
+          family: $font-bold;
+        }
+        @include input-gray;
+        // &.focus {
+        //     border: none;
+        //     &::before {
+        //         @include focus-border;
+        //         box-shadow: 0 0 0 px(6) $color-primary;
+        //     }
+        // }
+        // &.focus[type=text] {
+        //     box-shadow: 0 0 0 px(6) $color-primary;
+        // }
+      }
+
+      .input-apm {
+        width: px(340);
+        justify-content: space-between;
+        @include flex-items-center;
+
+        .apm {
+          width: px(300);
+          color: $color-black;
+          font: {
+            size: 2.8rem;
+          }
+        }
+
+        .prev, .next {
+          @include flex-items-center;
+
+          button {
+            position: relative;
+            width: px(20);
+            height: px(30);
+            @include ir;
+
+            &::before {
+              width: px(20);
+              height: px(20);
+              border-top: px(4) solid $color-subtitle;
+              border-right: px(4) solid $color-subtitle;
+              position: absolute;
+              @include vs-b;
+            }
+          }
+        }
+
+        .prev {
+          & button::before {
+            top: px(5);
+            left: px(-32);
+            transform: rotate(225deg);
+          }
+        }
+
+        .next {
+          & button::before {
+            top: px(5);
+            left: px(32);
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .input-time {
+        width: px(300);
+        margin-top: px(20);
+        justify-content: space-between;
+        @include flex-items-center;
+
+        .input-text, .input {
+          width: px(140);
+
+          .input-text-wrap {
+            @include input-gray;
+            @include flex-items-center;
+            position: relative;
+            justify-content: center;
+            height: px(68);
+            color: $color-gray-dark;
+            font: {
+              size: 3.4rem;
+              family: $font-bold;
+            }
+
+            &.focus {
+              line-height: px(69, 44);
+              box-shadow: 0 0 0 px(6) $color-primary;
+              border: unset;
+              color: $color-sub-black;
+            }
+          }
+        }
+
+        .hour {
+          order: 1;
+        }
+
+        .minute {
+          order: 3;
+        }
+
+        &::after {
+          order: 2;
+          display: block;
+          width: auto;
+          height: 100%;
+          content: ':';
+          font: {
+            size: 3.2rem;
+            family: $font-bold;
+          }
+        }
+      }
+    }
+
+    .select-day {
+      position: relative;
+      overflow: hidden;
+      height: calc(#{$height-popup-option} * 4);
+      margin: 0 px(-40);
+
+      .input-checkbox {
+        margin-right: px(14);
+        background-color: $color-white;
+        @include input-check($width: px(46), $height: px(46), $border: px(3), $border-radius: px(2), $normal-color: $color-gray, $checked-color: $color-gray);
+
+        &[type=checkbox]:checked::before {
+          background-image: url(../images/my/ic-my-selectedect-focus.png);
+          background-size: 75%;
+        }
+      }
+
+      .scroll {
+        opacity: 0;
+        @include scroll(px(0), px(20), px(8), 100%, $color-bg-transparent, $color-gray-30);
+      }
+
+      &.active .scroll {
+        opacity: 1;
+      }
+
+      ul {
+        width: px(484);
+        margin: 0 auto;
+
+        li {
+          height: $height-popup-option;
+          justify-content: center;
+          @include flex-items-center;
+          font-size: 3.2rem;
+
+          label {
+            line-height: px(46);
+            position: relative;
+            top: px(-1, -1);
+          }
+
+          &.focus {
+            @include focus-block;
+          }
+        }
+      }
+    }
+
+    .reservation-program {
+      border-radius: px($border-radius);
+      border: px(1, 1) solid $color-gray-dark-50;
+      overflow: hidden;
+      font-size: 2.6rem;
+      width: px(510);
+      margin: 0 auto;
+      margin-bottom: px(30);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      li {
+        border-top: px(1, 1) solid $color-gray-dark-50;
+
+        &:first-child {
+          border-top: none;
+        }
+      }
+
+      .time {
+        padding: px(18) 0;
+        justify-content: center;
+        @include flex-items-center;
+
+        &::before {
+          width: px(31);
+          height: px(31);
+          margin-right: px(10);
+          background-image: url(../images/channel/ic-clock.png);
+          @include vs-b;
+          @include background-default;
+        }
+      }
+
+      .data {
+        @include flex-items-center;
+
+        .number {
+          width: px(198);
+          padding: px(22) px(18);
+          background-color: $color-bg-gray;
+
+          span {
+            display: block;
+            @include ellipsis(1);
+          }
+        }
+
+        .program {
+          flex: 1;
+          padding: px(0) px(18);
+          @include ellipsis(2);
+        }
+      }
+    }
+  }
+
+  //reservation-popup : end
+  //channel-edit : start
+  .edit-schedule {
+    .input-checkbox {
+      @include input-check($normal-color: $color-radio-cheked);
+      margin-right: px(48);
+
+      &::before {
+        @include background-default;
+        background-image: url(../images/purchase/ic-check2.png);
+      }
+    }
+  }
+
+  .channel-edit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: px(1282);
+    height: px(860);
+    border-radius: px(20);
+    background-color: $color-bg-setting;
+    flex-direction: column;
+    overflow: hidden;
+    @include flex-items-center;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  .channel-edit-header {
+    height: px(100);
+    justify-content: center;
+    @include flex-items-center;
+    @include line-bottom;
+
+    h2 {
+      font: {
+        size: 3.8rem;
+        family: $font-bold;
+      }
+    }
+  }
+
+  .channel-edit-body {
+    flex: 1;
+    @include flex-items-center;
+
+    > div {
+      height: 100%;
+    }
+
+    .category {
+      position: relative;
+      background-color: $color-black;
+      width: px(306);
+      font-size: 3.0rem;
+      color: $color-gray;
+      overflow: hidden;
+      padding-top: px(22);
+      height: px(762);
+
+      .scroll {
+        opacity: 0;
+        @include scroll(px(52), px(20), px(4), px(646), $color-white-divider, $color-gray);
+      }
+
+      &.active .scroll {
+        opacity: 1;
+      }
+
+      ul {
+        position: relative;
+        top: 0;
+
+        li {
+          position: relative;
+          height: px(86);
+          padding-left: px(50);
+          @include flex-items-center;
+
+          &.two-line {
+            height: px(128);
+            word-break: keep-all;
+
+            &.focus {
+              &::before {
+                $height: px(84);
+                height: $height;
+                margin-top: calc(#{-$height} / 2);
+              }
+            }
+          }
+        }
+
+        .focus {
+          color: $color-white;
+          font: {
+            size: 3.2rem;
+            family: $font-bold;
+          }
+
+          &::before {
+            $height: px(42);
+            @include vs;
+            top: 50%;
+            left: px(28);
+            width: px(6);
+            height: $height;
+            margin-top: calc(#{-$height} / 2);
+            border-radius: px(3);
+            background-color: $color-white;
+          }
+        }
+
+        .selected {
+          @extend .focus;
+
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+
+    .edit-schedule-wrap {
+      flex: 1;
+      padding: px(52) 0 px(60) px(22);
+      @include flex-items-center;
+
+      .mask {
+        height: px(6);
+      }
+
+      .button-area {
+        height: 100%;
+        width: px(296);
+        flex-direction: column;
+        justify-content: space-between;
+        @include flex-items-center;
+        padding: {
+          right: px(12);
+        }
+
+        button {
+          margin-left: 0;
+          margin-bottom: px(10);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .button-primary {
+          &.focus {
+            background-color: unset;
+            height: unset;
+
+            &::before {
+              @include vs;
+              top: px(-6);
+              background-color: $color-white;
+              width: 100%;
+              height: calc(#{px(86)} + #{px(12)});
+              border-radius: px($border-radius);
+              z-index: -1;
+            }
+          }
+        }
+
+        &::before {
+          flex: 1;
+          order: 3;
+          @include vs-b;
+        }
+
+        .sort1 {
+          order: 1;
+        }
+
+        .sort2 {
+          order: 2;
+        }
+
+        .sort4 {
+          order: 4;
+        }
+
+        .sort5 {
+          order: 5;
+        }
+      }
+
+      &.empty-list {
+        .edit-schedule {
+          display: none;
+        }
+
+        .info-empty {
+          display: block;
+        }
+      }
+    }
+
+    .info-empty {
+      display: none;
+      flex: 1;
+      text-align: center;
+
+      &::before {
+        width: px(120);
+        height: px(120);
+        @include vs-b;
+        @include background-default;
+        margin: 0 auto;
+        margin-bottom: px(40);
+        background-image: url(../images/common/ic-noti.png);
+      }
+
+      .exp {
+        font-size: 2.6rem;
+        color: $color-gray;
+        margin-bottom: px(60);
+
+        p {
+          line-height: px(40);
+          margin-bottom: px(6);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .edit-schedule {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      height: calc(#{$height-edit-schedule} + #{px(5)});
+      padding: {
+        top: px(5);
+        bottom: px(5);
+      }
+
+      .scroll {
+        opacity: 0;
+        @include scroll(0, 0, px(4), 100%, $color-white-divider, $color-gray);
+      }
+
+      &.active .scroll {
+        opacity: 1;
+      }
+
+      ul {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: px(604);
+        padding-top: px(5);
+      }
+
+      li {
+        position: relative;
+        color: $color-gray;
+        padding-left: px(24);
+        // height: $height-edit-line;
+        height: px(80);
+        @include flex-items-center;
+
+        p {
+          font-size: 3.2rem;
+        }
+
+        .number {
+          margin-right: px(30);
+        }
+
+        .name {
+          margin-right: px(18);
+          max-width: px(250);
+          @include ellipsis($line: 1);
+        }
+
+        .ic-tag {
+          color: $color-gray;
+        }
+
+        &.focus {
+          font-family: $font-bold;
+
+          &::before {
+            @include vs;
+            top: px(-5);
+            width: 100%;
+            height: px(90);
+            background-color: $color-bg-component;
+            border-radius: px($border-radius);
+            z-index: -1;
+          }
+
+          .input-checkbox {
+            @include input-check($normal-color: $color-radio-cheked);
+          }
+
+          p {
+            color: $color-white;
+          }
+
+          .ic-tag {
+            color: $color-white;
+            background-color: $color-primary;
+            border: px(1, 1) solid $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  //channel-edit : end
+  // 라이브 tv 옵션 메뉴 팝업
+  .channel-option-popup {
+    > div.popup {
+      width: px(580);
+      // .popup-header{
+      //     border-bottom: px(2) solid $color-gray-light;
+      // }
+      .popup-body {
+        position: relative;
+        padding: px(28) 0;
+        font: {
+          size: 3.2rem;
+          family: $font-bold;
+        }
+
+        .contents {
+          position: relative;
+          overflow: hidden;
+          height: calc(#{$height-popup-option} * 6);
+
+          .scroll {
+            opacity: 0;
+            @include scroll(px(0), px(11), px(8), 100%, $color-bg-transparent, $color-gray-30);
+          }
+
+          &.active .scroll {
+            opacity: 1;
+          }
+        }
+
+        ul {
+          margin: 0 px(30);
+
+          li {
+            height: $height-popup-option;
+            justify-content: center;
+            @include flex-items-center;
+
+            &.focus {
+              @include focus-block;
+            }
+          }
+        }
+      }
+    }
+
+    &.no-scroll {
+      .contents {
+        height: unset !important;
+      }
+
+      .scroll {
+        display: none;
+      }
+    }
+  }
+
+  // 라이브 tv 옵션 메뉴 팝업 끝
+  // 미가입채널 가입안내 팝업
+  .channel-subscribe-guide-popoup {
+    > div.popup {
+      .popup-body {
+        position: relative;
+        padding: px(52) 0;
+
+        .contents {
+          position: relative;
+        }
+
+        ol {
+          margin: 0 px(40);
+          position: relative;
+
+          li {
+            margin-bottom: px(20);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: px(36);
+            background: rgb(238, 238, 238);
+            background: linear-gradient(180deg, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 1) 99%);
+          }
+        }
+
+        .scroll {
+          // @include scroll(px(53), px(20), px(6), px(282), rgba(169, 169, 169, 0.18), rgba(169, 169, 169, 0.8));
+          @include scroll(px(0), px(21), px(8), 100%, $color-bg-transparent, $color-gray-30);
+
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  //미가입채널 가입안내 팝업 끝
+  // 미가입채널 상품안내 팝업
+  .channel-subscribe-popoup {
+    > div.popup {
+      .popup-header {
+        border-bottom: px(2) solid rgba(183, 181, 189, 0.3)
+      }
+
+      .popup-body {
+        position: relative;
+        display: flex;
+        height: px(552);
+        padding-top: px(16);
+        padding-left: px(24);
+        padding-right: px(24);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: px(360);
+          width: px(2);
+          height: px(500);
+          background-color: $color-sub-line;
+          opacity: 0.3;
+        }
+
+        .pricelist {
+          width: px(410);
+          padding-top: px(38);
+
+          li {
+            width: px(310);
+            font-size: 3.2rem;
+            padding: px(22) px(0);
+            padding-left: px(26);
+
+            &.focus {
+              @include focus-block;
+            }
+          }
+        }
+
+        .explanation {
+          width: px(650);
+          height: px(210);
+          padding-top: px(60);
+
+          > ul {
+            li {
+              &:last-child {
+                color: $color-gray-dark;
+              }
+            }
+          }
+
+          > div {
+            position: relative;
+            height: px(156);
+            border-bottom: px(2) solid rgba(183, 181, 189, 0.3);
+
+            p {
+              span {
+                display: inline-block;
+                width: 49%;
+                font-size: 2.4rem;
+
+                &.channel {
+                  margin-bottom: px(10);
+                  text-align: right;
+                  font-size: 2.6rem;
+                  color: $color-gray-dark;
+                }
+              }
+
+              &.price {
+                text-align: right;
+                font-family: $font-bold;
+                font-size: 4.8rem;
+                color: $color-primary;
+              }
+            }
+          }
+
+          > ul {
+            margin-top: px(52);
+            margin-left: px(24);
+            font-size: 2rem;
+
+            li {
+              &::before {
+                content: '•';
+                width: px(10);
+                height: px(10);
+              }
+
+              margin-bottom: px(15);
+
+              &:last-child {
+                margin-bottom: px(27);
+              }
+            }
+          }
+
+          > p {
+            margin-left: px(24);
+            font-size: 1.6rem;
+            color: $color-subtitle;
+          }
+        }
+      }
+
+      .popup-footer {
+        button {
+          font-family: $font-bold;
+          font-size: 3.4rem;
+        }
+      }
+    }
+  }
+
+  // 미가입채널 상품안내 팝업 끝
+  // purchase-popup
+  //var
+  $color-sub-line-30: rgba($color-sub-line, .3);
+  $color-input-border: #b2b2b2;
+
+  .popup .mg-top {
+    margin-top: px(50);
+  }
+
+  .popup .mg-none {
+    margin-bottom: 0;
+  }
+
+  // list-guide
+  .list-guide {
+    position: relative;
+
+    li {
+      font-size: 2.8rem;
+      line-height: px(36);
+      margin-top: px(20);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // event-payment
+  .word-break {
+    word-break: keep-all;
+  }
+
+  .event-payment {
+    margin: 0 px(-15);
+    width: px(100%);
+    height: px(174);
+    border-radius: px($border-radius);
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font: {
+      size: 2.8rem;
+      family: $font-bold;
+    }
+    margin-bottom: px(20);
+    background-color: #93a7bc;
+
+    p {
+      line-height: px(30);
+      margin-top: px(8);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .sub-text-box {
+    p {
+      margin-top: px(2);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // info-roundbox
+  .info-roundbox {
+    margin-bottom: px(20);
+
+    li {
+      margin: 0 auto;
+      margin-top: px(20);
+      height: px(164);
+      width: px(536);
+      border-radius: px($border-radius);
+      background-color: $color-bg-gray;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .body-text {
+        margin-bottom: px(12);
+      }
+
+      em {
+        color: $color-primary;
+        font-size: 4.2rem;
+        line-height: px(56);
+      }
+    }
+  }
+
+  // form-bill : start
+
+  .form-bill {
+    dl {
+      justify-content: space-between;
+      @include flex-items-center;
+    }
+
+    .title {
+      padding-bottom: px(20);
+      border-bottom: px(2) solid $color-sub-line-30;
+
+      dd {
+        font-family: $font-bold;
+      }
+    }
+
+    .details {
+      height: px(170);
+      padding: px(20) px(17);
+
+      dl {
+        margin-bottom: px(20);
+        line-height: px(30);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .total {
+      padding-top: px(20);
+      border-top: px(2) solid $color-sub-line;
+
+      dd {
+        font-family: $font-bold;
+        color: $color-primary;
+      }
+    }
+  }
+
+  // form-bill : end
+  //input-field : start
+  .input-field.add-margin {
+    margin: 0 px(50);
+  }
+
+  .input-field.side-margin {
+    margin: 0 px(24);
+  }
+
+  .input-field.add-margin .input-field.add-margin-left {
+    margin-left: px(45);
+  }
+
+  .input-field {
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .align-right {
+      justify-content: flex-end;
+    }
+
+    input[type=text], input[type=password], input[type=number] {
+      background: none;
+      width: px(180);
+      line-height: px(64);
+      text-align: center;
+      border: px(3) solid $color-input-border;
+      border-radius: px($border-radius);
+      color: $color-sub-black;
+      position: relative;
+      z-index: 1;
+      font: {
+        size: 2.6rem;
+        family: $font-bold;
+      }
+
+      &::placeholder {
+        color: $color-subtitle;
+        font-family: $font-regular;
+      }
+
+      &.focus {
+        border: none;
+        box-shadow: 0 0 0 px(6) $color-primary;
+      }
+    }
+
+    .mg-top {
+      margin-top: px(50);
+    }
+
+    .input-split {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      @include flex-items-center;
+      height: px(80);
+
+      &.coupon-registration {
+        .input-text {
+          $height: px(84);
+          position: relative;
+          width: px(170);
+          line-height: $height;
+          height: $height;
+
+          .input-text-wrap {
+            height: $height;
+          }
+
+          &:first-child {
+            &::before {
+              content: unset;
+            }
+          }
+
+          &::before {
+            $width: px(15);
+            $height: px(2);
+            $margin: px(18);
+            $top: 50%;
+            @include vs;
+            left: calc(#{-$width} + #{-$margin});
+            top: calc(#{$top} - #{px(1)});
+            width: $width;
+            height: px(2);
+            background-color: $color-gray-dark;
+          }
+        }
+      }
+
+      .input-text {
+        $width: px(180);
+        $height: px(68);
+        width: $width;
+        line-height: calc(#{$height} - #{px(4)});
+        height: $height;
+        border-radius: px($border-radius);
+        color: $color-sub-black;
+        font: {
+          size: 2.6rem;
+          family: $font-bold;
+        }
+
+        span:not(.cursor) {
+          padding: 0 px(1, 1);
+        }
+      }
+
+      .input-text-wrap {
+        @include flex-items-center;
+        justify-content: center;
+        border: px(3) solid $color-input-border;
+        border-radius: px($border-radius);
+        height: px(68);
+      }
+
+      .double {
+        width: px(380);
+      }
+
+      .focus {
+        line-height: px(68);
+        box-shadow: 0 0 0 px(6) $color-primary;
+        border: unset;
+      }
+    }
+
+    .input-checkbox-min {
+      margin-top: px(21);
+      @include flex-items-center;
+
+      input {
+        @include input-check($width: px(30), $height: px(30), $border: px(1, 1), $border-radius: px(4), $normal-color: #979797, $checked-color: $color-radio-normal);
+
+        &:checked {
+          border-color: #979797;
+        }
+
+        &[type=checkbox]:checked::before {
+          background-image: url(../images/purchase/ic-check-focus-min.png);
+        }
+
+        &[type=checkbox]:checked + label {
+          color: $color-sub-black;
+        }
+      }
+
+      label {
+        cursor: pointer;
+        display: inline-block;
+        margin-left: px(10);
+        line-height: px(30);
+
+        &.focus {
+          color: $color-sub-black;
+        }
+      }
+    }
+
+    .input-box {
+      em {
+        font-size: 3.0rem;
+      }
+
+      input[type=text], input[type=password], input[type=number] {
+        line-height: px(78);
+        width: px(245);
+
+        &.single {
+          width: px(84);
+        }
+      }
+
+      .button {
+        width: px(245);
+        line-height: px(84);
+        text-align: center;
+        background-color: $color-bg-gray;
+        color: $color-bg-black;
+        border-radius: px($border-radius);
+        font: {
+          size: 3.0rem;
+          family: $font-bold;
+        }
+
+        &.focus {
+          background-color: $color-primary;
+          color: $color-white;
+        }
+      }
+
+      dl {
+        height: px(84);
+        margin-top: px(20);
+        justify-content: flex-start;
+        @include flex-items-center;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &.selected dt {
+          color: $color-primary;
+          font-family: $font-bold;
+        }
+
+        dt {
+          min-width: px(180);
+          margin-right: px(54);
+        }
+
+        dd {
+          width: px(490);
+          justify-content: space-between;
+          @include flex-items-center;
+
+          .input-text {
+            border-radius: px($border-radius);
+            color: $color-sub-black;
+            font: {
+              size: 2.6rem;
+              family: $font-bold;
+            }
+
+            span:not(.cursor) {
+              padding: 0 px(1, 1);
+            }
+
+            &.focus {
+              .input-text-wrap {
+                border: unset;
+              }
+            }
+          }
+
+          .input-text-wrap {
+            @include flex-items-center;
+            width: 100%;
+            justify-content: center;
+            border: px(3) solid $color-input-border;
+            border-radius: px($border-radius);
+            height: px(84);
+          }
+
+          .focus {
+            line-height: px(68);
+            box-shadow: 0 0 0 px(6) $color-primary;
+            border: unset;
+          }
+        }
+      }
+
+      .agency {
+        dd {
+          justify-content: flex-start;
+        }
+
+        span {
+          width: px(180);
+          margin-left: px(49);
+        }
+
+        button {
+          line-height: px(72);
+
+          &.focus {
+            line-height: px(84);
+            box-shadow: unset;
+          }
+        }
+      }
+
+      .resident {
+        dd {
+          @include flex-items-center;
+
+          .input-text {
+            width: px(245);
+
+            &:nth-child(2) {
+              width: px(84);
+              order: 3;
+            }
+          }
+
+          > span {
+            order: 4;
+            margin-left: px(15);
+          }
+
+          &::before {
+            order: 2;
+            background-color: $color-gray-dark;
+            width: px(15);
+            height: px(2);
+            @include vs-b;
+          }
+        }
+      }
+
+      .auth {
+        dd {
+          .input-text {
+            width: px(245);
+            z-index: 1;
+          }
+
+          .button {
+            &.focus {
+              line-height: px(86);
+              box-shadow: unset;
+            }
+          }
+        }
+      }
+    }
+
+    // 예외처리(tv와 휴대폰 연결...)
+    .input-box {
+      .alt {
+        margin: px(46) 0;
+        @include flex-items-center;
+
+        input[type=text], input[type=password], input[type=number] {
+          font: {
+            size: 3.4rem;
+            family: $font-bold;
+          }
+          flex: 1;
+        }
+
+        dl {
+          &.focus {
+            .input-text-wrap {
+              border: px(6) solid $color-primary;
+            }
+          }
+
+          dd {
+            width: px(410);
+
+            .input-text {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    // 쿠폰 선택 리스트(팝업)
+    .coupon-list {
+      //var
+      $height-coupon: px(120);
+      $height-coupon-all: (#{$height-coupon} * 3);
+      $margin-coupon: px(20);
+      position: relative;
+      height: calc(#{$height-coupon-all} + #{$margin-coupon} + #{$margin-coupon});
+      // margin: 0 px(10);
+      overflow: hidden;
+
+      &::after {
+        @include vs;
+        top: unset;
+        bottom: 0;
+        width: px(808);
+        height: px(80);
+        background-image: linear-gradient(to bottom, $color-bg-transparent, $color-white);
+        background-size: 100% px(80);
+        display: none;
+      }
+
+      .scroll {
+        opacity: 0;
+        @include scroll(px(0), px(0), px(8), 100%, $color-bg-transparent, $color-gray-30);
+
+        span {
+          display: block;
+        }
+      }
+
+      &.bottom-cover {
+        &::after {
+          display: block;
+        }
+      }
+
+      &.active ul {
+        width: px(808);
+      }
+
+      &.active::after, &.active .scroll {
+        opacity: 1;
+      }
+
+      .body-text {
+        em {
+          display: block;
+          max-width: px(746);
+          font-size: 3.4rem;
+          @include ellipsis($line: 1)
+        }
+      }
+
+      .input-radio, .input-checkbox {
+        @include input-check($checked-color: $color-radio-normal);
+        margin-right: px(40);
+      }
+
+      ul {
+        width: 100%;
+      }
+
+      li {
+        height: $height-coupon;
+        margin-bottom: px(20);
+        padding: 0 43px 0 40px;
+        border-radius: px($border-radius);
+        justify-content: space-between;
+        @include flex-items-center;
+
+        .text {
+          flex: 1;
+          justify-content: space-between;
+          @include flex-items-center;
+          line-height: px(24);
+
+          .body-text {
+            width: px(430);
+            line-height: px(38);
+            text-align: left;
+          }
+
+          .sub-text {
+            margin-top: 0;
+            line-height: px(32);
+          }
+
+          span {
+            display: block;
+          }
+        }
+
+        .input-radio {
+          margin-right: px(24);
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &.selected, &.focus {
+          background-color: $color-primary;
+
+          .text, .sub-text {
+            color: $color-white;
+          }
+
+          .input-radio, .input-checkbox {
+            @include input-check($normal-color: $color-white, $checked-color: $color-white);
+          }
+        }
+      }
+    }
+  }
+
+  //input-field : end
+  @font-face {
+    font-family: 'pass';
+    font-style: normal;
+    font-weight: 400;
+    src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA) format('woff');
+  }
+
+  input[type=password] {
+    font-family: 'pass', 'Roboto', Helvetica, Arial, sans-serif !important;
+  }
+
+  // 쿠폰 구매하기
+  .popup-buy-coupon {
+    .coupon-img {
+      margin-bottom: px(40);
+      position: relative;
+      width: 100%;
+      height: px(233);
+      background-color: $color-bg-component;
+      border-radius: px($border-radius);
+      padding: 0 px(80);
+      color: $color-gray;
+
+      .price {
+        padding: px(20) 0 px(16) 0;
+        border-bottom: px(2) solid rgba($color-pure-white, .12);
+
+        em {
+          display: block;
+          line-height: px(61);
+          color: $color-primary;
+          font: {
+            size: 4.6rem;
+            family: $font-bold;
+          }
+        }
+
+        span {
+          display: block;
+          color: $color-white;
+          font-size: 3.0rem;
+          margin-top: px(2);
+          line-height: px(38);
+        }
+      }
+
+      .details {
+        margin-top: px(16);
+        font-size: 2.4rem;
+
+        p {
+          line-height: px(27);
+          margin-top: px(4);
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &::before {
+        width: px(164);
+        height: px(164);
+        @include background-default;
+        @include vs;
+      }
+
+      &.more-5 {
+        &::before {
+          background-image: url(../images/my/tag-my-sale-5-focus.png);
+        }
+      }
+
+      &.more-10 {
+        &::before {
+          background-image: url(../images/my/tag-my-sale-10-focus.png);
+        }
+      }
+    }
+
+    .input-password {
+      @include input-password(104, 26, $color-bg-gray, 6, $color-primary, $color-white, 38, $password-color-b);
+    }
+
+    .body-text {
+      margin-bottom: px(30);
+
+      em {
+        display: block;
+        margin-bottom: px(10);
+      }
+    }
+
+    .sub-text {
+      margin-top: px(32);
+      padding-top: px(23);
+      border-top: px(2) solid rgba($color-sub-line, .3);
+    }
+  }
+
+  // 스탬프 쿠폰
+  //type-coupon : start
+  .popup.type-coupon {
+    background: none;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(../images/my/bg-popup-coupon.png);
+
+    span {
+      display: inline-block;
+    }
+
+    .finish {
+      padding-left: px(212)
+    }
+
+    .popup-header {
+      border-bottom: none;
+    }
+
+    .popup-body {
+      position: relative;
+      overflow: hidden;
+      padding: $popup-padding-top px(60);
+
+      &::after {
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        @include vs;
+        z-index: -1;
+        top: px(200);
+      }
+    }
+
+    .coupon-stamp {
+      margin: px(20) px(40) 0;
+
+      ul {
+        margin-bottom: px(40);
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include flex-items-center;
+
+        li {
+          margin-top: px(20);
+          margin-left: px(50);
+          width: px(111);
+          height: px(110);
+          @include background-default;
+          background-image: url(../images/my/ic-stamp-inactive.png);
+
+          &:nth-child(5n+1) {
+            margin-left: 0;
+          }
+
+          &.active {
+            background-image: url(../images/my/ic-stamp.png);
+          }
+
+          &.focus {
+            background-image: url(../images/my/ic-stamp-focus.png);
+          }
+        }
+      }
+    }
+
+    .coupon-normal {
+      overflow: hidden;
+      position: relative;
+      width: px(840);
+      height: px(300);
+      margin-bottom: px(40);
+      border-radius: px($border-radius);
+      @include background-default;
+      justify-content: center;
+      @include flex-items-center;
+
+      &::before {
+        opacity: .8;
+        width: 100%;
+        height: 100%;
+        background-color: $color-black;
+        @include vs;
+      }
+
+      .details {
+        position: relative;
+        z-index: 1;
+        color: $color-white;
+        text-align: center;
+        font-size: 3.0rem;
+
+        .tag {
+          display: inline-block;
+          font: {
+            size: 2.0rem;
+            family: $font-bold;
+          }
+          width: px(134);
+          line-height: px(40);
+          border-radius: px(4);
+          background-color: $color-blue;
+          margin-bottom: px(28);
+        }
+      }
+    }
+
+    .stamp-vod {
+      position: relative;
+      margin: 0 px(-20);
+      justify-content: center;
+      @include flex-items-center;
+
+      button {
+        display: block;
+        width: px(20);
+        height: px(40);
+        position: absolute;
+        top: px(111);
+        @include background-default;
+
+        &.prev {
+          left: 0;
+          background-image: url(../images/my/ic-common-left.png);
+        }
+
+        &.next {
+          right: 0;
+          background-image: url(../images/my/ic-common-right.png);
+        }
+
+        &.prev.focus {
+          background-image: url(../images/my/ic-common-left-focus.png);
+        }
+
+        &.next.focus {
+          background-image: url(../images/my/ic-common-right-focus.png);
+        }
+      }
+
+      .vod-list {
+        $width-vod-list: px(188);
+        width: calc(#{$width-vod-list} * 4);
+        text-align: center;
+        overflow: hidden;
+
+        ul {
+          justify-content: space-between;
+          @include flex-items-center;
+        }
+
+        li {
+          width: $width-vod-list;
+
+          .img-wrap {
+            position: relative;
+            width: $width-vod-list;
+            height: px(262);
+            margin-bottom: px(9);
+            justify-content: center;
+            @include flex-items-center;
+
+            .img {
+              position: relative;
+              width: px(166);
+              height: px(236);
+              border-radius: px($border-radius);
+              overflow: hidden;
+              @include background-default;
+            }
+
+            .tags {
+              opacity: 0;
+              position: absolute;
+              top: px(10);
+              right: px(6);
+              z-index: 1;
+              @include flex-items-center;
+
+              .tag {
+                width: px(32);
+                height: px(32);
+                justify-content: center;
+                @include flex-items-center;
+                border-radius: 50%;
+                background-color: rgba($color-pure-black, .6);
+                font: {
+                  size: 1.2rem;
+                  family: $font-bold;
+                }
+                color: $color-white;
+                text-align: center;
+                margin-left: px(4);
+
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+
+          .info {
+            opacity: 0;
+            height: px(81);
+
+            .title {
+              position: relative;
+              font: {
+                size: 3.4rem;
+                family: $font-bold;
+              }
+              height: px(45);
+              line-height: px(45);
+
+              span {
+                display: block;
+                @include ellipsis($line: 1);
+                max-width: px(560);
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%)
+              }
+            }
+
+            .grade {
+              font-size: 2.6rem;
+              color: $color-gray-dark;
+              line-height: px(32);
+              margin-top: px(4);
+              justify-content: center;
+              @include flex-items-center;
+
+              &::before {
+                width: px(2);
+                height: px(20);
+                margin: 0 px(8);
+                background-color: $color-gray-dark;
+                order: 2;
+                @include vs-b;
+              }
+
+              .star {
+                order: 3;
+                @include flex-items-center;
+
+                &::before {
+                  width: px(24);
+                  height: px(32);
+                  margin-right: px(4);
+                  background-image: url(../images/my/ic-popup-star-focus.png);
+                  @include vs-b;
+                  @include background-default;
+                }
+              }
+            }
+
+            &.align-left {
+              text-align: left;
+              margin-left: px(5);
+
+              .grade {
+                justify-content: flex-start;
+              }
+
+              .title span {
+                left: 0;
+                transform: translateX(0)
+              }
+            }
+
+            &.align-right {
+              text-align: right;
+              margin-right: px(5);
+
+              .grade {
+                justify-content: flex-end;
+              }
+
+              .title span {
+                text-align: right;
+                left: 100%;
+                transform: translateX(-100%);
+              }
+            }
+          }
+        }
+
+        li.focus {
+          .img-wrap {
+            .img {
+              width: px(176);
+              height: px(250);
+              background-color: $color-primary;
+              box-shadow: 0 0 0 px(6) $color-primary;
+            }
+
+            .tags {
+              opacity: 1;
+            }
+          }
+
+          .info {
+            opacity: 1;
+          }
+        }
+
+        li.selected {
+          .img-wrap {
+            .img {
+              &::before {
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color-black, .6);
+                @include vs;
+              }
+
+              &::after {
+                width: px(55);
+                height: px(55);
+                position: absolute;
+                z-index: 1;
+                top: px(8);
+                right: px(8);
+                @include vs-b;
+                @include background-default;
+                background-image: url(../images/my/ic-stamp-white.png);
+              }
+            }
+          }
+        }
+
+        li.selected.focus {
+          .tags {
+            opacity: 0;
+          }
+        }
+
+        .dots {
+          display: flex;
+          justify-content: center;
+          margin-top: px(20);
+
+          span {
+            display: block;
+            width: px(20);
+            height: px(20);
+            border-radius: 50%;
+            background-color: $color-gray;
+
+            &:not(:last-child) {
+              margin-right: 5px;
+            }
+
+            &.focus {
+              background-color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+
+    //test용입니다.
+    .test {
+      position: relative;
+      margin: 0 px(-20);
+      justify-content: center;
+      @include flex-items-center;
+
+      .button-area {
+        button {
+          display: block;
+          width: px(20);
+          height: px(40);
+          position: absolute;
+          top: px(111);
+          @include background-default;
+
+          &.prev {
+            left: 0;
+            background-image: url(../images/my/ic-common-left.png);
+
+            &.focus {
+              background-image: url(../images/my/ic-common-left-focus.png);
+            }
+          }
+
+          &.next {
+            right: 0;
+            background-image: url(../images/my/ic-common-right.png);
+
+            &.focus {
+              background-image: url(../images/my/ic-common-right-focus.png);
+            }
+          }
+        }
+      }
+
+      .vod-list {
+        $width-vod-list: px(188);
+        width: calc(#{$width-vod-list} * 4);
+        text-align: center;
+        overflow: hidden;
+
+        ul {
+          justify-content: space-between;
+          @include flex-items-center;
+        }
+
+        li {
+          width: $width-vod-list;
+
+          .img-wrap {
+            position: relative;
+            width: $width-vod-list;
+            height: px(262);
+            margin-bottom: px(9);
+            justify-content: center;
+            @include flex-items-center;
+
+            .img {
+              position: relative;
+              width: px(166);
+              height: px(236);
+              border-radius: px($border-radius);
+              overflow: hidden;
+              @include background-default;
+            }
+
+            .tags {
+              opacity: 0;
+              position: absolute;
+              top: px(10);
+              right: px(6);
+              z-index: 1;
+              @include flex-items-center;
+
+              .tag {
+                width: px(32);
+                height: px(32);
+                justify-content: center;
+                @include flex-items-center;
+                border-radius: 50%;
+                background-color: rgba($color-pure-black, .6);
+                font: {
+                  size: 1.2rem;
+                  family: $font-bold;
+                }
+                color: $color-white;
+                text-align: center;
+                margin-left: px(4);
+
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+
+          .info {
+            opacity: 0;
+            height: px(81);
+
+            .title {
+              position: relative;
+              font: {
+                size: 3.4rem;
+                family: $font-bold;
+              }
+              height: px(45);
+              line-height: px(45);
+
+              span {
+                display: block;
+                @include ellipsis($line: 1);
+                max-width: px(560);
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%)
+              }
+            }
+
+            .grade {
+              font-size: 2.6rem;
+              color: $color-gray-dark;
+              line-height: px(32);
+              margin-top: px(4);
+              justify-content: center;
+              @include flex-items-center;
+
+              &::before {
+                width: px(2);
+                height: px(20);
+                margin: 0 px(8);
+                background-color: $color-gray-dark;
+                order: 2;
+                @include vs-b;
+              }
+
+              .star {
+                order: 3;
+                @include flex-items-center;
+
+                &::before {
+                  width: px(24);
+                  height: px(32);
+                  margin-right: px(4);
+                  background-image: url(../images/my/ic-popup-star-focus.png);
+                  @include vs-b;
+                  @include background-default;
+                }
+              }
+            }
+
+            &.align-left {
+              text-align: left;
+              margin-left: px(5);
+
+              .grade {
+                justify-content: flex-start;
+              }
+
+              .title span {
+                left: 0;
+                transform: translateX(0)
+              }
+            }
+
+            &.align-right {
+              text-align: right;
+              margin-right: px(5);
+
+              .grade {
+                justify-content: flex-end;
+              }
+
+              .title span {
+                text-align: right;
+                left: 100%;
+                transform: translateX(-100%);
+              }
+            }
+          }
+        }
+
+        li.focus {
+          .img-wrap {
+            .img {
+              width: px(176);
+              height: px(250);
+              background-color: $color-primary;
+              box-shadow: 0 0 0 px(6) $color-primary;
+            }
+
+            .tags {
+              opacity: 1;
+            }
+          }
+
+          .info {
+            opacity: 1;
+          }
+        }
+
+        li.selected {
+          .img-wrap {
+            .img {
+              &::before {
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color-black, .6);
+                @include vs;
+              }
+
+              &::after {
+                width: px(55);
+                height: px(55);
+                position: absolute;
+                z-index: 1;
+                top: px(8);
+                right: px(8);
+                @include vs-b;
+                @include background-default;
+                background-image: url(../images/my/ic-stamp-white.png);
+              }
+            }
+          }
+        }
+
+        li.selected.focus {
+          .tags {
+            opacity: 0;
+          }
+        }
+
+        .dots {
+          display: flex;
+          justify-content: center;
+          margin-top: px(20);
+
+          span {
+            display: block;
+            width: px(20);
+            height: px(20);
+            border-radius: 50%;
+            background-color: $color-gray;
+
+            &:not(:last-child) {
+              margin-right: 5px;
+            }
+
+            &.active {
+              background-color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //type-coupon : end
+  //popup-toast : start
+  .popup-toast {
+    display: inline-block;
+    position: absolute;
+    bottom: px(60);
+    right: px(60);
+    z-index: 20;
+    max-width: px(880);
+    border-radius: px(20);
+    padding: px(28) px(60);
+    background-color: $color-white;
+    text-align: center;
+    box-shadow: 0 px(8) px(30) 0 $color-black-30;
+
+    p {
+      color: $color-black;
+      font-size: 3.2rem;
+      line-height: px(46);
+      word-break: keep-all;
+      @include ellipsis($line: 1);
+
+      &.title, em {
+        font-family: $font-bold;
+      }
+    }
+
+    &.position-topleft {
+      bottom: unset;
+      right: unset;
+      top: px(60);
+      left: px(60);
+    }
+
+    &.position-topcenter {
+      bottom: unset;
+      right: unset;
+      top: px(60);
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    &.position-bottomcenter {
+      right: unset;
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    &.limit-2 {
+      p {
+        @include ellipsis($line: 2);
+      }
+    }
+
+    &.limit-3 {
+      padding: px(24) px(60);
+
+      p {
+        @include ellipsis($line: 3);
+      }
+    }
+
+    &.alt {
+      max-width: px(1435);
+      width: px(1435);
+      height: px(214);
+      padding: 0 px(40);
+      box-shadow: 0 px(8) px(30) 0 rgba($color-pure-black, .4);
+      background-color: rgba($color-bg-component, .9);
+
+      p {
+        color: $color-gray-light;
+        line-height: px(41);
+        margin-top: px(8);
+
+        &:first-child {
+          margin-top: px(27);;
+        }
+      }
+
+      .sub-text {
+        margin-top: px(29);
+        font-size: 2.4rem;
+        color: $color-gray;
+        line-height: px(30);
+
+        span {
+          @include ic-round;
+          width: px(62);
+          padding: 0;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  //popup-toast : end
+  //popup-error : start
+  .error-popup {
+    .highlight {
+      color: $color-primary;
+    }
+
+    .error-sub {
+      margin: px(20) 0 px(32);
+    }
+
+    .code {
+      margin-left: px(10);
+    }
+
+    .error-list {
+      margin: px(20) 0 px(42);
+      text-align: center;
+      color: $color-primary;
+    }
+
+    .button-area {
+      height: px(86);
+      margin-bottom: px(32);
+
+      .button-primary.error {
+        @include button-primary(px(86), px(326), 3.2rem);
+        background-color: $color-bg-gray;
+        color: $color-black;
+
+        &.focus {
+          background-color: $color-primary;
+          color: $color-white;
+          height: px(86);
+        }
+      }
+    }
+
+    .more-22 {
+      margin-bottom: px(22);
+    }
+
+    .boby-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .image {
+      width: px(670);
+      height: px(304);
+      @include background-contain;
+    }
+
+    .time {
+      @include flex-items-center;
+      justify-content: center;
+    }
+
+    .ic-time {
+      display: inline-block;
+      width: px(38);
+      height: px(36);
+      background-image: url('../images/common/ic-popup-time.png');
+      @include background-contain;
+    }
+
+    .error-code {
+      margin-top: px(32);
+    }
+
+    .number-list {
+      counter-reset: number 0;
+      padding-left: px(30);
+
+      li {
+        position: relative;
+
+        &::before {
+          @include vs;
+          counter-increment: number 1;
+          content: counter(number) '.';
+          left: px(-30);
+          text-align: right;
+        }
+      }
+    }
+
+    .content-wrap {
+      display: flex;
+
+      li {
+        position: relative;
+        width: px(332);
+        margin-left: px(82);
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &::before {
+          @include vs;
+          left: px(-40);
+          width: px(2);
+          height: 100%;
+          background-color: $color-sub-line;
+          opacity: 0.3;
+        }
+      }
+
+      .body-text {
+        margin-top: px(20);
+        line-height: normal;
+      }
+
+      .image {
+        width: px(332);
+        height: px(372);
+        margin-top: px(20);
+        @include background-default;
+      }
+    }
+  }
+
+  //popup-error : end
+  // :start
+  .subscribe-cancel {
+    h4 {
+      margin-bottom: px(12);
+      font-family: $font-bold;
+      font-size: 2.8rem;
+      line-height: px(40);
+    }
+
+    .detail {
+      margin-bottom: px(26);
+      border-bottom: px(2) solid $color-sub-line-30;
+    }
+
+    .body-text {
+      margin-bottom: px(26);
+      font-size: 2.6rem;
+      color: $color-gray-popup;
+    }
+
+    .price {
+      font-family: $font-bold;
+      font-size: 2.6rem;
+      color: $color-gray-popup;
+    }
+  }
+
+  // :end
+  //temrs-popup
+  .terms-container {
+    &.layer-page {
+      .layer-header {
+        margin-bottom: unset;
+
+        .title {
+          &::before {
+            content: unset;
+          }
+        }
+      }
+    }
+
+    .terms-header {
+      padding: px(100) 0 px(58);
+
+      .title {
+        margin-bottom: px(24);
+      }
+
+      .desc {
+        font-size: 3.0rem;
+        line-height: 1.6;
+        color: $color-gray;
+      }
+    }
+
+    .terms-body {
+      display: flex;
+      justify-content: center;
+      margin-bottom: px(76);
+
+      &.full {
+        .terms {
+          width: px(518);
+
+          &:first-child {
+            .terms-title {
+              h4 {
+                width: px(342);
+              }
+            }
+          }
+        }
+
+        .terms-title {
+          h4 {
+            font-size: 2.8rem;
+          }
+        }
+
+        .terms-contents {
+          .terms-box {
+            .desc {
+              width: px(430);
+            }
+          }
+        }
+      }
+
+      .terms {
+        width: px(800);
+        height: px(472);
+        padding: 0 px(30);
+        background-color: $color-bg-setting;
+        border-radius: px($border-radius);
+
+        &:not(:last-child) {
+          margin-right: px(44);
+        }
+
+        &.focus {
+          background-color: #2a2c3e;
+          box-shadow: 0 0 0 px(4) #eee;
+
+          .terms-title {
+            border-color: rgba($color-pure-white, .12);
+
+            h4 {
+              color: $color-white;
+            }
+
+            .input-checkbox {
+              @include input-check($normal-color: $color-white);
+            }
+          }
+        }
+      }
+
+      .terms-title {
+        @include flex-items-center;
+        justify-content: flex-start;
+        height: px(135);
+        text-align: left;
+        border-bottom: 1px solid $color-bg-component;
+
+        .input-checkbox {
+          @include input-check();
+          margin-right: px(24);
+          display: block;
+
+          &::before {
+            @include background-default;
+          }
+
+          &[type=checkbox]:checked {
+            border-color: $color-radio-normal;
+
+            &::before {
+              background-image: url(../images/purchase/ic-check2.png);
+            }
+          }
+        }
+
+        h4 {
+          font: {
+            size: 3.8rem;
+            family: $font-regular;
+          }
+          color: $color-gray-90;
+        }
+      }
+
+      .terms-contents {
+        .terms-box {
+          position: relative;
+          padding: px(38) 0;
+
+          .desc {
+            overflow: hidden;
+            width: px(712);
+            height: px(260);
+            text-align: left;
+
+            p {
+              line-height: px(38);
+              font-size: 2.6rem;
+              color: $color-gray;
+            }
+          }
+        }
+      }
+
+      .scroll {
+        @include scroll($top: px(38), $right: px(0), $height: px(260), $color1: $color-bg-transparent, $color2: $color-gray-30);
+        opacity: 1;
+      }
+    }
+  }
+
+  //continue-popup 이어보기
+  .continue-popup {
+    right: px(60);
+    bottom: px(60);
+    top: unset;
+    left: unset;
+    transform: unset;
+
+    .title {
+      font-family: $font-bold;
+      font-size: 3.0rem;
+      margin-bottom: px(24);
+    }
+
+    .progress {
+      @include flex-items-center;
+      justify-content: space-between;
+
+      .time {
+        font-size: 2.0rem;
+      }
+
+      .bar {
+        @include progress-bar($width: px(496), $height: px(8), $color1: $color-bg-progress, $color2: $color-primary);
+
+        span {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
+
+    .popup-footer {
+      .popup-button:nth-child(2) {
+        flex: 1.2;
+      }
+    }
+  }
+
+  .remote-setting-popup {
+    text-align: center;
+
+    .body-text {
+      margin-bottom: px(20);
+    }
+
+    .contents {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: px(32);
+
+      .box {
+        position: relative;
+        width: px(520);
+
+        &:last-child {
+          &::before {
+            @include vs;
+            left: px(-50);
+            width: px(2);
+            height: 100%;
+            background-color: $color-sub-line-30;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: px(268);
+          margin-bottom: px(20);
+        }
+
+        p {
+          line-height: px(40);
+        }
+      }
+    }
+  }
+
+  //purchase-popup
+  .purchase-popup {
+    .scroll-contents {
+      height: px(318);
+    }
+  }
+
+  //purchase-payment-popup
+  .purchase-payment-popup {
+    .body-text {
+      margin-bottom: px(20);
+    }
+  }
+
+  //home-subscribe-popup
+  .home-agreement-popup {
+    .button-alt {
+      margin: px(32) 0;
+
+      .button {
+        &.focus {
+          padding: 0 px(29);
+        }
+
+        width: auto;
+        padding: 0 px(33);
+      }
+    }
+
+  }
+}

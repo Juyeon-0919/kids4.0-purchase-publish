@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home UI</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+</head>
+
+<body>
+
+    <div id="root">
+        <!-- react 구조 -->
+
+        <div class="full-popup-container purchase-container">
+
+            <div class="purchase-header">
+                <h2>코코 소장 패키지</h2>
+                <p class="sub-text">결제 완료 후 72시간 동안 시청 가능</p>
+            </div>
+            <!-- //purchase-header -->
+
+            <!-- 1.상품 선택 -->
+            <div class="purchase-body" style="display:none">
+                <div class="purchase-step purchase-step1">
+                    <div class="stepper step1 active">
+                        <div class="title">
+                            <h3>1. 상품 선택</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="list-products line-none">
+                                <ul>
+                                    <!-- list-focus는 현재 focus상태 일 때/ list-selected는 선택된 상태일 때 -->
+                                    <li class="list-selected">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio" checked>
+                                                <span class="label"><label for="">(대여) HD 자막</label></span>
+                                            </p>
+                                            <span class="ic-tag">EVENT</span>
+                                        </div>
+                                    </li>
+                                    <li class="list-focus">
+                                        <div class="product focus">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio">
+                                                <span class="label"><label for="">(대여) HD 우리말 녹음</label></span>
+                                            </p>
+                                            <span class="ic-tag">EVENT</span>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio">
+                                                <span class="label"><label for="">(대여) HD 우리말 녹음</label></span>
+                                            </p>
+                                            <span class="ic-tag">EVENT</span>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio">
+                                                <span class="label"><label for="">(대여) HD 우리말 녹음</label></span>
+                                            </p>
+                                            <span class="ic-tag">EVENT</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //product-list -->
+                            <div class="event">
+                                <p>
+                                    <em>진행중인 이벤트</em>
+                                    <span>5월 한정 첫 결제 고객 5,000원 할인</span>
+                                </p>
+                            </div>
+                            <!-- //event -->
+                            <div class="total">
+                                <p class="tooltip-purchase"><span>(대여) HD 우리말 녹음 상품을 추가 구매하겠습니까?</span></p>
+                                <p class="price">
+                                    <span>상품금액</span>
+                                    <em>11,000원</em>
+                                </p>
+                            </div>
+                            <!-- //total -->
+                            <div class="button-area">
+                                <button class="button-primary large">
+                                    <p class="text">구매취소</p>
+                                </button>
+                                <button class="button-primary large focus">
+                                    <p class="text">다음단계</p>
+                                </button>
+                            </div>
+                            <!-- //button-area -->
+                        </div>
+
+                    </div>
+                    <!-- //step1 -->
+
+                    <div class="stepper step2">
+                        <div class="title faint">
+                            <h3>2. 할인</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="info-selected">
+                                <p class="default">할인 수단 선택</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step2 -->
+
+                    <div class="stepper step3">
+                        <div class="title dim">
+                            <h3>3. 결제</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="info-selected">
+                                <p class="default">결제 수단 선택</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step3 -->
+                </div>
+            </div>
+            <!-- //purchase-body -->
+
+            <!-- 2.할인 -->
+            <div class="purchase-body" style="display:none">
+                <div class="purchase-step purchase-step2">
+                    <div class="stepper step1">
+                        <div class="title faint">
+                            <h3>1. 상품 선택</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="info-selected">
+                                <div class="summary-product">
+                                    <div class="poster-vertical">
+                                        <div class="poster-thumbnail" style="background-image: url('../../assets/images/temp/poster.jpg')"></div>
+                                    </div>
+                                    <p class="name">(소장) UHD 자막</p>
+                                </div>
+                                <p class="price">
+                                    <span>상품 금액</span>
+                                    <em>11,000원</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step1 -->
+
+                    <div class="stepper step2 active">
+                        <div class="title">
+                            <h3>2. 할인</h3>
+                        </div>
+                        <div class="contents">
+                            <!-- 단체할인적용불가 -->
+                            <div class="not-discount" style="display:none;">
+                                <p>단체 상품은 할인 적용이 불가능 합니다.</p>
+                            </div>
+                            <!-- //not-discount -->
+                            <div class="list-products line-none">
+                                <div class="bubble-title"><span class="focus">+할인 내역</span></div>
+                                <ul>
+                                    <li class="list-focus">
+                                        <div class="product focus">
+                                            <p class="text">
+                                                <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                                <span class="label"><label for="">U+ 멤버십</label></span>
+                                            </p>
+                                            <p class="point">50,000P 보유</p>
+                                        </div>
+                                        <div class="change-option">카드변경</div>
+                                        <p class="discounted">12,200원</p>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                                <span class="label"><label for="">TV쿠폰</label></span>
+                                            </p>
+                                            <p class="point">50,000P 보유</p>
+                                        </div>
+                                        <div class="change-option">쿠폰변경</div>
+                                        <p class="discounted">0원</p>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                                <span class="label"><label for="">TV포인트</label></span>
+                                            </p>
+                                            <p class="point">50,000P 보유</p>
+                                        </div>
+                                        <div class="change-option dimmed">충전</div>
+                                        <p class="discounted">0원</p>
+                                    </li>
+                                </ul>
+                                <div class="add-exp">
+                                    <p>U+멤버십 : 10원 이상 결제 시 적용 가능하며, 부가세 포함하여 구매 금액의 20%까지 할인됩니다.</p>
+                                </div>
+                            </div>
+                            <!-- //product-list -->
+                            <div class="total">
+                                <p class="price">
+                                    <span>총 할인 금액</span>
+                                    <em>2,200원</em>
+                                </p>
+                            </div>
+                            <!-- //total -->
+                            <div class="button-area">
+                                <button class="button-primary large">
+                                    <p class="text">이전단계</p>
+                                </button>
+                                <button class="button-primary large">
+                                    <p class="text">구매취소</p>
+                                </button>
+                                <button class="button-primary large focus">
+                                    <p class="text">다음단계</p>
+                                </button>
+                            </div>
+                            <!-- //button-area -->
+                        </div>
+                    </div>
+                    <!-- //step2 -->
+
+                    <div class="stepper step3">
+                        <div class="title dim">
+                            <h3>3. 결제</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="info-selected">
+                                <p class="default">결제 수단 선택</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step3 -->
+                </div>
+            </div>
+            <!-- //purchase-body -->
+
+            <!-- 3.결제 -->
+            <div class="purchase-body" style="display: block;">
+                <div class="purchase-step purchase-step3">
+                    <div class="stepper step1">
+                        <div class="title dim">
+                            <h3>1. 상품 선택</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="info-selected">
+                                <div class="summary-product">
+                                    <div class="poster-vertical">
+                                        <div class="poster-thumbnail" style="background-image: url('../../assets/images/temp/poster.jpg')"></div>
+                                    </div>
+                                    <p class="name">(소장) UHD 자막</p>
+                                </div>
+                                <p class="price">
+                                    <span>상품 금액</span>
+                                    <em>11,000원</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step1 -->
+
+                    <div class="stepper step2">
+                        <div class="title faint alt">
+                            <h3>2. 할인</h3>
+                        </div>
+                        <div class="contents">
+                            <!-- <div class="info-selected">
+                                <p class="default">U+ 멤버십</p>
+                                <p class="price">
+                                    <span>총 할인 금액</span>
+                                    <em>-2,200원</em>
+                                </p>
+                            </div> -->
+                            <div class="info-selected">
+                                <p class="default">TV쿠폰</p>
+                                <p class="price">
+                                    <!-- 쿠폰 없는 경우 -->
+                                    <span class="no-sale">
+                                        월정액 할인이 가능한<br>
+                                        TV쿠폰이 없습니다.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //step2 -->
+
+                    <div class="stepper step3 active">
+                        <div class="title">
+                            <h3>3. 결제</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="list-products line-none">
+                                <ul>
+                                    <li class="list-focus">
+                                        <div class="product focus">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio" checked>
+                                                <span class="label"><label for="">청구서 결제</label></span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio">
+                                                <span class="label"><label for="" class="label">신용카드 결제</label></span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="product">
+                                            <p class="text">
+                                                <input type="radio" id="" name="" value="" class="input-radio">
+                                                <span class="label"><label for="">휴대폰 결제</label></span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //product-list -->
+                            <div class="total">
+                                <p class="price">
+                                    <span>실제 결제 금액</span>
+                                    <em>8,800원</em>
+                                </p>
+                            </div>
+                            <!-- //total -->
+                            <div class="button-area">
+                                <button class="button-primary large">
+                                    <p class="text">이전단계</p>
+                                </button>
+                                <button class="button-primary large">
+                                    <p class="text">구매취소</p>
+                                </button>
+                                <button class="button-primary large focus">
+                                    <p class="text">결제</p>
+                                </button>
+                            </div>
+                            <!-- //button-area -->
+                        </div>
+                    </div>
+                    <!-- //step3 -->
+                </div>
+                <div class="purchase-amount">
+                    <p class="limit">
+                        <span>이번달 구매 한도</span>
+                        <em>0,000원</em>
+                    </p>
+                    <p class="remain">
+                        <span>잔여금액</span>
+                        <em>0,000원</em>
+                    </p>
+                </div>
+            </div>
+            <!-- //purchase-body -->
+
+        </div>
+        <!-- //purchase-container-->
+
+    </div>
+    <!-- //root -->
+
+</body>
+
+</html>

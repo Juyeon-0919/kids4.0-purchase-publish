@@ -1,0 +1,858 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* toast 임시 */
+.purchase-wrap .purchase-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 42px;
+  background-color: #080d19; }
+  .purchase-wrap .purchase-container .focus .input-radio, .purchase-wrap .purchase-container .focus .input-checkbox {
+    border-color: #eee; }
+  .purchase-wrap .purchase-container .input-radio, .purchase-wrap .purchase-container .input-checkbox {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #535458;
+    border-radius: 50%;
+    margin-right: 16px;
+    display: block; }
+    .purchase-wrap .purchase-container .input-radio::before, .purchase-wrap .purchase-container .input-checkbox::before {
+      width: calc(26px - 9px);
+      height: calc(26px - 9px);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      content: ''; }
+    .purchase-wrap .purchase-container .input-radio[type=checkbox]::before, .purchase-wrap .purchase-container .input-checkbox[type=checkbox]::before {
+      width: 26px;
+      height: 26px; }
+    .purchase-wrap .purchase-container .input-radio:checked, .purchase-wrap .purchase-container .input-checkbox:checked {
+      border: 2px solid #ef3484; }
+    .purchase-wrap .purchase-container .input-radio[type=radio]:checked::before, .purchase-wrap .purchase-container .input-checkbox[type=radio]:checked::before {
+      background-color: #ef3484; }
+    .purchase-wrap .purchase-container .input-radio[type=checkbox]:checked::before, .purchase-wrap .purchase-container .input-checkbox[type=checkbox]:checked::before {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../images/purchase/ic-check-focus2.png); }
+  .purchase-wrap .purchase-container .not-discount {
+    flex: 1;
+    text-align: center; }
+    .purchase-wrap .purchase-container .not-discount p {
+      margin-top: 80px;
+      color: #626373;
+      font-size: 3.0rem;
+      font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+      .purchase-wrap .purchase-container .not-discount p::before {
+        width: 80px;
+        height: 80px;
+        display: block;
+        content: '';
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0 auto;
+        margin-bottom: 26px;
+        background-image: url(../images/common/ic-noti.png); }
+  .purchase-wrap .purchase-container .event {
+    margin-top: 13px;
+    line-height: 18px;
+    font-size: 2.2rem;
+    color: #ddd; }
+    .purchase-wrap .purchase-container .event em {
+      color: #ecafb9;
+      letter-spacing: 0px; }
+      .purchase-wrap .purchase-container .event em::before {
+        position: relative;
+        top: 4px;
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+        display: inline-block;
+        content: '';
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../images/purchase/ic-detail-ic-detail-event.png); }
+  .purchase-wrap .purchase-container .total {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 13px;
+    position: relative; }
+    .purchase-wrap .purchase-container .total .tooltip-purchase {
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      bottom: 42px; }
+      .purchase-wrap .purchase-container .total .tooltip-purchase span {
+        padding: 0 12px;
+        line-height: 36px;
+        font-size: 1.8rem;
+        background-color: #2A2C3E;
+        border-radius: 5px;
+        display: inline-block; }
+        .purchase-wrap .purchase-container .total .tooltip-purchase span::before {
+          position: absolute;
+          left: 50%;
+          bottom: -3px;
+          transform: translate(-50%, 0);
+          width: 6px;
+          height: 6px;
+          transform: rotate(45deg);
+          background-color: #2A2C3E;
+          display: block;
+          content: ''; }
+    .purchase-wrap .purchase-container .total .price {
+      line-height: 32px;
+      font-size: 2.6rem;
+      justify-content: center;
+      display: flex;
+      align-items: center; }
+      .purchase-wrap .purchase-container .total .price span {
+        letter-spacing: 0px; }
+      .purchase-wrap .purchase-container .total .price em {
+        color: #ef3484;
+        margin-left: 16px;
+        font-size: 4.0rem;
+        letter-spacing: 1px; }
+
+.purchase-wrap .purchase-header {
+  text-align: center; }
+  .purchase-wrap .purchase-header h2 {
+    line-height: 40px;
+    font-size: 5.2rem;
+    font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+  .purchase-wrap .purchase-header .sub-text {
+    margin-top: 10px;
+    line-height: 22px;
+    color: #a9a9a9;
+    font-size: 2.6rem; }
+    .purchase-wrap .purchase-header .sub-text.color-gray {
+      color: #a9a9a9; }
+
+.purchase-wrap .list-products {
+  position: relative;
+  color: #a9a9a9; }
+  .purchase-wrap .list-products .ic-tag {
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+    background-image: url(../images/purchase/ic-common-tag-my-event-nor.png);
+    background-size: cover;
+    font-size: 0; }
+  .purchase-wrap .list-products.line-none li {
+    border-bottom: none; }
+    .purchase-wrap .list-products.line-none li.list-selected .focus, .purchase-wrap .list-products.line-none li.list-focus .focus {
+      height: 56px; }
+      .purchase-wrap .list-products.line-none li.list-selected .focus::after, .purchase-wrap .list-products.line-none li.list-focus .focus::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 0 0 6px #eee;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #eee;
+        left: 2px;
+        right: 2px;
+        display: block; }
+  .purchase-wrap .list-products li {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center; }
+    .purchase-wrap .list-products li:first-child::before {
+      display: none; }
+    .purchase-wrap .list-products li:last-child::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      top: unset;
+      bottom: 0;
+      width: 100%;
+      height: 0.5px;
+      background-color: #2A2C3E; }
+    .purchase-wrap .list-products li::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5px;
+      background-color: #2A2C3E; }
+    .purchase-wrap .list-products li > div {
+      position: relative;
+      padding: 0 20px;
+      height: 53px;
+      justify-content: space-between;
+      display: flex;
+      align-items: center; }
+      .purchase-wrap .list-products li > div.product {
+        flex: 1; }
+      .purchase-wrap .list-products li > div.change-option {
+        position: relative;
+        margin-left: 6px;
+        font-size: 2.4rem;
+        width: 73px;
+        justify-content: center; }
+        .purchase-wrap .list-products li > div.change-option::before {
+          width: 1px;
+          height: 24px;
+          background-color: #a9a9a9;
+          display: inline-block;
+          content: '';
+          position: absolute;
+          left: -3px; }
+      .purchase-wrap .list-products li > div.dimmed {
+        opacity: 0.5; }
+    .purchase-wrap .list-products li .discounted {
+      font-size: 2.4rem;
+      width: 86px;
+      margin-left: 6px;
+      margin-right: 10px;
+      text-align: right; }
+      .purchase-wrap .list-products li .discounted::before {
+        display: inline-block;
+        content: '';
+        content: '-'; }
+    .purchase-wrap .list-products li .text {
+      display: flex;
+      align-items: center; }
+      .purchase-wrap .list-products li .text .label {
+        font-size: 2.8rem;
+        position: relative; }
+        .purchase-wrap .list-products li .text .label label {
+          display: block;
+          line-height: 1;
+          line-height: 28px;
+          max-width: 280px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+    .purchase-wrap .list-products li .point {
+      font-size: 2.6rem; }
+    .purchase-wrap .list-products li.type-multiline {
+      height: 92px; }
+      .purchase-wrap .list-products li.type-multiline > div {
+        height: 85px; }
+      .purchase-wrap .list-products li.type-multiline .name {
+        display: flex;
+        align-items: center; }
+      .purchase-wrap .list-products li.type-multiline .ic-tag {
+        margin-left: 16px;
+        position: relative; }
+      .purchase-wrap .list-products li.type-multiline .label, .purchase-wrap .list-products li.type-multiline .number {
+        opacity: .9;
+        font-size: 3.4rem;
+        line-height: 1; }
+      .purchase-wrap .list-products li.type-multiline .price {
+        text-align: right; }
+      .purchase-wrap .list-products li.type-multiline .min {
+        position: relative;
+        height: 20px;
+        margin-top: 8px;
+        font-size: 2.2rem;
+        color: #777; }
+        .purchase-wrap .list-products li.type-multiline .min .marquee-child {
+          width: 353px;
+          height: 100%; }
+      .purchase-wrap .list-products li.type-multiline.list-focus > div, .purchase-wrap .list-products li.type-multiline.list-selected > div {
+        height: 82px; }
+      .purchase-wrap .list-products li.type-multiline.list-focus .focus.product, .purchase-wrap .list-products li.type-multiline.list-selected .focus.product {
+        height: 85px; }
+        .purchase-wrap .list-products li.type-multiline.list-focus .focus.product .label, .purchase-wrap .list-products li.type-multiline.list-focus .focus.product .number, .purchase-wrap .list-products li.type-multiline.list-selected .focus.product .label, .purchase-wrap .list-products li.type-multiline.list-selected .focus.product .number {
+          opacity: 1; }
+      .purchase-wrap .list-products li.type-multiline.list-focus .label, .purchase-wrap .list-products li.type-multiline.list-focus .number, .purchase-wrap .list-products li.type-multiline.list-selected .label, .purchase-wrap .list-products li.type-multiline.list-selected .number {
+        font-size: 3.8rem; }
+        .purchase-wrap .list-products li.type-multiline.list-focus .label.check, .purchase-wrap .list-products li.type-multiline.list-focus .number.check, .purchase-wrap .list-products li.type-multiline.list-selected .label.check, .purchase-wrap .list-products li.type-multiline.list-selected .number.check {
+          color: #ef3484; }
+      .purchase-wrap .list-products li.type-multiline.list-focus .number, .purchase-wrap .list-products li.type-multiline.list-selected .number {
+        line-height: 34px; }
+      .purchase-wrap .list-products li.type-multiline.list-focus .name, .purchase-wrap .list-products li.type-multiline.list-selected .name {
+        height: 32px; }
+      .purchase-wrap .list-products li.type-multiline.list-focus .min, .purchase-wrap .list-products li.type-multiline.list-selected .min {
+        font-size: 2.4rem;
+        color: #eee; }
+    .purchase-wrap .list-products li.selected, .purchase-wrap .list-products li.list-focus, .purchase-wrap .list-products li.list-selected {
+      color: #eee;
+      border: none; }
+      .purchase-wrap .list-products li.selected .text .label, .purchase-wrap .list-products li.list-focus .text .label, .purchase-wrap .list-products li.list-selected .text .label {
+        font-size: 3.2rem;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+      .purchase-wrap .list-products li.selected .point, .purchase-wrap .list-products li.list-focus .point, .purchase-wrap .list-products li.list-selected .point {
+        font-size: 3.0rem;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+      .purchase-wrap .list-products li.selected .discounted, .purchase-wrap .list-products li.list-focus .discounted, .purchase-wrap .list-products li.list-selected .discounted {
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+      .purchase-wrap .list-products li.selected > div, .purchase-wrap .list-products li.list-focus > div, .purchase-wrap .list-products li.list-selected > div {
+        background-color: #2A2C3E;
+        border-radius: 5px; }
+      .purchase-wrap .list-products li.selected > div.change-option::before, .purchase-wrap .list-products li.list-focus > div.change-option::before, .purchase-wrap .list-products li.list-selected > div.change-option::before {
+        display: none; }
+    .purchase-wrap .list-products li.list-focus .ic-tag, .purchase-wrap .list-products li.list-selected .ic-tag {
+      background-image: url(../images/purchase/ic-common-tag-my-event-foc.png); }
+    .purchase-wrap .list-products li.list-focus .focus.product, .purchase-wrap .list-products li.list-selected .focus.product {
+      height: 56px; }
+      .purchase-wrap .list-products li.list-focus .focus.product::after, .purchase-wrap .list-products li.list-selected .focus.product::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 0 0 6px #eee;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #eee;
+        left: 2px;
+        right: 2px; }
+    .purchase-wrap .list-products li.list-focus::before, .purchase-wrap .list-products li.list-selected::before {
+      display: none; }
+    .purchase-wrap .list-products li.list-focus + li::before, .purchase-wrap .list-products li.list-selected + li::before {
+      display: none; }
+    .purchase-wrap .list-products li.list-focus:last-child::after, .purchase-wrap .list-products li.list-selected:last-child::after {
+      display: none; }
+
+.purchase-wrap .purchase-body {
+  margin: 0 auto; }
+  .purchase-wrap .purchase-body .purchase-flatrate {
+    margin-top: 36px; }
+    .purchase-wrap .purchase-body .purchase-flatrate .contents {
+      height: 364px; }
+      .purchase-wrap .purchase-body .purchase-flatrate .contents::after {
+        content: '';
+        display: block;
+        clear: both; }
+    .purchase-wrap .purchase-body .purchase-flatrate .list-products {
+      overflow: hidden;
+      float: left;
+      width: 590px;
+      height: 370px;
+      padding-right: 18px;
+      padding-left: 25px; }
+      .purchase-wrap .purchase-body .purchase-flatrate .list-products::after {
+        opacity: 0;
+        width: 590px;
+        height: 74px;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(to top, #080d19, rgba(0, 0, 0, 0));
+        display: block;
+        content: '';
+        content: none; }
+      .purchase-wrap .purchase-body .purchase-flatrate .list-products.bottom-cover::after {
+        content: ''; }
+      .purchase-wrap .purchase-body .purchase-flatrate .list-products .scroll {
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 5px;
+        height: 100%;
+        border-radius: calc(5px / 2);
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 1; }
+        .purchase-wrap .purchase-body .purchase-flatrate .list-products .scroll span {
+          display: inline-block;
+          width: 100%;
+          border-radius: calc(5px / 2);
+          background-color: rgba(169, 169, 169, 0.3); }
+      .purchase-wrap .purchase-body .purchase-flatrate .list-products.active::after, .purchase-wrap .purchase-body .purchase-flatrate .list-products.active .scroll {
+        opacity: 1; }
+    .purchase-wrap .purchase-body .purchase-flatrate .event-info {
+      float: left;
+      padding: 13px 20px;
+      width: 441px;
+      height: 100%;
+      border: 1px solid rgba(238, 238, 238, 0.1);
+      border-radius: 5px;
+      word-break: keep-all;
+      overflow: hidden; }
+      .purchase-wrap .purchase-body .purchase-flatrate .event-info .evnet-title {
+        margin-bottom: 9px;
+        margin-top: 16px;
+        color: #ef3484;
+        font-size: 3.2rem;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+        .purchase-wrap .purchase-body .purchase-flatrate .event-info .evnet-title:first-child {
+          margin-top: 0; }
+      .purchase-wrap .purchase-body .purchase-flatrate .event-info .event-exp {
+        font-size: 2.6rem;
+        color: #aaaaaa; }
+        .purchase-wrap .purchase-body .purchase-flatrate .event-info .event-exp p {
+          line-height: 24px; }
+    .purchase-wrap .purchase-body .purchase-flatrate .add-exp {
+      margin: 53px 0 36px 0;
+      text-align: center;
+      font-size: 2.6rem;
+      color: #999;
+      line-height: 21px; }
+
+.purchase-wrap .purchase-step {
+  margin-top: 32px;
+  display: flex; }
+  .purchase-wrap .purchase-step .stepper {
+    position: relative; }
+    .purchase-wrap .purchase-step .stepper.active h3 {
+      z-index: 2;
+      height: 100%;
+      color: #eee;
+      font-size: 3.2rem;
+      font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+  .purchase-wrap .purchase-step .title {
+    position: relative;
+    width: 208px;
+    height: 46px;
+    display: flex;
+    align-items: center; }
+    .purchase-wrap .purchase-step .title h3 {
+      position: relative;
+      width: 100%;
+      height: 38px;
+      justify-content: center;
+      font-size: 2.6rem;
+      color: rgba(238, 238, 238, 0.7);
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .purchase-wrap .purchase-step .title.dim h3 {
+      background-color: #121424; }
+  .purchase-wrap .purchase-step .contents {
+    position: relative;
+    margin: 18px auto 0;
+    height: 423px; }
+  .purchase-wrap .purchase-step .step1 {
+    width: 200px; }
+    .purchase-wrap .purchase-step .step1 .faint h3 {
+      background-color: #2A2C3E; }
+    .purchase-wrap .purchase-step .step1.active {
+      width: 666px; }
+      .purchase-wrap .purchase-step .step1.active .title {
+        width: 673px; }
+        .purchase-wrap .purchase-step .step1.active .title h3 {
+          background-image: url(../images/purchase/step1-focus.png); }
+      .purchase-wrap .purchase-step .step1.active .contents {
+        width: 465px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 8px;
+        padding-left: 6px; }
+  .purchase-wrap .purchase-step .step2 {
+    width: 196px; }
+    .purchase-wrap .purchase-step .step2 .contents {
+      height: 432px; }
+      .purchase-wrap .purchase-step .step2 .contents .total {
+        padding-right: 26px; }
+    .purchase-wrap .purchase-step .step2::before, .purchase-wrap .purchase-step .step2::after {
+      width: 1px;
+      height: 346px;
+      background-color: rgba(255, 255, 255, 0.12);
+      display: block;
+      content: '';
+      position: absolute;
+      top: 65px; }
+    .purchase-wrap .purchase-step .step2::before {
+      left: 1px; }
+    .purchase-wrap .purchase-step .step2::after {
+      right: 1px; }
+    .purchase-wrap .purchase-step .step2 .title {
+      right: 7px; }
+    .purchase-wrap .purchase-step .step2 .faint h3 {
+      background-image: url(../images/purchase/step2.png);
+      z-index: 1; }
+    .purchase-wrap .purchase-step .step2 .faint.alt h3 {
+      background-image: url(../images/purchase/step2-2.png); }
+      .purchase-wrap .purchase-step .step2 .faint.alt h3::after {
+        display: block;
+        content: '';
+        background-color: #2A2C3E;
+        width: 20px;
+        height: 100%;
+        position: absolute;
+        right: -11px; }
+    .purchase-wrap .purchase-step .step2 .list-products li::before, .purchase-wrap .purchase-step .step2 .list-products li::after {
+      width: calc(100% - 103px); }
+    .purchase-wrap .purchase-step .step2 .list-products .bubble-title {
+      text-align: right; }
+      .purchase-wrap .purchase-step .step2 .list-products .bubble-title span {
+        padding: 0 10px;
+        height: 41px;
+        line-height: 41px;
+        text-align: center;
+        font-size: 2.4rem;
+        background-color: #2A2C3E;
+        border-radius: 5px;
+        display: inline-block;
+        position: relative; }
+        .purchase-wrap .purchase-step .step2 .list-products .bubble-title span.focus {
+          color: #eee; }
+          .purchase-wrap .purchase-step .step2 .list-products .bubble-title span.focus::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 0 0 6px #eee;
+            border-radius: 5px;
+            box-shadow: 0 0 0 2px #eee;
+            left: 2px;
+            right: 2px; }
+    .purchase-wrap .purchase-step .step2 .list-products .add-exp {
+      width: 449px;
+      margin-top: 13px;
+      padding: 0 0 0 41px;
+      font-size: 2.0rem;
+      color: #777; }
+      .purchase-wrap .purchase-step .step2 .list-products .add-exp p {
+        line-height: 16px;
+        word-break: keep-all; }
+    .purchase-wrap .purchase-step .step2.active {
+      width: 661px; }
+      .purchase-wrap .purchase-step .step2.active .title {
+        width: 673px; }
+        .purchase-wrap .purchase-step .step2.active .title h3 {
+          background-image: url(../images/purchase/step2-focus.png); }
+      .purchase-wrap .purchase-step .step2.active .contents {
+        width: 571px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+  .purchase-wrap .purchase-step .step3 {
+    width: 200px; }
+    .purchase-wrap .purchase-step .step3 .contents {
+      height: 422px; }
+      .purchase-wrap .purchase-step .step3 .contents .total .price {
+        justify-content: start;
+        padding-left: 99px; }
+        .purchase-wrap .purchase-step .step3 .contents .total .price em {
+          margin-left: 11px; }
+    .purchase-wrap .purchase-step .step3 .default::before {
+      background-image: url(../images/purchase/ic-pay.png); }
+    .purchase-wrap .purchase-step .step3 .title {
+      right: 7px; }
+    .purchase-wrap .purchase-step .step3.active {
+      width: 660px; }
+      .purchase-wrap .purchase-step .step3.active .title {
+        width: 673px; }
+        .purchase-wrap .purchase-step .step3.active .title h3 {
+          background-image: url(../images/purchase/step3-focus.png); }
+      .purchase-wrap .purchase-step .step3.active .contents {
+        width: 465px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 9px; }
+
+.purchase-wrap .purchase-amount {
+  margin-top: 13px;
+  border-top: 1px solid #222222;
+  padding-top: 10px;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center; }
+  .purchase-wrap .purchase-amount p {
+    color: #777;
+    font-size: 2.4rem;
+    line-height: 25px;
+    margin-left: 26px; }
+    .purchase-wrap .purchase-amount p em {
+      color: #eee;
+      margin-left: 10px;
+      font-size: 2.8rem; }
+
+.purchase-wrap .info-selected {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .purchase-wrap .info-selected .default {
+    text-align: center;
+    margin: 0 auto;
+    color: #626373;
+    padding: 133px 0 62px;
+    font-size: 3.0rem;
+    font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770"; }
+    .purchase-wrap .info-selected .default::before {
+      margin: 0 auto;
+      margin-bottom: 10px;
+      width: 58px;
+      height: 42px;
+      display: block;
+      content: '';
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../images/purchase/ic-sale.png); }
+  .purchase-wrap .info-selected .summary-product {
+    padding-top: 17px; }
+    .purchase-wrap .info-selected .summary-product .poster-vertical {
+      width: 140px;
+      height: 200px;
+      margin: 0 auto; }
+      .purchase-wrap .info-selected .summary-product .poster-vertical .poster-thumbnail {
+        height: 100%;
+        border-radius: 0;
+        background-image: linear-gradient(169deg, #595d72 -33%, #251d3e 80%);
+        background-position: 50% 50%;
+        background-size: cover; }
+    .purchase-wrap .info-selected .summary-product .name {
+      width: 182px;
+      height: 20px;
+      font-size: 2.4rem;
+      margin: 8px auto 0;
+      line-height: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .purchase-wrap .info-selected .price {
+    font-size: 2.6rem;
+    line-height: 21px; }
+    .purchase-wrap .info-selected .price span {
+      display: block; }
+    .purchase-wrap .info-selected .price em {
+      margin-top: 8px;
+      line-height: 28px;
+      display: block;
+      color: #ef3484;
+      font-size: 3.2rem; }
+    .purchase-wrap .info-selected .price .no-sale {
+      margin-bottom: 4px;
+      line-height: 28px; }
+
+.purchase-wrap .button-area {
+  height: 65px; }
+  .purchase-wrap .button-area button + button {
+    margin-left: 6px; }
+
+.purchase-wrap .purchase-step2 .step1 .price, .purchase-wrap .purchase-step3 .step1 .price {
+  margin-top: 30px; }
+
+.purchase-wrap .purchase-subscribe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 452px;
+  max-height: 534px;
+  margin-top: 40px; }
+  .purchase-wrap .purchase-subscribe .list-products ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  .purchase-wrap .purchase-subscribe .list-products li.list-focus .focus, .purchase-wrap .purchase-subscribe .list-products li.list-selected .focus {
+    box-shadow: 0 0 0 4px #eee; }
+    .purchase-wrap .purchase-subscribe .list-products li.list-focus .focus.product, .purchase-wrap .purchase-subscribe .list-products li.list-selected .focus.product {
+      height: 53px; }
+    .purchase-wrap .purchase-subscribe .list-products li.list-focus .focus::after, .purchase-wrap .purchase-subscribe .list-products li.list-selected .focus::after {
+      content: none; }
+  .purchase-wrap .purchase-subscribe .list-products li::before, .purchase-wrap .purchase-subscribe .list-products li:last-child::after {
+    content: unset; }
+  .purchase-wrap .purchase-subscribe .purchase-product {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 26px; }
+    .purchase-wrap .purchase-subscribe .purchase-product.full .select-box {
+      display: block;
+      margin-right: 40px; }
+    .purchase-wrap .purchase-subscribe .purchase-product.full .product-info {
+      width: 414px; }
+    .purchase-wrap .purchase-subscribe .purchase-product .select-box {
+      display: none; }
+      .purchase-wrap .purchase-subscribe .purchase-product .select-box .list-products {
+        display: flex;
+        align-items: center;
+        width: 558px;
+        margin-bottom: 15px; }
+        .purchase-wrap .purchase-subscribe .purchase-product .select-box .list-products li {
+          height: 53px; }
+          .purchase-wrap .purchase-subscribe .purchase-product .select-box .list-products li .product {
+            width: 348px; }
+      .purchase-wrap .purchase-subscribe .purchase-product .select-box .label {
+        font-size: 2.8rem;
+        font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+        color: #eee;
+        margin-right: 17px; }
+      .purchase-wrap .purchase-subscribe .purchase-product .select-box .purchase-info .label {
+        margin-right: 13px; }
+      .purchase-wrap .purchase-subscribe .purchase-product .select-box .purchase-info em {
+        font-size: 2.8rem;
+        color: #ef3484; }
+      .purchase-wrap .purchase-subscribe .purchase-product .select-box .purchase-info p {
+        margin-top: 6px;
+        font-size: 2.2rem;
+        color: #777; }
+    .purchase-wrap .purchase-subscribe .purchase-product .product-info {
+      width: 477px;
+      padding: 12px 20px;
+      border: 2px solid rgba(238, 238, 238, 0.1);
+      border-radius: 5px; }
+      .purchase-wrap .purchase-subscribe .purchase-product .product-info li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2.8rem; }
+        .purchase-wrap .purchase-subscribe .purchase-product .product-info li:not(:last-child) {
+          margin-bottom: 13px; }
+        .purchase-wrap .purchase-subscribe .purchase-product .product-info li span {
+          width: 133px;
+          color: #a9a9a9; }
+        .purchase-wrap .purchase-subscribe .purchase-product .product-info li p {
+          width: 213px;
+          color: #eee;
+          text-align: right; }
+  .purchase-wrap .purchase-subscribe .purchase-terms {
+    margin-bottom: 3px;
+    padding: 23px 70px 0;
+    border-top: 0px solid #2A2C3E; }
+    .purchase-wrap .purchase-subscribe .purchase-terms .list-products li {
+      height: 48px; }
+      .purchase-wrap .purchase-subscribe .purchase-terms .list-products li:last-child .change-option {
+        visibility: hidden; }
+      .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-focus, .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-selected {
+        color: #a9a9a9; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-focus .focus, .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-selected .focus {
+          color: #eee;
+          box-shadow: inset 0 0 0 4px #eee; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-focus .product, .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-selected .product {
+          height: 41px; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-focus .input-checkbox[type=checkbox]:checked, .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-selected .input-checkbox[type=checkbox]:checked {
+          border-color: #ef3484; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-focus .input-checkbox[type=checkbox]:checked::before, .purchase-wrap .purchase-subscribe .purchase-terms .list-products li.list-selected .input-checkbox[type=checkbox]:checked::before {
+            background-image: url(../images/purchase/ic-check-focus2.png); }
+      .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div {
+        height: 41px;
+        padding: 0 13px;
+        background-color: transparent; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox {
+          position: relative;
+          width: 21px;
+          height: 21px;
+          border: 2px solid #535458;
+          border-radius: 2px;
+          margin-right: 13px; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox::before {
+            width: calc(21px - 9px);
+            height: calc(21px - 9px);
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            content: ''; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox[type=checkbox]::before {
+            width: 21px;
+            height: 21px; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox:checked {
+            border: 2px solid #ef3484; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox[type=radio]:checked::before {
+            background-color: #ef3484; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox[type=checkbox]:checked::before {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(../images/purchase/ic-check-focus2.png); }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox[type=checkbox]:checked {
+            border-color: #535458; }
+            .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .input-checkbox[type=checkbox]:checked::before {
+              background-image: url(../images/purchase/ic-check2.png); }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div.product {
+          width: 313px; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div .label {
+          font-size: 2.6rem; }
+        .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div.change-option {
+          width: 116px;
+          height: 41px;
+          padding: 0 13px;
+          background-color: #2A2C3E;
+          border-radius: 5px; }
+          .purchase-wrap .purchase-subscribe .purchase-terms .list-products li > div.change-option::before {
+            content: unset; }
+  .purchase-wrap .purchase-subscribe .purchase-password {
+    margin: 33px 0 108px; }
+    .purchase-wrap .purchase-subscribe .purchase-password .title {
+      font-size: 3.6rem;
+      color: #d6d6d6;
+      text-align: center;
+      margin-bottom: 37px; }
+    .purchase-wrap .purchase-subscribe .purchase-password .input-password {
+      display: flex;
+      align-items: center;
+      height: 49px;
+      justify-content: center; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password.focus label {
+        color: #ef3484; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password p {
+        position: relative;
+        width: 49px;
+        height: 49px;
+        margin-right: 8px;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #2A2C3E; }
+        .purchase-wrap .purchase-subscribe .purchase-password .input-password p:last-child {
+          margin-right: 0; }
+        .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus {
+          background-color: #080d19; }
+          .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus.entered {
+            background: #080d19 url(../images/common/ic-password-w.png) no-repeat center;
+            background-size: 17px; }
+          .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 0 0 6px #eee;
+            border-radius: 5px;
+            box-shadow: 0px 0px 0px 2px #eee; }
+          .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus span {
+            position: unset; }
+            .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus span::before {
+              height: 26px;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: #eee; }
+        .purchase-wrap .purchase-subscribe .purchase-password .input-password p.entered {
+          background: #2A2C3E url(../images/common/ic-password-w.png) no-repeat center;
+          background-size: 17px; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 49px;
+        height: 49px;
+        opacity: 0;
+        z-index: 10; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password label {
+        height: 49px;
+        line-height: 49px;
+        font-size: 3.2rem;
+        color: #777; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password .container {
+        display: flex; }
+      .purchase-wrap .purchase-subscribe .purchase-password .input-password p {
+        border: none; }
+        .purchase-wrap .purchase-subscribe .purchase-password .input-password p.focus {
+          box-shadow: none; }
+  .purchase-wrap .purchase-subscribe .button-area {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }

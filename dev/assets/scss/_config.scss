@@ -1,0 +1,745 @@
+/* variables */
+$font-roboto: 'Roboto';
+$font-regular: "Yoon Gothic 750", "YoonGothic 700 50", "Yoon윤고딕 750", "YoonGothic 750", "YOONGOTHICPRO750";
+$font-bold: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
+$color-primary: #ef3484;
+$color-danger: #f42c3c;
+$color-accent: #ecafb9;
+$color-white: #eee;
+$color-white-divider: rgba(255, 255, 255, .12);
+$color-gray-light: #d6d6d6;
+$color-gray: #a9a9a9;
+$color-gray-dark: #777;
+$color-black: #080d19;
+$color-bg-black: #080d19;
+$color-bg-dimmed: rgba($color-black, .9);
+$color-bg-sub: #111424;
+$color-bg-component: #2A2C3E;
+$color-bg-detail-button: rgba(#4F5D7B, .6);
+$color-bg-key-notice: #626373;
+$color-font-gray:#878788;
+$color-tag-gray:#c3c3c3;
+$color-sub-black:#353539;
+$color-sub-black-70: rgba($color-sub-black, .7);
+$color-sub-black-98: rgba($color-sub-black, .98);
+$color-bg-gray:#ddd;
+$color-blue:#a9a6ff;
+$color-brown: #2e101c;
+$color-blue-sub:#aaa4ff;
+$color-bg-tooltip: #e24e70;
+$color-gray-sub:#808080;
+$color-subtitle:#999;
+$color-sub-line:#b7b5bd;
+$color-sub-line-30:rgba($color-sub-line, .3);
+$color-my-arrow:#404040;
+$color-round-icon: #20212d;
+$color-pure-white: #fff;
+$color-pure-black: #000;
+$color-gray-dark-50: rgba($color-gray-dark, .5);
+$color-gray-90: rgba($color-gray, .9);
+$color-gray-50: rgba($color-gray, .5);
+$color-gray-30: rgba($color-gray, .3);
+$color-green-key: #00ad0d;
+$color-button-dim: rgba($color-pure-black, .4);
+$color-black-20: rgba($color-pure-black, .2);
+$color-black-30: rgba($color-pure-black, .3);
+$color-black-50: rgba($color-pure-black, .5);
+$color-black-70: rgba($color-pure-black, .7);
+$color-black-90: rgba($color-pure-black, .9);
+$color-button-dim: rgba($color-pure-black, .4);
+$color-gray-text:#bbb;
+$color-more-text: rgba($color-gray, .7);
+$color-white-02: rgba($color-white, .02);
+$color-white-05: rgba($color-white, .05);
+$color-white-08: rgba($color-white, .08);
+$color-white-10: rgba($color-white, .1);
+$color-white-20: rgba($color-white, .2);
+$color-white-30: rgba($color-white, .3);
+$color-white-40: rgba($color-white, .4);
+$color-white-50: rgba($color-white, .5);
+$color-white-60: rgba($color-white, .6);
+$color-white-70: rgba($color-white, .7);
+$color-violet: #9b98fd;
+$color-bg-black-30: rgba($color-black, .3);
+$color-bg-black-40: rgba($color-black, .4);
+$color-bg-black-50: rgba($color-black, .5);
+$color-bg-black-56: rgba($color-black, .56);
+$color-bg-black-74: rgba($color-black, .74);
+$color-bg-black-80: rgba($color-black, .80);
+$color-bg-black-85: rgba($color-black, .85);
+$color-bg-black-90: rgba($color-black, .9);
+$color-bg-black-95: rgba($color-black, .95);
+$color-black-75: rgba($color-pure-black, .75);
+$color-bg-transparent: rgba($color-pure-black, 0);
+$color-bg-setting: #191b2b;
+$color-bg-setting-53: rgba($color-bg-setting, .53);
+$color-radio-normal: #535458;
+$color-radio-cheked: #5d6577;
+$color-bg-focus: #0a0f1c;
+$color-bg-sel: rgba($color-bg-focus, .5);
+$color-border-gray: #6d6d70;
+$color-tab-gray: #989b9b;
+$color-gray-font: #666;
+$color-gray-sub: #848484;
+$color-gray-bar: #3a3a3a;
+$color-button-border: rgba(192, 192, 192, 0.22);
+$color-schedule-close: #111a2c;
+$color-gray-popup:#5d5c62;
+$color-gray-border: rgba(238, 238, 238, 0.2);
+$color-bg-progress: #535353;
+$transition-duration: .3s; //공통 스타일
+$transition-time-function: ease; //공통 스타일
+$border-radius: 8; //공통 스타일
+$poster-default-bg: linear-gradient(169deg, #595d72 -33%, #251d3e 80%);
+$poster-default-image: url(../images/common/img-thumbnail-list-default.png);
+$poster-default-image2: url(../images/home/img-thumbnail-vertical-default.png);
+//모듈 10 카테고리 포스터 bg
+$poster-bg-color1: #263673;
+$poster-bg-color2: #40336e;
+$poster-bg-color3: #2c506a;
+$poster-bg-color4: #714e2b;
+$poster-bg-color5: #5c366d;
+$poster-dim-color1: rgba(#172647, .85);
+$poster-dim-color2: rgba(#291950, .85);
+$poster-dim-color3: rgba(#552f25, .85);
+//홈 - notice 툴팁
+$bg-notice-nor: linear-gradient(to left, #454b7a, #454966);
+$bg-notice-foc: linear-gradient(to left, $color-primary, $color-primary);
+$bg-notice-text-nor: linear-gradient(to left, #454b7b, $color-bg-transparent);
+$bg-notice-text-foc: linear-gradient(to left, $color-primary, $color-bg-transparent);
+//홈 - 모듈bg
+$bg-banner-black: linear-gradient(to left, $color-bg-transparent 0%, $color-bg-black 53%);
+$bg-banner-ani: linear-gradient(to bottom, #3c43cd, #1f2281 98%);
+//구매
+$color-step-dim: #121424;
+$color-line-purchase: #222222;
+$color-event-exp: #aaaaaa;
+
+$resolution: 'FHD' !default;
+
+/* functions */
+
+@function px($fhd, $hd: null) {
+    @if $resolution=='FHD' {
+        @return #{$fhd}px;
+    }
+    @if $resolution=='HD' {
+        @if $hd {
+            @return #{$hd}px;
+        }
+        @else {
+            @return #{floor($fhd * 0.667)}px;
+        }
+    }
+    @return #{$fhd}px;
+}
+
+
+/* mixins */
+
+@mixin animation-ready($prop: transform) {
+    will-change: $prop;
+    transition: $transition-duration $transition-time-function $prop;
+}
+
+@mixin ir {
+    //image replacement
+    font-size: 0;
+    color: rgba(0, 0, 0, 0);
+}
+
+@mixin ellipsis($line: 1) {
+    overflow: hidden;
+    @if $line==1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    @else {
+        display: -webkit-box;
+        white-space: normal;
+        /*! autoprefixer: off */ //React 자동 삭제 방지
+        -webkit-line-clamp: $line;
+        /*! autoprefixer: on */
+        -webkit-box-orient: vertical;
+    }
+}
+
+@mixin focus-scale {
+    transform: scale(1.06);
+}
+
+@mixin focus-border($border: 10) {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 0 px($border) $color-white;
+    border-radius: px($border-radius);
+}
+
+@mixin dimmed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg-dimmed;
+}
+
+@mixin badge-count {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ef3484;
+    @content;
+}
+
+//vs
+@mixin vs {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top: 0;
+    left: 0;
+}
+
+@mixin vs-b {
+    display: block;
+    content: '';
+}
+
+@mixin vs-ib {
+    display: inline-block;
+    content: '';
+}
+
+//background-default
+@mixin background-default {
+    background: {
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+
+@mixin background-contain {
+    background: {
+        size: contain;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+
+//flex-items-center
+@mixin flex-items-center {
+    display: flex;
+    align-items: center;
+}
+
+//border
+@mixin line-top($color: $color-bg-component) {
+    border-top: px(1, 1) solid $color;
+}
+
+@mixin line-bottom($color: $color-bg-component) {
+    border-bottom: px(1, 1) solid $color;
+}
+
+@mixin line-right($color: $color-bg-component) {
+    border-right: px(1, 1) solid $color;
+}
+
+@mixin line-left($color: $color-bg-component) {
+    border-left: px(1, 1) solid $color;
+}
+
+//tooltip
+@mixin tooltip($color) {
+    position: relative;
+    display: inline-block;
+    font-family: $font-regular;
+    font-size: 2rem;
+    line-height: 1.5;
+    padding: px(12) px(18);
+    background-color: $color;
+    border-radius: px($border-radius * 2);
+    &::before {
+        @include vs;
+        top: px(18);
+        left: px(-3);
+        width: px(18);
+        height: px(18);
+        border-left: px(8) solid $color;
+        border-bottom: px(8) solid $color;
+        border-radius: px(4);
+        transform: rotate(54deg) skewY(-20deg);
+    }
+    em {
+        color: $color-primary;
+    }
+}
+
+// 버튼
+@mixin mycommon-btn() {
+    position: relative;
+    height: px(86);
+    margin-right: px(10);
+    padding: 0 px(40) 0 px(84);
+    border-radius: px(8);
+    background-color: $color-bg-component;
+    font-family: $font-bold;
+    font-size: 3rem;
+    color: $color-gray;
+}
+
+@mixin mycommon-btn-focus {
+    position: relative;
+    height: px(98);
+    padding: 0 px(35) 0 px(80);
+    font-size: 3.2rem;
+    color: $color-black;
+    background-color: $color-white;
+    transform: translateY(px(-6, -3));
+    &::after {
+        @include vs;
+        z-index: -1;
+        width: 100%;
+        height: px(98);
+        border-radius: px(8);
+        background-color: $color-white;
+    }
+}
+
+//버튼
+@mixin button-primary($height, $width, $font) {
+    position: relative;
+    height: $height;
+    font-size: $font;
+    padding: 0 px(40);
+    border-radius: px($border-radius);
+    background-color: $color-bg-component;
+    color: $color-gray;
+    font-family: $font-bold;
+    .text {
+        min-width: $width;
+        line-height: $height;
+    }
+    &.dimed {
+        background-color: $color-bg-black-40
+    }
+    &.focus {
+        $focus-height: px(12);
+        color: $color-black;
+        background-color: $color-white;
+        height: calc(#{$height} + #{$focus-height});
+        font-size: calc(#{$font} + 0.2rem);
+    }
+}
+
+// 라디오버튼
+@mixin radio($normal-color: $color-radio-normal, $checked-color: $color-radio-cheked) {
+    position: relative;
+    &:before {
+        @include vs;
+        top: 50%;
+        margin-top: px(-20);
+        width: px(40);
+        height: px(40);
+        border: px(3) solid $normal-color;
+        border-radius: 50%;
+    }
+    &:after {
+        @include vs;
+        top: 50%;
+        left: 50%;
+        margin-top: px(-13, -9);
+        margin-left: px(-13, -8);
+        width: px(26, 16);
+        height: px(26, 16);
+        border-radius: 50%;
+    }
+    &.checked {
+        &:before {
+            border-color: $checked-color;
+        }
+        &:after {
+            background-color: $checked-color;
+        }
+    }
+}
+
+//input-check
+@mixin input-check( $width: px(40), $height: px(40), $border: px(3), $border-radius: 50%, $normal-color: $color-radio-normal, $checked-color: $color-primary, $checked-size: px(14)) {
+    position: relative;
+    width: $width;
+    height: $height;
+    border: $border solid $normal-color;
+    border-radius: $border-radius;
+    &::before {
+        width: calc(#{$width} - #{$checked-size});
+        height: calc(#{$height} - #{$checked-size});
+        border-radius: $border-radius;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include vs-b;
+    }
+    &[type=checkbox] {
+        &::before {
+            width: $width;
+            height: $height;
+        }
+    }
+    &:checked {
+        border: $border solid $checked-color;
+    }
+    &[type=radio]:checked {
+        &::before {
+            background-color: $checked-color;
+        }
+    }
+    &[type=checkbox]:checked {
+        &::before {
+            @include background-default;
+            background-image: url(../images/purchase/ic-check-focus2.png);
+        }
+    }
+}
+
+@mixin input-check-focus( $width: px(40), $height: px(40), $border: px(3), $border-radius: 50%, $normal-color: $color-primary, $checked-color: $color-primary, $checked-size: px(14)) {
+    position: relative;
+    width: $width;
+    height: $height;
+    border: $border solid $color-primary;
+    border-radius: $border-radius;
+    &::before {
+        width: calc(#{$width} - #{$checked-size});
+        height: calc(#{$height} - #{$checked-size});
+        border-radius: $border-radius;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include vs-b;
+    }
+    &[type=radio] {
+        &::before {
+            width: calc(#{$width} - #{$checked-size});
+            height: calc(#{$height} - #{$checked-size});
+            border-radius: $border-radius;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include vs-b;
+            background-color: $color-primary;
+        }
+    }
+    &:checked {
+        border: $border solid $color-primary;
+    }
+    &[type=radio]:checked {
+        &::before {
+            background-color: $color-primary;
+        }
+    }
+}
+
+//scroll
+@mixin scroll( $top: px(166), $right: px(27), $width: px(6), $height: px(842), $color1: $color-white-divider, $color2: $color-gray) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    width: $width;
+    height: $height;
+    border-radius: calc(#{$width} / 2);
+    background-color: $color1;
+    z-index: 1;
+    span {
+        display: inline-block;
+        width: 100%;
+        border-radius: calc(#{$width} / 2);
+        background-color: $color2;
+    }
+}
+
+//password
+@mixin password( $size: px(74), $focus-size: px(78), $margin-right: px(12), $input-bg: $color-bg-component, $border-size: px(4), $border-color: $color-white, $input-focus-bg: $color-bg-black, $background-size: px(38)) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $focus-size;
+    p {
+        width: $size;
+        height: $size;
+        margin-right: $margin-right;
+        border-radius: px(8);
+        text-align: center;
+        background-color: $input-bg;
+        &.focus {
+            width: $focus-size;
+            height: $focus-size;
+            border: $border-size solid $border-color;
+            border-radius: px(8);
+            background-color: $input-focus-bg;
+            &.entered {
+                background: $input-focus-bg url('../../assets/images/common/ic-password-w.png') no-repeat center;
+                background-size: $background-size;
+            }
+        }
+        &.entered {
+            background: $input-bg url('../../assets/images/common/ic-password-w.png') no-repeat center;
+            background-size: $background-size;
+        }
+    }
+}
+
+//progress-bar
+@mixin progress-bar( $margin: 0, $width: px(300), $height: px(6), $color1: $color-white-20, $color2: $color-primary) {
+    position: relative;
+    overflow: hidden;
+    background-color: $color1;
+    margin-left: $margin;
+    height: $height;
+    width: $width;
+    border-radius: calc(#{$height} / 2);
+    >span {
+        position: absolute;
+        height: 100%;
+        border-radius: calc(#{$height} / 2);
+        background-color: $color2;
+    }
+}
+
+//ic-tag
+@mixin ic-tag( $margin-left: 0, $color1: $color-bg-gray, $color2: $color-white, ) {
+    display: inline-block;
+    height: px(34);
+    line-height: px(34);
+    background-color: $color-white-02;
+    border: px(1, 1) solid $color-white-30;
+    border-radius: px(4);
+    padding: 0 px(8);
+    color: $color1;
+    margin-left: $margin-left;
+    font: {
+        size: 1.8rem;
+        family: $font-bold;
+    }
+    &.dolby-vision {
+        @include ir;
+        width: px(70);
+        //background: url(../images/vod/ic-dolby.png) center / px(54) no-repeat;
+    }
+    .focus &, .selected & {
+        color: $color2;
+        background-color: $color-primary;
+        border: px(1, 1) solid $color-primary;
+    }
+}
+
+@mixin ic-tag-small( $margin-left: 0, $color1: $color-gray-dark, $color2: $color-gray, $height: px(26), $font: 1.4rem, $border: px(2), $padding: px(7)) {
+    display: inline-block;
+    height: $height;
+    line-height: calc(#{$height} - #{$border} * 2);
+    background-color: $color-white-02;
+    border: $border solid $color-gray-dark-50;
+    border-radius: px(4);
+    padding: 0 $padding;
+    color: $color1;
+    margin-left: $margin-left;
+    font: {
+        size: $font;
+        family: $font-bold;
+    }
+    &.dolby-vision {
+        @include ir;
+        width: px(70);
+        //background: url(../images/vod/ic-dolby.png) center / px(54) no-repeat;
+    }
+    .focus &, .selected & {
+        color: $color2;
+        border: px(2) solid $color-gray-50;
+        background-color: $color-bg-transparent;
+    }
+}
+
+//ic-round 하단 키가이드 버튼이미지 : 옵션 등
+@mixin ic-round($height: px(34)) {
+    $border: px(2);
+    display: inline-flex;
+    font-family: $font-bold;
+    font-size: 1.8rem;
+    height: $height;
+    line-height: calc(#{$height} - (#{$border} + 0.5px) * 2);
+    border-radius: calc(#{$height} / 2);
+    border: $border solid $color-bg-key-notice;
+    padding: 0 px(12);
+    color: $color-bg-key-notice;
+    background-color: $color-round-icon;
+}
+
+
+/* toast 임시 */
+
+@mixin toast() {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: px(100);
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: px(880);
+        min-height: px(102);
+        padding: px(24) px(60);
+        text-align: center;
+        font-size: 3.2rem;
+        color: $color-black;
+        border-radius: px(20);
+        background-color: $color-white;
+        box-shadow: 0 px(8) px(30) 0 $color-black-30;
+        em {
+            font-family: $font-bold;
+            font-style: normal;
+            ;
+        }
+    }
+}
+
+// password ver_2
+$password-color-w: url(../images/common/ic-password-w.png) no-repeat center;
+$password-color-b: url(../images/common/ic-password.png) no-repeat center;
+@mixin input-password( $size:74, $margin-right: 12, $input-bg: $color-bg-component, $shadow-size: 4, $shadow-color: $color-white, $focus-input-bg: $color-bg-black, $background-size: 26, $password-color: $password-color-w, $cursor-height: 40) {
+    display: flex;
+    align-items: center;
+    height: px($size);
+    &.focus {
+        label {
+            color: $color-primary;
+        }
+    }
+    p {
+        position: relative;
+        width: px($size);
+        height: px($size);
+        margin-right: px($margin-right);
+        border-radius: px(8);
+        text-align: center;
+        background-color: $input-bg;
+        &:last-child {
+            margin-right: 0;
+        }
+        &.focus {
+            background-color: $focus-input-bg;
+            &.entered {
+                background: $focus-input-bg $password-color;
+                background-size: px($background-size);
+            }
+            &::after {
+                @include focus-border();
+                box-shadow: 0px 0px 0px px($shadow-size) $shadow-color;
+            }
+            span {
+                position: unset;
+                &::before {
+                    height: px($cursor-height);
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: $color-white;
+                }
+            }
+        }
+        &.entered {
+            background: $input-bg $password-color;
+            background-size: px($background-size);
+        }
+    }
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: px($size);
+        height: px($size);
+        opacity: 0;
+        z-index: 10;
+    }
+    label {
+        height: px($size);
+        line-height: px($size);
+        font-size: 3.2rem;
+        color: $color-gray-dark;
+    }
+    .container {
+        display: flex;
+    }
+}
+
+//별점 별
+@mixin rating-star ($margin: px(4)) {
+    //url
+    $url-images: "../images/vod/";
+    display: block;
+    width: px(26);
+    height: px(26);
+    margin-right: $margin;
+    background-image: url($url-images + "ic-ratingstar-full-w.png");
+    @include background-default;
+    &.full {
+        background-image: url($url-images + "ic-ratingstar-full.png");
+        @include background-default;
+    }
+    &.half {
+        background-image: url($url-images + "ic-ratingstar-half.png");
+        @include background-default;
+    }
+    &.empty {
+        background-image: url($url-images + "ic-ratingstar-none.png");
+        @include background-default;
+    }
+    .focus & {
+        background-image: url($url-images + "ic-ratingstar-full.png");
+        @include background-default;
+    }
+}
+
+//poster-semicircle
+@mixin poster-semicircle($width, $height) {
+    position: relative;
+    width: px($width);
+    height: px($height);
+    &::before {
+        @include vs;
+        @include background-default;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        //background-image: url(../images/home/img-thumbnail-category-default.png);
+        border-top-left-radius: px(8);
+        border-top-right-radius: px(8);
+        border-bottom-left-radius: calc(#{px($width)} / 2);
+        border-bottom-right-radius: calc(#{px($width)} / 2);
+    }
+    .poster-banner {
+        @include background-default;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        border-top-left-radius: px(8);
+        border-top-right-radius: px(8);
+        border-bottom-left-radius: calc(#{px($width)} / 2);
+        border-bottom-right-radius: calc(#{px($width)} / 2);
+        &::before, &::after {
+            @include vs;
+            border-bottom-left-radius: calc(#{px($width)} / 2);
+            border-bottom-right-radius: calc(#{px($width)} / 2);
+        }
+    }
+}

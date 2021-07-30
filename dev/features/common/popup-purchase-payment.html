@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home UI</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="popup-container">
+            <!-- 휴대폰 결제 -->
+            <div class="popup purchase-payment-popup large">
+                <div class="popup-header">
+                    <h3>휴대폰 결제</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body">
+                    <fieldset class="input-field">
+                        <legend>휴대폰 결제</legend>
+                        <div class="body-text">
+                            휴대폰/요금청구서에는 소액결제로 표시됩니다.
+                            <span class="sub-text">(부가세 10% 포함)</span>
+                        </div>
+                        <div class="input-box">
+                            <dl class="agency selected">
+                                <dt>통신사 선택</dt>
+                                <dd>
+                                    <button class="button focus">변경</button>
+                                    <span><em>LG U+</em></span>
+                                </dd>
+                            </dl>
+                            <dl class="cellphone">
+                                <dt><label for="">휴대폰 번호</label></dt>
+                                <dd>
+                                    <div class="input-text">
+                                        <span class="placeholder">숫자만 입력하세요.</span>
+                                        <p class="input-text-wrap">
+                                            <span class="cursor"></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </p>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="resident">
+                                <dt><label for="">주민등록 번호</label></dt>
+                                <dd>
+                                    <div class="input-text">
+                                        <p class="input-text-wrap focus">
+                                            <span class="cursor"></span>
+                                            <span>1</span>
+                                            <span>2</span>
+                                            <span>2</span>
+                                            <span>4</span>
+                                            <span>4</span>
+                                            <span>4</span>
+                                        </p>
+                                    </div>
+                                    <div class="input-text">
+                                        <p class="input-text-wrap">
+                                            <span class="cursor"></span>
+                                            <span>1</span>
+                                        </p>
+                                    </div>
+                                    <span><em>******</em></span>
+                                </dd>
+                            </dl>
+                            <dl class="auth">
+                                <dt><label for="">인증번호</label></dt>
+                                <dd>
+                                    <div class="input-text">
+                                        <p class="input-text-wrap">
+                                            <span class="cursor"></span>
+                                            <span>1</span>
+                                            <span>1</span>
+                                            <span>1</span>
+                                            <span>1</span>
+                                        </p>
+                                    </div>
+                                    <button class="button">인증번호 받기</button>
+                                </dd>
+                            </dl>
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+            <!-- 신용카드 결제 -->
+            <div class="popup middle" style="display: none;">
+                <div class="popup-header">
+                    <h3>신용카드 결제</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body text-center">
+                    <div class="event-payment">
+                        <p>6월 한정 첫 결제 고객</p>
+                        <p>3,000원 할인 !!!</p>
+                    </div>
+                    <div class="sub-text sub-text-box word-break">
+                        <p>※ 신용카드 결제 시 제공되는 할인은 카드사에서 청구 시 적용되는 할인으로, 관련 문의가 있을경우 결제한 카드사로 문의하시기 바랍니다.</p>
+                        <p>※ 구매 후 취소가 되지 않습니다.</p>
+                        <p class="small-text">(단, 컨텐츠가 광고된 내용과 다른 경우 관련법에 따라 취소할 수 있습니다)</p>
+                        <p>※ 유료 결제 후 광고가 포함될 수 있습니다.</p>
+                    </div>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">취소</button>
+                    <button class="popup-button focus">확인</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+            <!-- 구매 한도 금액 초과 알림 -->
+            <div class="popup small" style="display: none;">
+                <div class="popup-header">
+                    <h3>구매 한도 금액 초과 알림</h3>
+                </div>
+                <!-- //popup-header -->
+                <div class="popup-body text-center">
+                    <div class="body-text word-break">
+                        고객님이 설정하신 이번 달 구매 한도 금액을 초과하여 상품을 구매할 수 없습니다.<br> 구매 한도 설정을 변경하시려면 고객센터(101)로 문의 바랍니다.
+                    </div>
+                    <div class="sub-text">
+                        <p><em class="highlight">※ 이번 달 구매 한도 금액 : 0,000원</em></p>
+                        <p><em class="highlight">※ 구매 가능한 잔여 금액 : 0,000원</em></p>
+                    </div>
+                </div>
+                <!-- //popup-body -->
+                <div class="popup-footer">
+                    <button class="popup-button">닫기</button>
+                </div>
+                <!-- //popup-footer -->
+            </div>
+
+
+        </div>
+        <!-- //popup-container -->
+    </div>
+    <!-- //root -->
+</body>
+
+</html>

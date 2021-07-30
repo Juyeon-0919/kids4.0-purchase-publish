@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko" class="purchase-wrap">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home UI</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+</head>
+
+<body>
+
+    <div id="root">
+        <!-- react 구조 -->
+
+        <div class="full-popup-container purchase-container">
+
+            <div class="purchase-header">
+                <h2>U+영화월정액 프리미엄(U+TV) 가입하기</h2>
+                <p class="sub-text color-gray">U+영화월정액의 프리미엄관(최신영화)까지 이용할 수 있습니다.</p>
+            </div>
+            <!-- //purchase-header -->
+
+            <!-- 구매 월정액 -->
+            <div class="purchase-body">
+                <div class="purchase-subscribe">
+
+                    <!-- full클래스를 붙이면 select-box가 나타남 -->
+                    <section class="purchase-product full">
+                        <div class="select-box">
+                            <ul class="list-products">
+                                <span class="label">할인수단</span>
+                                <li class="list-selected">
+                                    <div class="product focus">
+                                        <p class="text">
+                                            <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                            <span class="label"><label for="">TV쿠폰</label></span>
+                                        </p>
+                                        <p class="point">2장 보유</p>
+                                    </div>
+                                    <div class="change-option">쿠폰 변경</div>
+                                </li>
+                            </ul>
+                            <div class="purchase-info">
+                                <span class="label">적용된 쿠폰</span>
+                                <em>U+영화월정액 프리미엄 1개월 무료 쿠폰</em>
+                                <p>(쿠폰 혜택이 만료된 이후에는 정상 금액(15,400원)이 매월 자동 결제 됩니다)</p>
+                            </div>
+                        </div>
+
+                        <div class="product-info event-info">
+                            <ul>
+                                <li>
+                                    <span>상품명</span>
+                                    <p>U+ 영화월정액 프리미엄</p>
+                                </li>
+                                <li>
+                                    <span>금액</span>
+                                    <p>월 15,400원 (VAT 포함)</p>
+                                </li>
+                                <li>
+                                    <span>결제 수단</span>
+                                    <p>U+ tv 청구서 합산</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <!-- //purchase-product -->
+
+                    <section class="purchase-terms">
+                        <div class="list-products terms-wrap">
+                            <ul>
+                                <li class="list-focus">
+                                    <div class="product focus">
+                                        <p class="text">
+                                            <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                            <span class="label"><label for="">이용 약관 동의(필수)</label></span>
+                                        </p>
+                                    </div>
+                                    <div class="change-option">약관보기</div>
+                                </li>
+                                <li class="">
+                                    <div class="product focus">
+                                        <p class="text">
+                                            <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                            <span class="label"><label for="">개인정보 수집 이용 동의(필수)</label></span>
+                                        </p>
+                                    </div>
+                                    <div class="change-option">약관보기</div>
+                                </li>
+                                <li class="">
+                                    <div class="product focus">
+                                        <p class="text">
+                                            <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                            <span class="label"><label for="">개인정보 처리 및 위탁 동의(필수)</label></span>
+                                        </p>
+                                    </div>
+                                    <div class="change-option">약관보기</div>
+                                </li>
+                                <li class="">
+                                    <div class="product focus">
+                                        <p class="text">
+                                            <input type="checkbox" id="" name="" value="" class="input-checkbox">
+                                            <span class="label"><label for="">상기 약관에 모두 동의합니다.</label></span>
+                                        </p>
+                                    </div>
+                                    <div class="change-option"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <!-- //purchase-terms -->
+
+                    <section class="purchase-password">
+                        <div class="title">
+                            <h3>구매 비밀번호 4자리 입력</h3>
+                        </div>
+
+                        <fieldset class="input-field">
+                            <div class="input-split input-password">
+                                <p class="input-text-wrap focus">
+                                    <span class="cursor"></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span></span>
+                                </p>
+                                <p class="input-text-wrap">
+                                    <span></span>
+                                </p>
+                            </div>
+                        </fieldset>
+                    </section>
+                    <!-- //purchase-password -->
+
+                    <div class="button-area">
+                        <button class="button-primary large">
+                            <p class="text">취소</p>
+                        </button>
+                        <button class="button-primary large focus">
+                            <p class="text">확인</p>
+                        </button>
+                    </div>
+                    <!-- //button-area -->
+                </div>
+                <!-- //purchase-subscribe -->
+            </div>
+            <!-- //purchase-body -->
+        </div>
+        <!-- //purchase-container-->
+
+    </div>
+    <!-- //root -->
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* toast 임시 */
+.purchase-wrap #root {
+  position: relative;
+  width: 1280px;
+  height: 720px; }
+
+.purchase-wrap body {
+  overflow: hidden;
+  height: 100%; }
+
+@keyframes pageSwitch {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.purchase-wrap #page {
+  position: relative;
+  height: 720px;
+  animation: .3s ease pageSwitch; }
+
+.purchase-wrap #layer, .purchase-wrap #modal, .purchase-wrap #toast, .purchase-wrap #error, .purchase-wrap #purchaseArea, .purchase-wrap #purchaseLayer {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.purchase-wrap #modal.active, .purchase-wrap #toast.active, .purchase-wrap #error.active {
+  background-color: rgba(8, 13, 25, 0.3); }
