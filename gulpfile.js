@@ -51,7 +51,7 @@ function watchScss() {
 // }
 
 function delDist() {
-  return del('dist');
+  return del('dev/assets/css/');
 }
 //
 // function setEnvProduct(cb) {

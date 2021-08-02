@@ -3,10 +3,16 @@
 /* functions */
 /* mixins */
 /* toast 임시 */
+@font-face {
+  font-family: 'pass';
+  font-style: normal;
+  font-weight: 400;
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA) format("woff"); }
+
 .purchase-wrap .full-popup-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 1280px;
+  height: 720px;
   background-color: rgba(8, 13, 25, 0.9); }
 
 .purchase-wrap .popup-container {
@@ -568,7 +574,6 @@
   width: 57px;
   height: 28px;
   margin-right: 8px;
-  background-image: url("../images/vod/logo-imdb-black.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -585,7 +590,6 @@
     color: #353539;
     margin-right: 8px; }
   .purchase-wrap .moreinfo-popup .comment-header .rating-star, .purchase-wrap .imdb-popup .comment-header .rating-star {
-    background-image: url("../images/vod/ic-ratingstar-full.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }
@@ -677,7 +681,6 @@
       content: '';
       top: 0;
       left: 0;
-      background-image: url(../images/setting/img-launcher-on.png);
       width: 100%;
       height: 100%;
       content: ''; }
@@ -719,7 +722,6 @@
     display: block;
     width: 25px;
     height: 20px;
-    background-image: url("../images/vod/ic-season-arrow.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -732,8 +734,6 @@
       transform: rotate(180deg);
       order: 3;
       margin-left: 12px; }
-    .purchase-wrap .popup-page-index .ic-arrow.focus, .purchase-wrap .popup-page-index .channel-edit-body .category ul .ic-arrow.selected, .purchase-wrap .channel-edit-body .category ul .popup-page-index .ic-arrow.selected {
-      background-image: url("../images/vod/ic-season-arrow.png"); }
   .purchase-wrap .popup-page-index .count {
     position: relative;
     width: 80px;
@@ -754,7 +754,7 @@
         left: 0;
         box-shadow: 0 0 0 6px #eee;
         border-radius: 5px;
-        box-shadow: 0px 0px 0px 4px #ef3484; }
+        box-shadow: 0 0 0 4px #ef3484; }
 
 .purchase-wrap .setting-popup-time .title {
   font-size: 3.0rem;
@@ -868,10 +868,6 @@
       margin-right: 50px; }
     .purchase-wrap .set-continue-popup ul li.focus, .purchase-wrap .set-continue-popup .channel-edit-body .category ul li.selected, .purchase-wrap .channel-edit-body .category .set-continue-popup ul li.selected {
       background-color: #ef3484; }
-      .purchase-wrap .set-continue-popup ul li.focus p.ic-book, .purchase-wrap .set-continue-popup .channel-edit-body .category ul li.selected p.ic-book, .purchase-wrap .channel-edit-body .category .set-continue-popup ul li.selected p.ic-book {
-        background-image: url("../images/my/ic-readingbook-focus.png"); }
-      .purchase-wrap .set-continue-popup ul li.focus p.ic-vod, .purchase-wrap .set-continue-popup .channel-edit-body .category ul li.selected p.ic-vod, .purchase-wrap .channel-edit-body .category .set-continue-popup ul li.selected p.ic-vod {
-        background-image: url("../images/my/ic-vod-focus.png"); }
       .purchase-wrap .set-continue-popup ul li.focus span, .purchase-wrap .set-continue-popup .channel-edit-body .category ul li.selected span, .purchase-wrap .channel-edit-body .category .set-continue-popup ul li.selected span {
         color: #eee; }
     .purchase-wrap .set-continue-popup ul li p {
@@ -881,12 +877,8 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center; }
-      .purchase-wrap .set-continue-popup ul li p.ic-book {
-        background-image: url("../images/my/ic-readingbook.png"); }
-      .purchase-wrap .set-continue-popup ul li p.ic-vod {
-        background-image: url("../images/my/ic-vod.png"); }
     .purchase-wrap .set-continue-popup ul li span {
-      font-family: 'YoonGothicPro770';
+      font-family: "Yoon Gothic 770", "YoonGothic 700 70", "Yoon윤고딕 770", "YoonGothic 770", "YOONGOTHICPRO770";
       font-size: 2.2rem;
       color: #353539; }
 
@@ -1158,7 +1150,6 @@
       background-position: center;
       background-image: url(../images/purchase/ic-check-focus2.png); }
     .purchase-wrap .reservation-popup .select-day .input-checkbox[type=checkbox]:checked::before {
-      background-image: url(../images/my/ic-my-selectedect-focus.png);
       background-size: 75%; }
   .purchase-wrap .reservation-popup .select-day .scroll {
     opacity: 0;
@@ -1202,8 +1193,7 @@
   overflow: hidden;
   font-size: 2.6rem;
   width: 340px;
-  margin: 0 auto;
-  margin-bottom: 20px; }
+  margin: 0 auto 20px; }
   .purchase-wrap .reservation-popup .reservation-program:last-child {
     margin-bottom: 0; }
   .purchase-wrap .reservation-popup .reservation-program li {
@@ -1219,7 +1209,6 @@
       width: 20px;
       height: 20px;
       margin-right: 6px;
-      background-image: url(../images/channel/ic-clock.png);
       display: block;
       content: '';
       background-size: cover;
@@ -1439,8 +1428,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      margin: 0 auto;
-      margin-bottom: 26px;
+      margin: 0 auto 26px;
       background-image: url(../images/common/ic-noti.png); }
     .purchase-wrap .channel-edit-body .info-empty .exp {
       font-size: 2.6rem;
@@ -1729,7 +1717,7 @@
 
 .purchase-wrap .event-payment {
   margin: 0 -11px;
-  width: 66%px;
+  width: 100%;
   height: 116px;
   border-radius: 5px;
   color: #eee;
@@ -2192,13 +2180,6 @@
           background-position: center;
           background-image: url(../images/purchase/ic-check-focus2.png); }
 
-@font-face {
-  .purchase-wrap {
-    font-family: 'pass';
-    font-style: normal;
-    font-weight: 400;
-    src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA) format("woff"); } }
-
 .purchase-wrap input[type=password] {
   font-family: 'pass', 'Roboto', Helvetica, Arial, sans-serif !important; }
 
@@ -2245,10 +2226,6 @@
     content: '';
     top: 0;
     left: 0; }
-  .purchase-wrap .popup-buy-coupon .coupon-img.more-5::before {
-    background-image: url(../images/my/tag-my-sale-5-focus.png); }
-  .purchase-wrap .popup-buy-coupon .coupon-img.more-10::before {
-    background-image: url(../images/my/tag-my-sale-10-focus.png); }
 
 .purchase-wrap .popup-buy-coupon .input-password {
   display: flex;
@@ -2322,8 +2299,7 @@
   background: none;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-image: url(../images/my/bg-popup-coupon.png); }
+  background-size: 100%; }
   .purchase-wrap .popup.type-coupon span {
     display: inline-block; }
   .purchase-wrap .popup.type-coupon .finish {
@@ -2360,14 +2336,9 @@
         height: 73px;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-        background-image: url(../images/my/ic-stamp-inactive.png); }
+        background-position: center; }
         .purchase-wrap .popup.type-coupon .coupon-stamp ul li:nth-child(5n+1) {
           margin-left: 0; }
-        .purchase-wrap .popup.type-coupon .coupon-stamp ul li.active {
-          background-image: url(../images/my/ic-stamp.png); }
-        .purchase-wrap .popup.type-coupon .coupon-stamp ul li.focus, .purchase-wrap .popup.type-coupon .coupon-stamp .channel-edit-body .category ul li.selected, .purchase-wrap .channel-edit-body .category .popup.type-coupon .coupon-stamp ul li.selected {
-          background-image: url(../images/my/ic-stamp-focus.png); }
   .purchase-wrap .popup.type-coupon .coupon-normal {
     overflow: hidden;
     position: relative;
@@ -2422,15 +2393,9 @@
       background-repeat: no-repeat;
       background-position: center; }
       .purchase-wrap .popup.type-coupon .stamp-vod button.prev {
-        left: 0;
-        background-image: url(../images/my/ic-common-left.png); }
+        left: 0; }
       .purchase-wrap .popup.type-coupon .stamp-vod button.next {
-        right: 0;
-        background-image: url(../images/my/ic-common-right.png); }
-      .purchase-wrap .popup.type-coupon .stamp-vod button.prev.focus, .purchase-wrap .popup.type-coupon .stamp-vod .channel-edit-body .category ul button.prev.selected, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .stamp-vod button.prev.selected {
-        background-image: url(../images/my/ic-common-left-focus.png); }
-      .purchase-wrap .popup.type-coupon .stamp-vod button.next.focus, .purchase-wrap .popup.type-coupon .stamp-vod .channel-edit-body .category ul button.next.selected, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .stamp-vod button.next.selected {
-        background-image: url(../images/my/ic-common-right-focus.png); }
+        right: 0; }
     .purchase-wrap .popup.type-coupon .stamp-vod .vod-list {
       width: calc(125px * 4);
       text-align: center;
@@ -2523,7 +2488,6 @@
                 width: 16px;
                 height: 21px;
                 margin-right: 2px;
-                background-image: url(../images/my/ic-popup-star-focus.png);
                 display: block;
                 content: '';
                 background-size: cover;
@@ -2575,8 +2539,7 @@
         content: '';
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-        background-image: url(../images/my/ic-stamp-white.png); }
+        background-position: center; }
       .purchase-wrap .popup.type-coupon .stamp-vod .vod-list li.selected.focus .tags, .purchase-wrap .popup.type-coupon .stamp-vod .vod-list .channel-edit-body .category ul li.selected .tags, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .stamp-vod .vod-list li.selected .tags {
         opacity: 0; }
       .purchase-wrap .popup.type-coupon .stamp-vod .vod-list .dots {
@@ -2609,15 +2572,9 @@
       background-repeat: no-repeat;
       background-position: center; }
       .purchase-wrap .popup.type-coupon .test .button-area button.prev {
-        left: 0;
-        background-image: url(../images/my/ic-common-left.png); }
-        .purchase-wrap .popup.type-coupon .test .button-area button.prev.focus, .purchase-wrap .popup.type-coupon .test .button-area .channel-edit-body .category ul button.prev.selected, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .test .button-area button.prev.selected {
-          background-image: url(../images/my/ic-common-left-focus.png); }
+        left: 0; }
       .purchase-wrap .popup.type-coupon .test .button-area button.next {
-        right: 0;
-        background-image: url(../images/my/ic-common-right.png); }
-        .purchase-wrap .popup.type-coupon .test .button-area button.next.focus, .purchase-wrap .popup.type-coupon .test .button-area .channel-edit-body .category ul button.next.selected, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .test .button-area button.next.selected {
-          background-image: url(../images/my/ic-common-right-focus.png); }
+        right: 0; }
     .purchase-wrap .popup.type-coupon .test .vod-list {
       width: calc(125px * 4);
       text-align: center;
@@ -2710,7 +2667,6 @@
                 width: 16px;
                 height: 21px;
                 margin-right: 2px;
-                background-image: url(../images/my/ic-popup-star-focus.png);
                 display: block;
                 content: '';
                 background-size: cover;
@@ -2762,8 +2718,7 @@
         content: '';
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-        background-image: url(../images/my/ic-stamp-white.png); }
+        background-position: center; }
       .purchase-wrap .popup.type-coupon .test .vod-list li.selected.focus .tags, .purchase-wrap .popup.type-coupon .test .vod-list .channel-edit-body .category ul li.selected .tags, .purchase-wrap .channel-edit-body .category ul .popup.type-coupon .test .vod-list li.selected .tags {
         opacity: 0; }
       .purchase-wrap .popup.type-coupon .test .vod-list .dots {

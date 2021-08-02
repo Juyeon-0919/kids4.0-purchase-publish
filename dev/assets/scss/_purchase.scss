@@ -464,12 +464,33 @@ $height-multiline-foc: px(124);
       }
 
       .list-products {
-        overflow: hidden;
+        //overflow: hidden;
         float: left;
         width: px(886);
         height: px(556);
-        padding-right: px(28);
-        padding-left: px(38);
+        margin-right: px(54);
+        //padding-right: px(28);
+        //padding-left: px(38);
+
+        ul {
+          position: relative;
+          display: block;
+          height: 100%;
+          overflow: hidden;
+
+          &.dim {
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              height: px(112);
+              background-image: linear-gradient(to bottom, rgba(8, 13, 25, 0), #080d19);
+            }
+          }
+        }
 
         &::after {
           opacity: 0;
@@ -491,6 +512,7 @@ $height-multiline-foc: px(124);
         .scroll {
           opacity: 0;
           @include scroll(px(0), px(0), px(8), 100%, $color-bg-transparent, $color-gray-30);
+          right: px(-27);
         }
 
         &.active::after, &.active .scroll {
@@ -501,12 +523,13 @@ $height-multiline-foc: px(124);
       .event-info {
         float: left;
         padding: px(20) px(30);
-        width: px(662);
-        height: 100%;
+        width: px(598);
+        height: px(505);
         border: px(2) solid $color-white-10;
         border-radius: px($border-radius);
         word-break: keep-all;
         overflow: hidden;
+        margin-top: px(10);
 
         .evnet-title {
           margin-bottom: px(14);
@@ -533,7 +556,7 @@ $height-multiline-foc: px(124);
       }
 
       .add-exp {
-        margin: px(80) 0 px(54) 0;
+        margin: px(90) 0 px(54) 0;
         text-align: center;
         font-size: 2.6rem;
         color: $color-subtitle;
@@ -956,7 +979,8 @@ $height-multiline-foc: px(124);
     .purchase-product {
       display: flex;
       justify-content: center;
-      margin-bottom: px(40);
+      width: px(1594);
+      margin: 0 auto px(40);
 
       &.full {
         .select-box {
@@ -965,7 +989,7 @@ $height-multiline-foc: px(124);
         }
 
         .product-info {
-          width: px(622);
+          width: px(558);
         }
       }
 
@@ -981,7 +1005,7 @@ $height-multiline-foc: px(124);
             height: px(80);
 
             .product {
-              width: px(522);
+              width: px(462);
             }
           }
         }
@@ -993,6 +1017,7 @@ $height-multiline-foc: px(124);
           }
           color: $color-white;
           margin-right: px(26);
+          white-space: nowrap;
         }
 
         .purchase-info {
@@ -1043,9 +1068,10 @@ $height-multiline-foc: px(124);
     }
 
     .purchase-terms {
-      margin-bottom: px(5);
       padding: px(35) px(105) 0;
       border-top: px(1) solid $color-bg-component;
+      width: px(1384);
+      margin: 0 auto px(5);
 
       .list-products {
         li {
@@ -1099,7 +1125,7 @@ $height-multiline-foc: px(124);
             }
 
             &.product {
-              width: px(470);
+              width: px(430);
             }
 
             .label {
@@ -1107,7 +1133,7 @@ $height-multiline-foc: px(124);
             }
 
             &.change-option {
-              width: px(175);
+              width: px(135);
               height: px(62);
               padding: 0 px(20);
               background-color: #2A2C3E;

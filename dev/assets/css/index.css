@@ -1,13 +1,12 @@
 /* FHD */
-@import url('base_fhd.css') screen and (min-width: 1280px);
-@import url('layout_fhd.css') screen and (min-width: 1280px);
-@import url('components_fhd.css') screen and (min-width: 1280px);
-@import url('popup_fhd.css') screen and (min-width: 1280px);
-@import url('purchase_fhd.css') screen and (min-width: 1280px);
-
+@import url("base_fhd.css") screen and (min-width: 1280px);
+@import url("layout_fhd.css") screen and (min-width: 1280px);
+@import url("components_fhd.css") screen and (min-width: 1280px);
+@import url("popup_fhd.css") screen and (min-width: 1280px);
+@import url("purchase_fhd.css") screen and (min-width: 1280px);
 /* HD */
-@import url('base_hd.css') screen and (max-width: 1280px);
-@import url('layout_hd.css') screen and (max-width: 1280px);
-@import url('components_hd.css') screen and (max-width: 1280px);
-@import url('popup_hd.css') screen and (max-width: 1280px);
-@import url('purchase_hd.css') screen and (max-width: 1280px);
+@import url("base_hd.css") screen and (max-width: 1280px);
+@import url("layout_hd.css") screen and (max-width: 1280px);
+@import url("components_hd.css") screen and (max-width: 1280px);
+@import url("popup_hd.css") screen and (max-width: 1280px);
+@import url("purchase_hd.css") screen and (max-width: 1280px);
